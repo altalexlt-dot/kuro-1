@@ -186,18 +186,26 @@
   <!-- ═══ FAVICON ANIMADO ════════════════════════════════════════════════ -->
   <script>
   (function(){
-    // SVG favicon animado con el kanji 黑
-    const frames = ['#C1121F','#8B0000','#C1121F','#050505'];
-    let fi = 0;
-    function makeFavicon(color) {
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="${color}"/><text x="16" y="23" font-family="serif" font-size="18" fill="#EDE9E2" text-anchor="middle">黑</text></svg>`;
+    // Favicon: K minimalista con punto rojo que respira suavemente
+    let t = 0;
+    function makeFavicon(opacity) {
+      const r = Math.round(193 * opacity + 30 * (1 - opacity));
+      const fill = 'rgb(' + r + ',18,31)';
+      const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">'
+        + '<rect width="32" height="32" rx="4" fill="#0A0A0A"/>'
+        + '<text x="10" y="22" font-family="Georgia,serif" font-size="20" font-weight="400" fill="#EDE9E2" letter-spacing="-1">K</text>'
+        + '<circle cx="24" cy="10" r="4" fill="' + fill + '"/>'
+        + '</svg>';
       const url = 'data:image/svg+xml,' + encodeURIComponent(svg);
       let link = document.querySelector("link[rel~='icon']");
       if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
       link.href = url;
     }
-    makeFavicon(frames[0]);
-    setInterval(() => { fi = (fi + 1) % frames.length; makeFavicon(frames[fi]); }, 1200);
+    makeFavicon(1);
+    setInterval(function() {
+      t += 0.018;
+      makeFavicon(0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t)));
+    }, 60);
   })();
   </script>
 
@@ -653,10 +661,12 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
 .blog-card__date { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 0.8rem; }
 .blog-card__title { font-family: var(--f-display); font-size: 1.25rem; font-weight: 300; color: var(--cream); margin-bottom: 0.8rem; line-height: 1.2; }
 .blog-card__excerpt { font-family: var(--f-serif); font-size: 0.9rem; color: var(--ash); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.blog-card__read { display: block; margin-top: 1.2rem; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); transition: transform 0.3s; }
+.blog-card:hover .blog-card__read { transform: translateX(6px); }
 @media(max-width:900px) { .blog__grid { grid-template-columns: 1fr; } .blog__hd { flex-direction: column; align-items: flex-start; } }
 
-/* Blog Article Modal */
-.blog-modal { position: fixed; inset: 0; z-index: 9200; background: rgba(5,5,5,0.97); overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+/* Blog Article Modal — scroll INTERNO */
+.blog-modal { position: fixed; inset: 0; z-index: 9200; background: rgba(5,5,5,0.97); overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.4s; overscroll-behavior: contain; }
 .blog-modal.active { opacity: 1; pointer-events: all; }
 .blog-modal__inner { max-width: 740px; margin: 0 auto; padding: 5rem 2rem 6rem; }
 .blog-modal__close { position: fixed; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--ash-dim); font-size: 2rem; cursor: pointer; transition: color 0.3s; z-index: 10; line-height: 1; }
@@ -668,6 +678,34 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
 .blog-modal__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
 .blog-modal__body { font-family: var(--f-serif); font-size: 1.1rem; font-weight: 300; color: var(--ash); line-height: 2; }
 .blog-modal__body p { margin-bottom: 1.5rem; }
+.blog-modal__body h3 { font-family: var(--f-display); font-size: 1.4rem; font-weight: 300; color: var(--cream); margin: 3rem 0 1rem; }
+.blog-modal__body blockquote { border-left: 2px solid var(--red); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--cream); font-size: 1.2rem; }
+.blog-modal__imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2.5rem 0; }
+.blog-modal__imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid var(--border-hi); filter: brightness(0.8); }
+
+/* ═══════════════════════════════════════════════════════
+   OMAKASE TABS & MENU LIST
+═══════════════════════════════════════════════════════ */
+.om-tabs { display: flex; gap: 0; margin: 2.5rem 0 0; border: 1px solid var(--border-hi); }
+.om-tab { flex: 1; background: transparent; border: none; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: background 0.3s; position: relative; overflow: hidden; }
+.om-tab::after { content: ''; position: absolute; inset: 0; background: var(--red); transform: translateY(101%); transition: transform 0.4s var(--ease-expo); }
+.om-tab--active::after { transform: translateY(0); }
+.om-tab + .om-tab { border-left: 1px solid var(--border-hi); }
+.om-tab__label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ash); position: relative; z-index: 1; transition: color 0.3s; }
+.om-tab__price { font-family: var(--f-display); font-size: 1.4rem; color: var(--cream); position: relative; z-index: 1; }
+.om-tab__price sup { font-size: 0.65rem; }
+.om-tab--active .om-tab__label, .om-tab--active .om-tab__price { color: #fff; }
+.om-menu { margin-top: 2rem; }
+.om-menu--hidden { display: none; }
+.om-menu__header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
+.om-menu__pases { font-family: var(--f-display); font-size: 1.1rem; color: var(--red); }
+.om-menu__info { font-family: var(--f-serif); font-style: italic; font-size: 0.85rem; color: var(--ash-dim); }
+.om-menu__list { list-style: none; }
+.om-menu__item { display: grid; grid-template-columns: 2rem 1fr auto; gap: 0.8rem; align-items: baseline; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); transition: border-color 0.3s; }
+.om-menu__item:hover { border-color: var(--border); }
+.om-menu__num { font-family: var(--f-sans); font-size: 0.4rem; letter-spacing: 0.15em; color: var(--ash-dim); }
+.om-menu__name { font-family: var(--f-serif); font-size: 0.92rem; color: var(--cream); line-height: 1.4; }
+.om-menu__type { font-family: var(--f-sans); font-size: 0.38rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); white-space: nowrap; }
 
 /* ═══════════════════════════════════════════════════════
    MAPA EMBED
@@ -699,6 +737,43 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
    NAV LINKS NUEVAS SECCIONES
 ═══════════════════════════════════════════════════════ */
 .nav__center a[href="#chef"], .nav__center a[href="#omakase"], .nav__center a[href="#blog"] { }
+
+/* ═══════════════════════════════════════════════════════
+   VB CHEF STATS (visual break entre galería y chef)
+═══════════════════════════════════════════════════════ */
+.vb-chef-break { position: relative; }
+.vb-chef-stats { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 3rem; z-index: 3; white-space: nowrap; }
+.vb-stat { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.vb-stat__num { font-family: var(--f-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--cream); line-height: 1; }
+.vb-stat__label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ash-dim); }
+.vb-stat__divider { font-size: 0.5rem; color: var(--red); opacity: 0.6; }
+@media(max-width:600px) { .vb-chef-stats { gap: 1.5rem; bottom: 1.5rem; } .vb-stat__num { font-size: 1.5rem; } }
+
+/* ═══════════════════════════════════════════════════════
+   BLOG MODAL — scroll interno correcto
+═══════════════════════════════════════════════════════ */
+.blog-modal {
+  position: fixed; inset: 0; z-index: 9200;
+  background: rgba(5,5,5,0.0);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.5s, background 0.5s;
+  overflow: hidden;
+}
+.blog-modal.active {
+  opacity: 1; pointer-events: all;
+  background: rgba(5,5,5,0.97);
+}
+.blog-modal__scroll {
+  position: absolute; inset: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.blog-modal__inner { max-width: 780px; margin: 0 auto; padding: 6rem 2rem 8rem; }
+.blog-modal__imgs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2.5rem 0; }
+.blog-modal__imgs-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid var(--border-hi); filter: brightness(0.85); }
+.blog-modal__pull { font-family: var(--f-display); font-size: clamp(1.2rem,2.5vw,1.8rem); font-weight: 300; color: var(--cream); border-left: 2px solid var(--red); padding: 1rem 0 1rem 2rem; margin: 3rem 0; line-height: 1.4; font-style: italic; }
+@media(max-width:600px) { .blog-modal__imgs-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -998,6 +1073,25 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
   </div>
 </section>
 
+<!-- ═══ VISUAL BREAK: CHEF ══════════════════════════════════════════ -->
+<div class="visual-break vb-chef-break" id="chef-break" aria-hidden="true">
+  <div class="visual-break__img" id="vb-chef-img">
+    <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?q=85&w=1600&auto=format&fit=crop" alt="" loading="lazy" width="1600" height="600"/>
+  </div>
+  <div class="visual-break__overlay"></div>
+  <div class="visual-break__quote">
+    <p class="visual-break__quote-text" data-i18n="vbChefQuote">La perfección no existe en la cocina. Existe en el instante en que el comensal cierra los ojos.</p>
+    <p class="visual-break__quote-attr" data-i18n="vbChefAttr">Takashi Mori · Kuro 黑</p>
+  </div>
+  <div class="vb-chef-stats" data-reveal>
+    <div class="vb-stat"><span class="vb-stat__num">22</span><span class="vb-stat__label" data-i18n="vbS1">años en cocina</span></div>
+    <div class="vb-stat__divider" aria-hidden="true">◆</div>
+    <div class="vb-stat"><span class="vb-stat__num">3</span><span class="vb-stat__label" data-i18n="vbS2">años en Japón</span></div>
+    <div class="vb-stat__divider" aria-hidden="true">◆</div>
+    <div class="vb-stat"><span class="vb-stat__num">2</span><span class="vb-stat__label" data-i18n="vbS3">estrellas Michelin</span></div>
+  </div>
+</div>
+
 <!-- ═══ SECCIÓN CHEF ════════════════════════════════════════════════ -->
 <section class="chef" id="chef" aria-labelledby="chef-heading">
   <div class="chef__inner">
@@ -1043,30 +1137,72 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
       <h2 class="omakase__title" id="omakase-heading" data-reveal>
         <span data-i18n="omT1">Omakase</span><br><em data-i18n="omT2">Experience</em>
       </h2>
-      <p class="omakase__desc" data-reveal id="om-desc">El menú omakase de Kuro es una ceremonia de dieciocho pases que cambia cada noche según el producto disponible. El chef decide. El comensal confía. El resultado es irrepetible.</p>
-      <div class="omakase__prices" data-reveal>
-        <div class="omakase__price-block">
-          <p class="omakase__price-label" data-i18n="omPriceLabel">Menú degustación</p>
-          <div class="omakase__price-val" id="om-price">145<sup>€</sup></div>
-          <p class="omakase__price-sub" data-i18n="omPerPerson">por persona</p>
-        </div>
-        <div class="omakase__price-block">
-          <p class="omakase__price-label" data-i18n="omSakeLabel">Con maridaje sake</p>
-          <div class="omakase__price-val" id="om-price-sake">210<sup>€</sup></div>
-          <p class="omakase__price-sub" data-i18n="omPerPerson">por persona</p>
-        </div>
+      <p class="omakase__desc" data-reveal id="om-desc">El menú omakase de Kuro es una ceremonia que cambia cada noche según el producto disponible. El chef decide. El comensal confía. El resultado es irrepetible.</p>
+
+      <!-- Selector de menú -->
+      <div class="om-tabs" data-reveal>
+        <button class="om-tab om-tab--active" data-menu="kuro" aria-pressed="true">
+          <span class="om-tab__label" data-i18n="omMenuKuro">Menú Kuro</span>
+          <span class="om-tab__price">145<sup>€</sup></span>
+        </button>
+        <button class="om-tab" data-menu="omakase" aria-pressed="false">
+          <span class="om-tab__label" data-i18n="omMenuFull">Menú Omakase</span>
+          <span class="om-tab__price">210<sup>€</sup></span>
+        </button>
       </div>
-      <ul class="omakase__includes" id="om-includes" data-reveal>
-        <li>Aperitivos de bienvenida</li>
-        <li>6 nigiris de temporada</li>
-        <li>3 piezas de sashimi premium</li>
-        <li>2 elaboraciones calientes</li>
-        <li>Roll especial del chef</li>
-        <li>Postre japonés</li>
-        <li>Té matcha de cierre</li>
-      </ul>
+
+      <!-- Menú Kuro — 12 pases -->
+      <div class="om-menu" id="om-menu-kuro">
+        <div class="om-menu__header">
+          <span class="om-menu__pases">12 <span data-i18n="omPases">pases</span></span>
+          <span class="om-menu__info" data-i18n="omPerPerson">por persona · sin maridaje</span>
+        </div>
+        <ul class="om-menu__list">
+          <li class="om-menu__item"><span class="om-menu__num">01</span><span class="om-menu__name">Dashi de kombu &amp; katsuobushi</span><span class="om-menu__type" data-i18n="omTypeSoup">Bienvenida</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">02</span><span class="om-menu__name">Sashimi de lubina salvaje, aceite de yuzu</span><span class="om-menu__type" data-i18n="omTypeSashimi">Sashimi</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">03</span><span class="om-menu__name">Nigiri de ventresca de atún rojo</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">04</span><span class="om-menu__name">Nigiri de gamba roja flambeada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">05</span><span class="om-menu__name">Uramaki de tempura de langostino</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">06</span><span class="om-menu__name">Nigiri caliente de anguila kabayaki</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">07</span><span class="om-menu__name">Gyoza de cerdo ibérico &amp; trufa</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">08</span><span class="om-menu__name">Nigiri de vieira con mantequilla tostada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">09</span><span class="om-menu__name">Roll del chef · receta exclusiva noche</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">10</span><span class="om-menu__name">Miso negro con tofu ahumado</span><span class="om-menu__type" data-i18n="omTypeSoup">Sopa</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">11</span><span class="om-menu__name">Mochi de té matcha &amp; yuzu</span><span class="om-menu__type" data-i18n="omTypeDessert">Postre</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">12</span><span class="om-menu__name">Ceremonia de té hojicha</span><span class="om-menu__type" data-i18n="omTypeTea">Cierre</span></li>
+        </ul>
+      </div>
+
+      <!-- Menú Omakase — 18 pases -->
+      <div class="om-menu om-menu--hidden" id="om-menu-omakase">
+        <div class="om-menu__header">
+          <span class="om-menu__pases">18 <span data-i18n="omPases">pases</span></span>
+          <span class="om-menu__info" data-i18n="omPerPersonSake">por persona · maridaje sake incluido</span>
+        </div>
+        <ul class="om-menu__list">
+          <li class="om-menu__item"><span class="om-menu__num">01</span><span class="om-menu__name">Dashi de kombu &amp; katsuobushi · sake junmai</span><span class="om-menu__type" data-i18n="omTypeSoup">Bienvenida</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">02</span><span class="om-menu__name">Ostra con granizado de ponzu</span><span class="om-menu__type" data-i18n="omTypeSnack">Aperitivo</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">03</span><span class="om-menu__name">Sashimi del día · lubina, atún, vieira</span><span class="om-menu__type" data-i18n="omTypeSashimi">Sashimi</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">04</span><span class="om-menu__name">Nigiri de ventresca de atún rojo</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">05</span><span class="om-menu__name">Nigiri de gamba roja flambeada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">06</span><span class="om-menu__name">Nigiri de erizo de mar &amp; ikura</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">07</span><span class="om-menu__name">Uramaki de tempura de langostino</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">08</span><span class="om-menu__name">Special roll flambeado del chef</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">09</span><span class="om-menu__name">Nigiri caliente de anguila kabayaki</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">10</span><span class="om-menu__name">Tataki de wagyu A5 con salsa ponzu</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">11</span><span class="om-menu__name">Gyoza de cerdo ibérico &amp; trufa</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">12</span><span class="om-menu__name">Nigiri de foie flambeado con miso dulce</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">13</span><span class="om-menu__name">Nigiri de vieira con mantequilla tostada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">14</span><span class="om-menu__name">Temaki de cangrejo real</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">15</span><span class="om-menu__name">Miso negro con tofu ahumado &amp; dashi</span><span class="om-menu__type" data-i18n="omTypeSoup">Sopa</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">16</span><span class="om-menu__name">Mochi de té matcha &amp; yuzu</span><span class="om-menu__type" data-i18n="omTypeDessert">Postre</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">17</span><span class="om-menu__name">Helado de sésamo negro</span><span class="om-menu__type" data-i18n="omTypeDessert">Postre</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">18</span><span class="om-menu__name">Ceremonia de té hojicha &amp; wagashi</span><span class="om-menu__type" data-i18n="omTypeTea">Cierre</span></li>
+        </ul>
+      </div>
+
       <p class="omakase__note" data-reveal data-i18n="omNote" id="om-note">Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar.</p>
-      <a href="#booking" class="menu__btn" data-reveal style="margin-top:1rem;display:inline-block;">
+      <a href="#booking" class="menu__btn" data-reveal style="margin-top:1.5rem;display:inline-block;">
         <span class="btn-bg"></span>
         <span class="btn-text" data-i18n="omBtn">Reservar Experiencia</span>
       </a>
@@ -1074,10 +1210,10 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
     <div class="omakase__visual" data-reveal>
       <img id="om-img"
         src="https://images.unsplash.com/photo-1559314809-0d155014e29e?q=85&w=1200&auto=format&fit=crop"
-        alt="Menú omakase de 18 pases en Kuro Tarragona"
+        alt="Menú omakase en Kuro Tarragona"
         loading="lazy" width="1200" height="1600"/>
       <div class="omakase__visual-badge">
-        <div class="omakase__visual-badge-num" id="om-pases">18</div>
+        <div class="omakase__visual-badge-num" id="om-pases">12</div>
         <div class="omakase__visual-badge-label" data-i18n="omPases">pases</div>
       </div>
     </div>
@@ -1141,16 +1277,12 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
   <div class="map-section__overlay">
     <div class="map-section__info">
       <div class="map-section__item">
-        <p class="map-section__item-label" data-i18n="ftCo">Ubicación</p>
+        <p class="map-section__item-label" data-i18n="mapLoc">Encuéntranos</p>
         <p class="map-section__item-val" id="map-address">Passeig de les Palmeres, 1 · Tarragona</p>
       </div>
       <div class="map-section__item">
-        <p class="map-section__item-label" data-i18n="ftHours">Horarios</p>
-        <p class="map-section__item-val"><span id="map-days" data-i18n="ftDays">Mar – Sáb</span> · <span id="map-hours">19:30 – 23:30</span></p>
-      </div>
-      <div class="map-section__item">
-        <p class="map-section__item-label" data-i18n="ftCo2">Teléfono</p>
-        <p class="map-section__item-val" id="map-phone">+34 977 000 000</p>
+        <p class="map-section__item-label" data-i18n="mapParking">Parking</p>
+        <p class="map-section__item-val" data-i18n="mapParkingVal">Parking Saavedra · 2 min a pie</p>
       </div>
     </div>
     <a href="https://www.google.com/maps/place/Pg.+de+les+Palmeres,+1,+43003+Tarragona/" target="_blank" rel="noopener noreferrer" class="map-btn" id="map-btn-ext">
@@ -1262,14 +1394,16 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
 </div>
 
 <!-- ═══ BLOG MODAL ════════════════════════════════════════════════════ -->
-<div class="blog-modal" id="blog-modal" role="dialog" aria-modal="true">
+<div class="blog-modal" id="blog-modal" role="dialog" aria-modal="true" aria-labelledby="bm-title">
   <button class="blog-modal__close" id="blog-modal-close" aria-label="Cerrar">×</button>
-  <div class="blog-modal__inner">
-    <p class="blog-modal__cat" id="bm-cat"></p>
-    <h2 class="blog-modal__title" id="bm-title"></h2>
-    <p class="blog-modal__date" id="bm-date"></p>
-    <div class="blog-modal__img"><img id="bm-img" src="" alt=""/></div>
-    <div class="blog-modal__body" id="bm-body"></div>
+  <div class="blog-modal__scroll" id="blog-modal-scroll">
+    <div class="blog-modal__inner">
+      <p class="blog-modal__cat" id="bm-cat"></p>
+      <h2 class="blog-modal__title" id="bm-title"></h2>
+      <p class="blog-modal__date" id="bm-date"></p>
+      <div class="blog-modal__img"><img id="bm-img" src="" alt=""/></div>
+      <div class="blog-modal__body" id="bm-body"></div>
+    </div>
   </div>
 </div>
 
@@ -1295,8 +1429,8 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
       <p class="footer__col-title" data-i18n="ftR">Restaurante</p>
       <ul>
         <li><a href="#about" data-i18n="ftH">Nuestra Historia</a></li>
-        <li><a href="#about" data-i18n="ftC">El Chef</a></li>
-        <li><a href="#booking" data-i18n="ftS">Sala Privada</a></li>
+        <li><a href="#chef" data-i18n="ftC">El Chef</a></li>
+        <li><a href="#eventos" data-i18n="ftS">Sala Privada</a></li>
         <li><a href="#" data-i18n="ftP">Prensa</a></li>
       </ul>
     </div>
@@ -1304,10 +1438,10 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
     <div class="footer__col">
       <p class="footer__col-title" data-i18n="ftM">Menú</p>
       <ul>
-        <li><a href="carta.html">La Carta Omakase</a></li>
-        <li><a href="carta.html#cat-2">Nigiris</a></li>
-        <li><a href="carta.html#cat-5">Uramakis</a></li>
-        <li><a href="carta.html#cat-7">Postres</a></li>
+        <li><a href="carta.html">La Carta</a></li>
+        <li><a href="#omakase">Omakase</a></li>
+        <li><a href="#blog" data-i18n="blT1">Blog</a></li>
+        <li><a href="#booking" data-i18n="navBook">Reservas</a></li>
       </ul>
     </div>
 
@@ -1775,6 +1909,140 @@ if (strip) {
   strip.addEventListener('mousemove', e => { if(!isDown) return; e.preventDefault(); const x = e.pageX - strip.offsetLeft; strip.scrollLeft = scrollLeft - (x - startX) * 1.5; });
 }
 
+/* ─── GSAP: ANIMACIONES SECCIONES NUEVAS ─── */
+if (!prefersReducedMotion) {
+
+  // Chef — imagen principal entra desde izquierda, texto desde derecha
+  gsap.fromTo('.chef__visual', { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 1.4, ease: 'expo.out',
+    scrollTrigger: { trigger: '.chef', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  gsap.fromTo('.chef__text', { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 1.4, ease: 'expo.out', delay: 0.15,
+    scrollTrigger: { trigger: '.chef', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // Milestones: aparecen uno a uno
+  gsap.fromTo('.chef__milestone', { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.8, ease: 'expo.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.chef__milestones', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+  // Parallax imagen chef
+  gsap.to('.chef__img-main img', { yPercent: 10, ease: 'none',
+    scrollTrigger: { trigger: '.chef', start: 'top bottom', end: 'bottom top', scrub: 1.2 }
+  });
+
+  // Omakase — reveal desde abajo con scale
+  gsap.fromTo('.omakase__text', { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1.4, ease: 'expo.out',
+    scrollTrigger: { trigger: '.omakase', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  gsap.fromTo('.omakase__visual', { y: 50, opacity: 0, scale: 0.96 }, { y: 0, opacity: 1, scale: 1, duration: 1.6, ease: 'expo.out', delay: 0.2,
+    scrollTrigger: { trigger: '.omakase', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  // Precios: contador animado
+  const priceEls = document.querySelectorAll('.omakase__price-val');
+  priceEls.forEach(el => {
+    const raw = el.textContent.replace(/[^0-9]/g,'');
+    const val = parseInt(raw) || 0;
+    const obj = { n: 0 };
+    ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => {
+      gsap.to(obj, { n: val, duration: 1.6, ease: 'power2.out', onUpdate() {
+        el.innerHTML = Math.round(obj.n) + '<sup>€</sup>';
+      }});
+    }});
+  });
+  // Parallax ambient glow
+  gsap.to('.omakase__ambient', { yPercent: -30, ease: 'none',
+    scrollTrigger: { trigger: '.omakase', start: 'top bottom', end: 'bottom top', scrub: 1 }
+  });
+
+  // Eventos — tarjetas stagger con clip reveal
+  gsap.fromTo('.evento-card', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.15,
+    scrollTrigger: { trigger: '.eventos__grid', start: 'top 82%', toggleActions: 'play none none none' }
+  });
+  gsap.fromTo('.eventos__hd', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out',
+    scrollTrigger: { trigger: '.eventos', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+
+  // Blog — tarjetas stagger
+  ScrollTrigger.create({ trigger: '.blog', start: 'top 85%', once: true, onEnter: () => {
+    setTimeout(() => {
+      gsap.fromTo('.blog-card', { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.12 });
+    }, 100);
+  }});
+
+  // Mapa — slide desde abajo
+  gsap.fromTo('.map-section__overlay', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out',
+    scrollTrigger: { trigger: '.map-section', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+  gsap.fromTo('.map-section iframe', { opacity: 0 }, { opacity: 1, duration: 1.5, ease: 'power2.out', delay: 0.3,
+    scrollTrigger: { trigger: '.map-section', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+
+  // Booking — título split reveal + campos stagger
+  gsap.fromTo('.booking__heading .line-inner', { y:'110%' }, { y:'0%', duration: 1.3, ease:'expo.out', stagger: 0.1,
+    scrollTrigger: { trigger: '.booking', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+  gsap.fromTo('.booking__kanji-bg', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 2, ease: 'power2.out',
+    scrollTrigger: { trigger: '.booking', start: 'top 80%', toggleActions: 'play none none none' }
+  });
+
+  // VB Chef break — stats aparecen uno a uno
+  gsap.fromTo('.vb-stat', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, ease: 'expo.out', stagger: 0.15,
+    scrollTrigger: { trigger: '.vb-chef-break', start: 'top 70%', toggleActions: 'play none none none' }
+  });
+
+  // Reviews — tarjetas stagger desde abajo
+  gsap.fromTo('.review-card', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.12,
+    scrollTrigger: { trigger: '.reviews', start: 'top 82%', toggleActions: 'play none none none' }
+  });
+
+  // Footer — columnas stagger
+  gsap.fromTo('.footer__brand, .footer__col', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: 'expo.out', stagger: 0.08,
+    scrollTrigger: { trigger: '.footer__grid', start: 'top 90%', toggleActions: 'play none none none' }
+  });
+
+  // Omakase menu items — stagger al hacer scroll
+  gsap.fromTo('.om-menu__item', { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.6, ease: 'expo.out', stagger: 0.04,
+    scrollTrigger: { trigger: '.om-menu__list', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+
+  // Blog heading split
+  gsap.fromTo('.blog__title', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out',
+    scrollTrigger: { trigger: '.blog', start: 'top 85%', toggleActions: 'play none none none' }
+  });
+}
+
+/* ─── OMAKASE TABS ─── */
+(function(){
+  const tabs = document.querySelectorAll('.om-tab');
+  const menuKuro = document.getElementById('om-menu-kuro');
+  const menuOmakase = document.getElementById('om-menu-omakase');
+  const badgeNum = document.getElementById('om-pases');
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const which = tab.dataset.menu;
+      tabs.forEach(t => { t.classList.remove('om-tab--active'); t.setAttribute('aria-pressed','false'); });
+      tab.classList.add('om-tab--active');
+      tab.setAttribute('aria-pressed','true');
+
+      if (which === 'kuro') {
+        menuKuro && menuKuro.classList.remove('om-menu--hidden');
+        menuOmakase && menuOmakase.classList.add('om-menu--hidden');
+        if (badgeNum) badgeNum.textContent = '12';
+      } else {
+        menuKuro && menuKuro.classList.add('om-menu--hidden');
+        menuOmakase && menuOmakase.classList.remove('om-menu--hidden');
+        if (badgeNum) badgeNum.textContent = '18';
+      }
+
+      // Animate new menu items in
+      if (window.gsap) {
+        const items = (which === 'kuro' ? menuKuro : menuOmakase).querySelectorAll('.om-menu__item');
+        gsap.fromTo(items, { opacity:0, x:-15 }, { opacity:1, x:0, duration:0.5, ease:'expo.out', stagger:0.03 });
+      }
+    });
+  });
+})();
+
 })();
 </script>
 
@@ -1879,33 +2147,44 @@ if (strip) {
 (function(){
   const grid = document.getElementById('blog-grid');
   const modal = document.getElementById('blog-modal');
+  const modalScroll = document.getElementById('blog-modal-scroll');
   const modalClose = document.getElementById('blog-modal-close');
   if (!grid) return;
 
   let postsData = [];
-  let currentLangBlog = localStorage.getItem('kuroLang') || 'es';
 
-  function formatDate(str) {
+  function lang() { return localStorage.getItem('kuroLang') || 'es'; }
+
+  function formatDate(str, l) {
     try {
-      return new Date(str).toLocaleDateString(currentLangBlog === 'en' ? 'en-GB' : 'es-ES', { year:'numeric', month:'long', day:'numeric' });
+      return new Date(str).toLocaleDateString(l === 'en' ? 'en-GB' : l === 'fr' ? 'fr-FR' : l === 'ca' ? 'ca-ES' : 'es-ES', { year:'numeric', month:'long', day:'numeric' });
     } catch(e) { return str; }
   }
 
-  function renderGrid(posts, lang) {
+  function renderGrid(posts, l) {
     if (!posts || !posts.length) return;
     grid.innerHTML = posts.map((p, i) => `
-      <article class="blog-card" data-reveal data-idx="${i}" tabindex="0" role="button" aria-label="Leer: ${p['title_'+lang] || p.title_es}">
+      <article class="blog-card" data-idx="${i}" tabindex="0" role="button" aria-label="Leer: ${p['title_'+l] || p.title_es}">
         <div class="blog-card__img">
-          <span class="blog-card__cat">${p['category_'+lang] || p.category_es || ''}</span>
-          <img src="${p.img}" alt="${p['alt_'+lang] || p.alt_es || ''}" loading="lazy" width="1200" height="750"/>
+          <span class="blog-card__cat">${p['category_'+l] || p.category_es || ''}</span>
+          <img src="${p.img}" alt="${p['alt_'+l] || p.alt_es || ''}" loading="lazy" width="1200" height="750"/>
         </div>
         <div class="blog-card__body">
-          <p class="blog-card__date">${formatDate(p.date)}</p>
-          <h3 class="blog-card__title">${p['title_'+lang] || p.title_es}</h3>
-          <p class="blog-card__excerpt">${p['excerpt_'+lang] || p.excerpt_es}</p>
+          <p class="blog-card__date">${formatDate(p.date, l)}</p>
+          <h3 class="blog-card__title">${p['title_'+l] || p.title_es}</h3>
+          <p class="blog-card__excerpt">${p['excerpt_'+l] || p.excerpt_es}</p>
+          <span class="blog-card__read" aria-hidden="true">→</span>
         </div>
       </article>
     `).join('');
+    // Re-run reveal animations
+    if (window.gsap && window.ScrollTrigger) {
+      grid.querySelectorAll('.blog-card').forEach((card, i) => {
+        gsap.fromTo(card, { opacity:0, y:40 }, { opacity:1, y:0, duration:1, ease:'expo.out', delay: i * 0.12,
+          scrollTrigger: { trigger: card, start:'top 90%', toggleActions:'play none none none' }
+        });
+      });
+    }
     grid.querySelectorAll('.blog-card').forEach(card => {
       const handler = () => openPost(parseInt(card.dataset.idx));
       card.addEventListener('click', handler);
@@ -1913,19 +2192,75 @@ if (strip) {
     });
   }
 
+  // Rich body renderer — parsea secciones especiales del body
+  function renderBody(p, l) {
+    const raw = p['body_'+l] || p.body_es || '';
+    const imgs2 = p['imgs_'+l] || p.imgs || [];
+    const pull = p['pull_'+l] || p.pull_es || '';
+
+    // Split by double newline into paragraphs/blocks
+    const blocks = raw.split(/\n\n+/);
+    let html = '';
+    let imgInserted = false;
+
+    blocks.forEach((block, i) => {
+      block = block.trim();
+      if (!block) return;
+
+      // H3 headings: lines starting with ##
+      if (block.startsWith('## ')) {
+        html += `<h3>${block.slice(3)}</h3>`;
+      }
+      // Blockquote: lines starting with >
+      else if (block.startsWith('> ')) {
+        html += `<blockquote>${block.slice(2)}</blockquote>`;
+      }
+      else {
+        html += `<p>${block.replace(/\n/g, '<br>')}</p>`;
+      }
+
+      // Insert pull quote after 2nd block
+      if (i === 1 && pull) {
+        html += `<div class="blog-modal__pull">${pull}</div>`;
+      }
+
+      // Insert image grid after 3rd block
+      if (i === 2 && imgs2.length >= 2 && !imgInserted) {
+        imgInserted = true;
+        html += `<div class="blog-modal__imgs-grid">`;
+        imgs2.slice(0, 2).forEach(img => {
+          html += `<img src="${img.src}" alt="${img['alt_'+l] || img.alt_es || ''}" loading="lazy"/>`;
+        });
+        html += `</div>`;
+      }
+    });
+
+    // If more extra images and not yet inserted
+    if (!imgInserted && imgs2.length >= 2) {
+      html += `<div class="blog-modal__imgs-grid">`;
+      imgs2.slice(0, 2).forEach(img => {
+        html += `<img src="${img.src}" alt="${img['alt_'+l] || img.alt_es || ''}" loading="lazy"/>`;
+      });
+      html += `</div>`;
+    }
+
+    return html;
+  }
+
   function openPost(idx) {
     const p = postsData[idx];
     if (!p || !modal) return;
-    const lang = localStorage.getItem('kuroLang') || 'es';
-    document.getElementById('bm-cat').textContent = p['category_'+lang] || p.category_es || '';
-    document.getElementById('bm-title').textContent = p['title_'+lang] || p.title_es;
-    document.getElementById('bm-date').textContent = formatDate(p.date);
+    const l = lang();
+    document.getElementById('bm-cat').textContent = p['category_'+l] || p.category_es || '';
+    document.getElementById('bm-title').textContent = p['title_'+l] || p.title_es;
+    document.getElementById('bm-date').textContent = formatDate(p.date, l);
     document.getElementById('bm-img').src = p.img;
-    document.getElementById('bm-img').alt = p['alt_'+lang] || '';
-    document.getElementById('bm-body').innerHTML = '<p>' + (p['body_'+lang] || p.body_es || '').split('\n').join('</p><p>') + '</p>';
+    document.getElementById('bm-img').alt = p['alt_'+l] || '';
+    document.getElementById('bm-body').innerHTML = renderBody(p, l);
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
-    modal.scrollTop = 0;
+    // Scroll the internal container to top
+    if (modalScroll) modalScroll.scrollTop = 0;
   }
 
   function closeModal() {
@@ -1934,23 +2269,19 @@ if (strip) {
   }
 
   modalClose && modalClose.addEventListener('click', closeModal);
-  modal && modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  // Click outside the inner content closes modal
+  modalScroll && modalScroll.addEventListener('click', e => { if (e.target === modalScroll) closeModal(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('active')) closeModal(); });
 
-  // Load blog posts
   fetch('data/blog/posts.json').then(r => r.json()).then(data => {
     postsData = data.posts || [];
-    const lang = localStorage.getItem('kuroLang') || 'es';
-    renderGrid(postsData, lang);
+    renderGrid(postsData, lang());
   }).catch(() => {
-    grid.innerHTML = '<p style="color:var(--ash-dim);font-family:var(--f-serif);font-style:italic;">Próximamente...</p>';
+    grid.innerHTML = '<p style="color:var(--ash-dim);font-family:var(--f-serif);font-style:italic;padding:2rem 0;">Próximamente...</p>';
   });
 
-  // Re-render blog on lang change
   document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setTimeout(() => { renderGrid(postsData, localStorage.getItem('kuroLang') || 'es'); }, 50);
-    });
+    btn.addEventListener('click', () => setTimeout(() => renderGrid(postsData, lang()), 50));
   });
 })();
 </script>
@@ -2137,13 +2468,22 @@ if (strip) {
         });
       });
 
-      html += `<p class="footer-pdf">reservas@kuro-tarragona.com · +34 977 000 000 · kuro-tarragona.com</p></body></html>`;
+          html += `<p class="footer-pdf">reservas@kuro-tarragona.com · +34 977 000 000 · kuro-tarragona.com</p></body></html>`;
 
-      // Abre en nueva ventana para imprimir como PDF
-      const win = window.open('', '_blank', 'width=900,height=700');
+      // Añade título para que el PDF tenga nombre correcto al guardar
+      const titleTag = `<title>Kuro-Carta-${new Date().toLocaleDateString('es-ES').replace(/\//g,'-')}</title>`;
+      html = html.replace('<html>', '<html>').replace('<head>', '<head>' + titleTag);
+
+      // Abre en nueva ventana — el título se convierte en nombre de archivo al guardar como PDF
+      const win = window.open('', '_blank', 'width=960,height=780');
+      if (!win) {
+        alert('Tu navegador bloqueó la ventana emergente. Permite las ventanas emergentes para este sitio.');
+        return;
+      }
       win.document.write(html);
       win.document.close();
-      win.onload = () => { win.print(); };
+      // Pequeño delay para que los estilos carguen antes de imprimir
+      setTimeout(() => { win.focus(); win.print(); }, 800);
 
     } catch(e) {
       console.warn('PDF error:', e);
@@ -2174,6 +2514,15 @@ if (strip) {
       blTag:'Noticias & Cultura', blT1:'Diario', blT2:'de Kuro',
       popTag:'Experiencia exclusiva', popT1:'Reserve su', popT2:'mesa hoy', popDesc:'Solo 12 comensales por servicio. La disponibilidad es muy limitada.', popBtn:'Reservar ahora', popSkip:'Quizás más tarde',
       pdfBtn:'Descargar Carta PDF', ftCo2:'Teléfono',
+      vbChefQuote:'La perfección no existe en la cocina. Existe en el instante en que el comensal cierra los ojos.',
+      vbChefAttr:'Takashi Mori · Kuro 黑',
+      vbS1:'años en cocina', vbS2:'años en Japón', vbS3:'estrellas Michelin',
+      omMenuKuro:'Menú Kuro', omMenuFull:'Menú Omakase',
+      omPerPersonSake:'por persona · maridaje sake incluido',
+      omTypeSoup:'Bienvenida', omTypeSashimi:'Sashimi', omTypeNigiri:'Nigiri',
+      omTypeRoll:'Roll', omTypeHot:'Caliente', omTypeSpecial:'Especial',
+      omTypeDessert:'Postre', omTypeTea:'Cierre', omTypeSnack:'Aperitivo',
+      ftNewsTitle:'Diario de Kuro', ftNewsDesc:'Suscríbete para recibir acceso prioritario a nuevas temporadas y eventos exclusivos.',
     },
     ca: {
       navChef:'El Xef', navOmakase:'Omakase',
@@ -2188,6 +2537,15 @@ if (strip) {
       blTag:'Notícies & Cultura', blT1:'Diari', blT2:'de Kuro',
       popTag:'Experiència exclusiva', popT1:'Reservi la seva', popT2:'taula avui', popDesc:'Només 12 comensals per servei. La disponibilitat és molt limitada.', popBtn:'Reservar ara', popSkip:'Potser més tard',
       pdfBtn:'Descarregar Carta PDF', ftCo2:'Telèfon',
+      vbChefQuote:'La perfecció no existeix a la cuina. Existeix en l\'instant en què el comensal tanca els ulls.',
+      vbChefAttr:'Takashi Mori · Kuro 黑',
+      vbS1:'anys a la cuina', vbS2:'anys al Japó', vbS3:'estrelles Michelin',
+      omMenuKuro:'Menú Kuro', omMenuFull:'Menú Omakase',
+      omPerPersonSake:'per persona · maridatge sake inclòs',
+      omTypeSoup:'Benvinguda', omTypeSashimi:'Sashimi', omTypeNigiri:'Nigiri',
+      omTypeRoll:'Roll', omTypeHot:'Calent', omTypeSpecial:'Especial',
+      omTypeDessert:'Postres', omTypeTea:'Tancament', omTypeSnack:'Aperitiu',
+      ftNewsTitle:'Diari de Kuro', ftNewsDesc:'Subscriu-te per rebre accés prioritari a les noves temporades i esdeveniments exclusius.',
     },
     en: {
       navChef:'The Chef', navOmakase:'Omakase',
@@ -2202,6 +2560,15 @@ if (strip) {
       blTag:'News & Culture', blT1:'Kuro', blT2:'Journal',
       popTag:'Exclusive experience', popT1:'Book your', popT2:'table today', popDesc:'Only 12 guests per service. Availability is very limited.', popBtn:'Book now', popSkip:'Maybe later',
       pdfBtn:'Download Menu PDF', ftCo2:'Phone',
+      vbChefQuote:'Perfection does not exist in the kitchen. It exists in the instant the guest closes their eyes.',
+      vbChefAttr:'Takashi Mori · Kuro 黑',
+      vbS1:'years in kitchen', vbS2:'years in Japan', vbS3:'Michelin stars',
+      omMenuKuro:'Kuro Menu', omMenuFull:'Omakase Menu',
+      omPerPersonSake:'per person · sake pairing included',
+      omTypeSoup:'Welcome', omTypeSashimi:'Sashimi', omTypeNigiri:'Nigiri',
+      omTypeRoll:'Roll', omTypeHot:'Hot', omTypeSpecial:'Special',
+      omTypeDessert:'Dessert', omTypeTea:'Closing', omTypeSnack:'Appetiser',
+      ftNewsTitle:'Kuro Journal', ftNewsDesc:'Subscribe for priority access to new seasons and exclusive events.',
     },
     fr: {
       navChef:'Le Chef', navOmakase:'Omakase',
@@ -2216,6 +2583,15 @@ if (strip) {
       blTag:'Actualités & Culture', blT1:'Journal', blT2:'de Kuro',
       popTag:'Expérience exclusive', popT1:'Réservez votre', popT2:'table aujourd\'hui', popDesc:'Seulement 12 convives par service. La disponibilité est très limitée.', popBtn:'Réserver maintenant', popSkip:'Peut-être plus tard',
       pdfBtn:'Télécharger la Carte PDF', ftCo2:'Téléphone',
+      vbChefQuote:'La perfection n\'existe pas en cuisine. Elle existe dans l\'instant où le convive ferme les yeux.',
+      vbChefAttr:'Takashi Mori · Kuro 黑',
+      vbS1:'ans en cuisine', vbS2:'ans au Japon', vbS3:'étoiles Michelin',
+      omMenuKuro:'Menu Kuro', omMenuFull:'Menu Omakase',
+      omPerPersonSake:'par personne · accord saké inclus',
+      omTypeSoup:'Bienvenue', omTypeSashimi:'Sashimi', omTypeNigiri:'Nigiri',
+      omTypeRoll:'Roll', omTypeHot:'Chaud', omTypeSpecial:'Spécial',
+      omTypeDessert:'Dessert', omTypeTea:'Clôture', omTypeSnack:'Amuse-bouche',
+      ftNewsTitle:'Journal de Kuro', ftNewsDesc:'Abonnez-vous pour un accès prioritaire aux nouvelles saisons et aux événements exclusifs.',
     }
   };
 

@@ -59,6 +59,19 @@ collections:
           - { label: "Días apertura (FR)", name: "hours_days_fr", widget: "string", default: "Mar - Sam" }
           - { label: "Días cierre (FR)", name: "hours_closed_fr", widget: "string", default: "Dim & Lun: Fermé" }
 
+  # ─── PÁGINAS LEGALES (NUEVO) ──────────────────────────────────────────────
+  - name: "legal"
+    label: "⚖️ Páginas Legales"
+    folder: "data/legal"
+    create: true
+    extension: json
+    format: json
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: "Slug (aviso-legal, privacidad, cookies)", name: "slug", widget: "string", hint: "Identificador para la URL, sin espacios." }
+      - { label: "Título de la página", name: "title", widget: "string" }
+      - { label: "Contenido (Soporta HTML básico)", name: "content", widget: "text", hint: "Puedes usar <h2> para subtítulos." }
+
   # ─── HERO / PORTADA ───────────────────────────────────────────────────────
   - name: "hero"
     label: "🎬 Hero (Portada)"
@@ -91,7 +104,7 @@ collections:
         fields:
           - { label: "Imagen principal", name: "img_main", widget: "image" }
           - { label: "Imagen secundaria", name: "img_sub", widget: "image" }
-          - { label: "Años de excelencia", name: "years", widget: "number", default: 12 }
+          - { label: "Años de excelencia", name: "years", widget: "number", default: 16 }
           - { label: "Nº Pases Omakase", name: "pases", widget: "number", default: 18 }
           - { label: "Nº Comensales máximo", name: "seats", widget: "number", default: 12 }
           - { label: "Párrafo 1 (ES)", name: "body1_es", widget: "text" }
@@ -198,7 +211,7 @@ collections:
               - label: "Estrellas"
                 name: "stars"
                 widget: "select"
-                options: ["3","4","5"]
+                options:["3","4","5"]
                 default: "5"
 
   # ─── PLATOS (CARTA COMPLETA) ───────────────────────────────────────────────
@@ -237,38 +250,31 @@ collections:
       - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
       - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
 
-  # ─── CHEF ─────────────────────────────────────────────────────────────────
-  - name: "chef"
-    label: "👨‍🍳 El Chef"
+  # ─── EL EQUIPO (MODIFICADO: Antes era "Chef") ─────────────────────────────
+  - name: "equipo"
+    label: "👨‍🍳 El Equipo"
     files:
-      - name: "chef_content"
-        label: "Datos del Chef"
-        file: "data/chef/content.json"
+      - name: "equipo_content"
+        label: "Datos del Equipo"
+        file: "data/equipo/content.json"
         fields:
-          - { label: "Nombre", name: "name", widget: "string" }
-          - { label: "Rol (ES)", name: "role_es", widget: "string" }
-          - { label: "Rol (EN)", name: "role_en", widget: "string" }
-          - { label: "Rol (CA)", name: "role_ca", widget: "string" }
-          - { label: "Rol (FR)", name: "role_fr", widget: "string" }
-          - { label: "Foto principal", name: "img_main", widget: "image" }
-          - { label: "Foto en acción", name: "img_action", widget: "image" }
-          - { label: "Foto retrato", name: "img_portrait", widget: "image" }
-          - { label: "Biografía (ES)", name: "bio_es", widget: "text" }
-          - { label: "Biografía (EN)", name: "bio_en", widget: "text" }
-          - { label: "Biografía (CA)", name: "bio_ca", widget: "text" }
-          - { label: "Biografía (FR)", name: "bio_fr", widget: "text" }
-          - { label: "Cita (ES)", name: "quote_es", widget: "string" }
-          - { label: "Cita (EN)", name: "quote_en", widget: "string" }
-          - { label: "Años en cocina (stat)", name: "stat_years", widget: "number", default: 22, hint: "Aparece en la sección de stats entre galería y chef" }
-          - { label: "Años en Japón (stat)", name: "stat_japan", widget: "number", default: 3 }
-          - { label: "Estrellas Michelin (stat)", name: "stat_stars", widget: "number", default: 2 }
-          - name: "milestones"
-            label: "Hitos de carrera"
+          - { label: "Años en cocina (stat parallax)", name: "stat_years", widget: "number", default: 27 }
+          - { label: "Años en Japón (stat parallax)", name: "stat_japan", widget: "number", default: 10 }
+          - { label: "Estrellas Michelin (stat parallax)", name: "stat_stars", widget: "number", default: 2 }
+          - name: "miembros"
+            label: "Miembros del Equipo"
             widget: "list"
             fields:
-              - { label: "Año", name: "year", widget: "string" }
-              - { label: "Texto (ES)", name: "text_es", widget: "string" }
-              - { label: "Texto (EN)", name: "text_en", widget: "string" }
+              - { label: "Nombre", name: "name", widget: "string" }
+              - { label: "Rol (ES)", name: "role_es", widget: "string" }
+              - { label: "Rol (EN)", name: "role_en", widget: "string" }
+              - { label: "Rol (CA)", name: "role_ca", widget: "string" }
+              - { label: "Rol (FR)", name: "role_fr", widget: "string" }
+              - { label: "Foto retrato (Aspect Ratio 4:5)", name: "img", widget: "image" }
+              - { label: "Biografía breve (ES)", name: "bio_es", widget: "text" }
+              - { label: "Biografía breve (EN)", name: "bio_en", widget: "text" }
+              - { label: "Biografía breve (CA)", name: "bio_ca", widget: "text" }
+              - { label: "Biografía breve (FR)", name: "bio_fr", widget: "text" }
 
   # ─── OMAKASE ──────────────────────────────────────────────────────────────
   - name: "omakase"

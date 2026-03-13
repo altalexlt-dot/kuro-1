@@ -29,35 +29,25 @@ collections:
             name: "meta_description"
             widget: "text"
             hint: "Máx. 160 caracteres"
-            default: "Kuro 黑 es el restaurante de sushi omakase con 2 estrellas Michelin en Tarragona. Doce comensales, dieciocho pases, producto de temporada. Reservas exclusivas."
-          - label: "SEO — Meta Title (carta)"
-            name: "meta_title_carta"
-            widget: "string"
-            default: "La Carta Omakase · Kuro 黑 · Restaurante Japonés Tarragona"
-          - label: "SEO — Meta Description (carta)"
-            name: "meta_description_carta"
-            widget: "text"
-            default: "Descubre la carta completa de Kuro 黑: sashimi, nigiris clásicos y flambeados, uramakis, platos calientes y postres. Cocina japonesa de alta gama en Tarragona."
-          - { label: "SEO — Keywords", name: "keywords", widget: "string", default: "restaurante japonés Tarragona, omakase Tarragona, sushi fine dining, Michelin Tarragona, nigiri flambeado" }
+            default: "Kuro 黑 es el restaurante de sushi omakase con 2 estrellas Michelin en Tarragona."
+          - { label: "SEO — Keywords", name: "keywords", widget: "string" }
           - { label: "Open Graph Image (1200×630px)", name: "og_image", widget: "image" }
           - { label: "URL canónica (sin barra final)", name: "canonical_url", widget: "string", default: "https://www.kuro-tarragona.com" }
           - { label: "Google Analytics ID", name: "ga_id", widget: "string", required: false, hint: "Ej: G-XXXXXXXXXX" }
-          - { label: "Verificación Google Search Console", name: "google_verification", widget: "string", required: false }
-          - { label: "Twitter/X handle", name: "twitter_handle", widget: "string", required: false, hint: "Ej: @kuroTarragona" }
 
       - name: "contact"
         label: "Contacto & Horarios"
         file: "data/site/contact.json"
         fields:
-          - { label: "Dirección", name: "address", widget: "string", default: "Passeig de les Palmeres, 1" }
-          - { label: "Ciudad y CP", name: "city", widget: "string", default: "43003 Tarragona, España" }
+          - { label: "Dirección (calle y número)", name: "address", widget: "string", default: "Passeig de les Palmeres, 1" }
+          - { label: "Ciudad", name: "city", widget: "string", default: "Tarragona" }
+          - { label: "Código postal", name: "postal_code", widget: "string", default: "43003" }
           - { label: "Teléfono", name: "phone", widget: "string", default: "+34 977 000 000" }
           - { label: "Email reservas", name: "email", widget: "string", default: "reservas@kuro-tarragona.com" }
           - { label: "Google Maps URL", name: "maps_url", widget: "string" }
           - { label: "Latitud (para Schema.org)", name: "lat", widget: "string", default: "41.1189" }
           - { label: "Longitud (para Schema.org)", name: "lng", widget: "string", default: "1.2445" }
           - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
-          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false }
           - { label: "TripAdvisor URL", name: "tripadvisor_url", widget: "string", required: false }
           - { label: "Días apertura (ES)", name: "hours_days_es", widget: "string", default: "Mar - Sáb" }
           - { label: "Horario", name: "hours_time", widget: "string", default: "19:30 - 23:30" }
@@ -79,10 +69,6 @@ collections:
         fields:
           - { label: "Vídeo de fondo (.mp4)", name: "video_src", widget: "file", default: "sushi-bg.mp4" }
           - { label: "Imagen poster (fallback vídeo)", name: "poster_img", widget: "image" }
-          - { label: "Eyebrow (ES)", name: "eyebrow_es", widget: "string", default: "Tarragona · Omakase · Fine Dining" }
-          - { label: "Eyebrow (CA)", name: "eyebrow_ca", widget: "string", default: "Tarragona · Omakase · Fine Dining" }
-          - { label: "Eyebrow (EN)", name: "eyebrow_en", widget: "string", default: "Tarragona · Omakase · Fine Dining" }
-          - { label: "Eyebrow (FR)", name: "eyebrow_fr", widget: "string", default: "Tarragone · Omakase · Fine Dining" }
           - { label: "Título línea 1 (ES)", name: "title1_es", widget: "string", default: "Arte en cada" }
           - { label: "Título línea 2 cursiva (ES)", name: "title2_es", widget: "string", default: "plato." }
           - { label: "Título línea 3 (ES)", name: "title3_es", widget: "string", default: "Silencio en" }
@@ -91,11 +77,8 @@ collections:
           - { label: "Título línea 2 cursiva (EN)", name: "title2_en", widget: "string", default: "dish." }
           - { label: "Título línea 3 (EN)", name: "title3_en", widget: "string", default: "Silence in" }
           - { label: "Título línea 4 cursiva (EN)", name: "title4_en", widget: "string", default: "every bite." }
-          - { label: "Descripción (ES)", name: "desc_es", widget: "text", default: "Una ceremonia gastronómica de dieciocho pases, compuesta cada noche para doce comensales." }
-          - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
-          - { label: "Descripción (EN)", name: "desc_en", widget: "text", default: "A gastronomic ceremony of eighteen courses, composed every night for twelve guests." }
-          - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
-          - { label: "Texto Michelin (ES)", name: "michelin_es", widget: "string", default: "Guía Michelin 2025" }
+          - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
+          - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
           - { label: "Número de estrellas Michelin", name: "michelin_stars", widget: "number", default: 2, min: 0, max: 3 }
 
   # ─── NOSOTROS ─────────────────────────────────────────────────────────────
@@ -106,19 +89,17 @@ collections:
         label: "Textos e imágenes"
         file: "data/about/content.json"
         fields:
-          - { label: "Imagen principal (chef)", name: "img_main", widget: "image" }
-          - { label: "Alt texto imagen principal (ES)", name: "img_main_alt_es", widget: "string", default: "Chef de Kuro preparando sushi omakase en Tarragona" }
-          - { label: "Imagen secundaria / detalle", name: "img_sub", widget: "image" }
-          - { label: "Alt texto imagen secundaria (ES)", name: "img_sub_alt_es", widget: "string", default: "Detalle de elaboración de nigiri en Kuro" }
+          - { label: "Imagen principal", name: "img_main", widget: "image" }
+          - { label: "Imagen secundaria", name: "img_sub", widget: "image" }
           - { label: "Años de excelencia", name: "years", widget: "number", default: 12 }
           - { label: "Nº Pases Omakase", name: "pases", widget: "number", default: 18 }
           - { label: "Nº Comensales máximo", name: "seats", widget: "number", default: 12 }
           - { label: "Párrafo 1 (ES)", name: "body1_es", widget: "text" }
           - { label: "Párrafo 2 (ES)", name: "body2_es", widget: "text" }
-          - { label: "Párrafo 1 (CA)", name: "body1_ca", widget: "text" }
-          - { label: "Párrafo 2 (CA)", name: "body2_ca", widget: "text" }
           - { label: "Párrafo 1 (EN)", name: "body1_en", widget: "text" }
           - { label: "Párrafo 2 (EN)", name: "body2_en", widget: "text" }
+          - { label: "Párrafo 1 (CA)", name: "body1_ca", widget: "text" }
+          - { label: "Párrafo 2 (CA)", name: "body2_ca", widget: "text" }
           - { label: "Párrafo 1 (FR)", name: "body1_fr", widget: "text" }
           - { label: "Párrafo 2 (FR)", name: "body2_fr", widget: "text" }
 
@@ -127,7 +108,7 @@ collections:
     label: "⭐ Platos Destacados (Portada)"
     files:
       - name: "showcase_dishes"
-        label: "Los 3 platos destacados + CTA"
+        label: "Los 3 platos destacados"
         file: "data/showcase/dishes.json"
         fields:
           - label: "Plato 1"
@@ -135,65 +116,53 @@ collections:
             widget: "object"
             fields:
               - { label: "Imagen", name: "img", widget: "image" }
-              - { label: "Alt text", name: "alt", widget: "string" }
               - { label: "Nombre (ES)", name: "name_es", widget: "string" }
-              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
               - { label: "Nombre (EN)", name: "name_en", widget: "string" }
+              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
               - { label: "Nombre (FR)", name: "name_fr", widget: "string" }
               - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
-              - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
               - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-              - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
               - { label: "Precio", name: "price", widget: "string" }
           - label: "Plato 2"
             name: "dish2"
             widget: "object"
             fields:
               - { label: "Imagen", name: "img", widget: "image" }
-              - { label: "Alt text", name: "alt", widget: "string" }
               - { label: "Nombre (ES)", name: "name_es", widget: "string" }
-              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
               - { label: "Nombre (EN)", name: "name_en", widget: "string" }
+              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
               - { label: "Nombre (FR)", name: "name_fr", widget: "string" }
               - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
-              - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
               - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-              - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
               - { label: "Precio", name: "price", widget: "string" }
           - label: "Plato 3"
             name: "dish3"
             widget: "object"
             fields:
               - { label: "Imagen", name: "img", widget: "image" }
-              - { label: "Alt text", name: "alt", widget: "string" }
               - { label: "Nombre (ES)", name: "name_es", widget: "string" }
-              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
               - { label: "Nombre (EN)", name: "name_en", widget: "string" }
+              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
               - { label: "Nombre (FR)", name: "name_fr", widget: "string" }
               - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
-              - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
               - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-              - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
               - { label: "Precio", name: "price", widget: "string" }
-          - { label: "Imagen CTA (junto al botón 'explorar carta')", name: "cta_img", widget: "image" }
-          - { label: "Descripción CTA (ES)", name: "cta_desc_es", widget: "text", default: "Más de 50 elaboraciones únicas, desde los nigiris más clásicos hasta nuestras creaciones flambeadas y platos calientes." }
-          - { label: "Descripción CTA (CA)", name: "cta_desc_ca", widget: "text" }
+          - { label: "Imagen CTA", name: "cta_img", widget: "image" }
+          - { label: "Descripción CTA (ES)", name: "cta_desc_es", widget: "text" }
           - { label: "Descripción CTA (EN)", name: "cta_desc_en", widget: "text" }
-          - { label: "Descripción CTA (FR)", name: "cta_desc_fr", widget: "text" }
 
   # ─── GALERÍA ──────────────────────────────────────────────────────────────
   - name: "gallery"
     label: "🖼️ Galería & Frase"
     files:
       - name: "gallery_content"
-        label: "Frase + Fondo + Fotos"
+        label: "Frase + Fotos"
         file: "data/gallery/content.json"
         fields:
           - { label: "Imagen de fondo (visual break)", name: "visual_break_img", widget: "image" }
-          - { label: "Alt text imagen fondo", name: "visual_break_alt", widget: "string", default: "Interior del restaurante Kuro Tarragona" }
-          - { label: "Frase (ES)", name: "quote_es", widget: "text", default: "Comer bien no es un lujo. Es una forma de entender el mundo." }
+          - { label: "Frase (ES)", name: "quote_es", widget: "text" }
+          - { label: "Frase (EN)", name: "quote_en", widget: "text" }
           - { label: "Frase (CA)", name: "quote_ca", widget: "text" }
-          - { label: "Frase (EN)", name: "quote_en", widget: "text", default: "Eating well is not a luxury. It's a way of understanding the world." }
           - { label: "Frase (FR)", name: "quote_fr", widget: "text" }
           - { label: "Atribución", name: "quote_attr", widget: "string", default: "Takashi Mori" }
           - label: "Fotos de la galería"
@@ -222,8 +191,8 @@ collections:
             max: 6
             fields:
               - { label: "Texto (ES)", name: "text_es", widget: "text" }
-              - { label: "Texto (CA)", name: "text_ca", widget: "text" }
               - { label: "Texto (EN)", name: "text_en", widget: "text" }
+              - { label: "Texto (CA)", name: "text_ca", widget: "text" }
               - { label: "Texto (FR)", name: "text_fr", widget: "text" }
               - { label: "Fuente / Nombre", name: "source", widget: "string" }
               - label: "Estrellas"
@@ -242,7 +211,7 @@ collections:
     format: json
     slug: "{{fields.id}}"
     identifier_field: "id"
-    summary: "{{fields.name.es}} — {{fields.cat}} — {{fields.price}}"
+    summary: "{{fields.name_es}} — {{fields.cat}} — {{fields.price}}"
     fields:
       - { label: "ID del Plato", name: "id", widget: "string", hint: "Ej: e1, s2, nc3 — debe ser único" }
       - label: "Categoría"
@@ -250,75 +219,25 @@ collections:
         widget: "select"
         options:
           - { label: "Entrantes",          value: "Entrantes" }
-          - { label: "Sashimi",            value: "Sashimi" }
           - { label: "Nigiris Clásicos",   value: "Nigiris Clásicos" }
           - { label: "Nigiris Flambeados", value: "Nigiris Flambeados" }
           - { label: "Makis",              value: "Makis" }
           - { label: "Uramaki",            value: "Uramaki" }
-          - { label: "Platos Calientes",   value: "Platos Calientes" }
+          - { label: "Especiales",         value: "Especiales" }
+          - { label: "Piezas Calientes",   value: "Piezas Calientes" }
           - { label: "Postres",            value: "Postres" }
       - { label: "Imagen", name: "img", widget: "image" }
       - { label: "Precio (ej: 12,50€)", name: "price", widget: "string" }
-      - label: "Nombre del Plato"
-        name: "name"
-        widget: "object"
-        fields:
-          - { label: "Español",  name: "es", widget: "string" }
-          - { label: "Català",   name: "ca", widget: "string" }
-          - { label: "English",  name: "en", widget: "string" }
-          - { label: "Français", name: "fr", widget: "string" }
-      - label: "Descripción"
-        name: "desc"
-        widget: "object"
-        fields:
-          - { label: "Español",  name: "es", widget: "text" }
-          - { label: "Català",   name: "ca", widget: "text" }
-          - { label: "English",  name: "en", widget: "text" }
-          - { label: "Français", name: "fr", widget: "text" }
-      - label: "Ingredientes"
-        name: "ing"
-        widget: "list"
-        fields:
-          - label: "Nombre"
-            name: "n"
-            widget: "object"
-            fields:
-              - { label: "Español",  name: "es", widget: "string" }
-              - { label: "Català",   name: "ca", widget: "string" }
-              - { label: "English",  name: "en", widget: "string" }
-              - { label: "Français", name: "fr", widget: "string" }
-          - { label: "Cantidad (ej: 180g)", name: "q", widget: "string" }
-          - { label: "¿Es salsa/aliño?", name: "sauce", widget: "boolean", default: false, required: false }
-      - label: "Perfil Nutricional"
-        name: "mac"
-        widget: "object"
-        fields:
-          - { label: "Calorías (Kcal)", name: "kc", widget: "number" }
-          - { label: "Proteínas (g)",   name: "pr", widget: "number" }
-          - { label: "Carbohidratos (g)", name: "cb", widget: "number" }
-          - { label: "Grasas (g)",      name: "ft", widget: "number" }
-      - label: "Alérgenos"
-        name: "alg"
-        widget: "select"
-        multiple: true
-        required: false
-        default: []
-        options:
-          - { label: "Gluten",       value: "Gluten" }
-          - { label: "Altramuces",   value: "Altramuces" }
-          - { label: "Apio",         value: "Apio" }
-          - { label: "Cacahuetes",   value: "Cacahuetes" }
-          - { label: "Crustáceos",   value: "Crustáceos" }
-          - { label: "Frutos secos", value: "Frutos secos" }
-          - { label: "Sésamo",       value: "Sésamo" }
-          - { label: "Huevos",       value: "Huevos" }
-          - { label: "Lácteos",      value: "Lácteos" }
-          - { label: "Moluscos",     value: "Moluscos" }
-          - { label: "Mostaza",      value: "Mostaza" }
-          - { label: "Pescado",      value: "Pescado" }
-          - { label: "Soja",         value: "Soja" }
-          - { label: "Sulfitos",     value: "Sulfitos" }
+      - { label: "Nombre (ES)", name: "name_es", widget: "string" }
+      - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
+      - { label: "Nombre (EN)", name: "name_en", widget: "string" }
+      - { label: "Nombre (FR)", name: "name_fr", widget: "string" }
+      - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
+      - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
+      - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
+      - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
 
+  # ─── CHEF ─────────────────────────────────────────────────────────────────
   - name: "chef"
     label: "👨‍🍳 El Chef"
     files:
@@ -340,6 +259,9 @@ collections:
           - { label: "Biografía (FR)", name: "bio_fr", widget: "text" }
           - { label: "Cita (ES)", name: "quote_es", widget: "string" }
           - { label: "Cita (EN)", name: "quote_en", widget: "string" }
+          - { label: "Años en cocina (stat)", name: "stat_years", widget: "number", default: 22, hint: "Aparece en la sección de stats entre galería y chef" }
+          - { label: "Años en Japón (stat)", name: "stat_japan", widget: "number", default: 3 }
+          - { label: "Estrellas Michelin (stat)", name: "stat_stars", widget: "number", default: 2 }
           - name: "milestones"
             label: "Hitos de carrera"
             widget: "list"
@@ -348,34 +270,25 @@ collections:
               - { label: "Texto (ES)", name: "text_es", widget: "string" }
               - { label: "Texto (EN)", name: "text_en", widget: "string" }
 
+  # ─── OMAKASE ──────────────────────────────────────────────────────────────
   - name: "omakase"
     label: "🍱 Menú Omakase"
     files:
       - name: "omakase_content"
-        label: "Menú Degustación"
+        label: "Menú Degustación (2 versiones)"
         file: "data/omakase/content.json"
         fields:
-          - { label: "Precio (sin sake)", name: "price", widget: "string" }
-          - { label: "Precio (con sake)", name: "price_sake", widget: "string" }
-          - { label: "Número de pases", name: "pases", widget: "string" }
-          - { label: "Duración (ES)", name: "duracion_es", widget: "string" }
-          - { label: "Duración (EN)", name: "duracion_en", widget: "string" }
+          - { label: "Precio Menú Kuro (sin sake)", name: "price_kuro", widget: "string", default: "145€" }
+          - { label: "Precio Menú Omakase (con sake)", name: "price_omakase", widget: "string", default: "210€" }
+          - { label: "Pases Menú Kuro", name: "pases_kuro", widget: "number", default: 12 }
+          - { label: "Pases Menú Omakase", name: "pases_omakase", widget: "number", default: 18 }
           - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
           - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-          - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
-          - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
-          - name: "includes_es"
-            label: "Incluye (ES)"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - name: "includes_en"
-            label: "Incluye (EN)"
-            widget: "list"
-            field: { label: "Item", name: "item", widget: "string" }
-          - { label: "Nota (ES)", name: "note_es", widget: "string" }
-          - { label: "Nota (EN)", name: "note_en", widget: "string" }
-          - { label: "Imagen", name: "img", widget: "image" }
+          - { label: "Nota importante (ES)", name: "note_es", widget: "string", default: "Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar." }
+          - { label: "Nota importante (EN)", name: "note_en", widget: "string" }
+          - { label: "Imagen del menú", name: "img", widget: "image" }
 
+  # ─── EVENTOS ──────────────────────────────────────────────────────────────
   - name: "eventos"
     label: "🎭 Eventos & Sala Privada"
     files:
@@ -383,43 +296,68 @@ collections:
         label: "Experiencias Exclusivas"
         file: "data/eventos/content.json"
         fields:
-          - { label: "Título sección (ES)", name: "title_es", widget: "string" }
-          - { label: "Título sección (EN)", name: "title_en", widget: "string" }
-          - { label: "Imagen principal", name: "img_main", widget: "image" }
-          - name: "eventos"
-            label: "Eventos"
+          - label: "Eventos"
+            name: "eventos"
             widget: "list"
             fields:
               - { label: "Icono (kanji)", name: "icon", widget: "string" }
               - { label: "Título (ES)", name: "title_es", widget: "string" }
               - { label: "Título (EN)", name: "title_en", widget: "string" }
+              - { label: "Título (CA)", name: "title_ca", widget: "string" }
+              - { label: "Título (FR)", name: "title_fr", widget: "string" }
               - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
               - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
               - { label: "Precio (ES)", name: "price_es", widget: "string" }
               - { label: "Precio (EN)", name: "price_en", widget: "string" }
               - { label: "Imagen", name: "img", widget: "image" }
 
+  # ─── BLOG ─────────────────────────────────────────────────────────────────
   - name: "blog"
     label: "📝 Blog / Diario de Kuro"
     files:
       - name: "blog_posts"
-        label: "Artículos"
+        label: "Artículos del blog"
         file: "data/blog/posts.json"
         fields:
           - name: "posts"
             label: "Artículos"
             widget: "list"
             fields:
-              - { label: "ID / Slug", name: "slug", widget: "string" }
-              - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
-              - { label: "Imagen", name: "img", widget: "image" }
+              - { label: "ID / Slug", name: "slug", widget: "string", hint: "URL amigable, sin espacios ni acentos" }
+              - { label: "Fecha de publicación", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Imagen de portada", name: "img", widget: "image" }
               - { label: "Categoría (ES)", name: "category_es", widget: "string" }
               - { label: "Categoría (EN)", name: "category_en", widget: "string" }
+              - { label: "Categoría (CA)", name: "category_ca", widget: "string" }
+              - { label: "Categoría (FR)", name: "category_fr", widget: "string" }
               - { label: "Título (ES)", name: "title_es", widget: "string" }
               - { label: "Título (EN)", name: "title_en", widget: "string" }
               - { label: "Título (CA)", name: "title_ca", widget: "string" }
               - { label: "Título (FR)", name: "title_fr", widget: "string" }
-              - { label: "Extracto (ES)", name: "excerpt_es", widget: "text" }
-              - { label: "Extracto (EN)", name: "excerpt_en", widget: "text" }
-              - { label: "Artículo completo (ES)", name: "body_es", widget: "text" }
+              - { label: "Extracto breve (ES)", name: "excerpt_es", widget: "text", hint: "2-3 frases que aparecen en la card del blog" }
+              - { label: "Extracto breve (EN)", name: "excerpt_en", widget: "text" }
+              - { label: "Extracto breve (CA)", name: "excerpt_ca", widget: "text" }
+              - { label: "Extracto breve (FR)", name: "excerpt_fr", widget: "text" }
+              - label: "Cita destacada (ES)"
+                name: "pull_es"
+                widget: "string"
+                required: false
+                hint: "Aparece en rojo grande dentro del artículo. Ej: «La perfección no existe...»"
+              - { label: "Cita destacada (EN)", name: "pull_en", widget: "string", required: false }
+              - label: "Artículo completo (ES)"
+                name: "body_es"
+                widget: "text"
+                hint: |
+                  Usa ## para subtítulos (## Mi subtítulo)
+                  Usa > para citas (> Texto de la cita)
+                  Separa párrafos con línea en blanco
               - { label: "Artículo completo (EN)", name: "body_en", widget: "text" }
+              - label: "Imágenes internas del artículo"
+                name: "imgs"
+                widget: "list"
+                required: false
+                hint: "Se muestran como grid de 2 fotos dentro del artículo"
+                fields:
+                  - { label: "Imagen", name: "src", widget: "image" }
+                  - { label: "Alt text (ES)", name: "alt_es", widget: "string" }
+                  - { label: "Alt text (EN)", name: "alt_en", widget: "string" }

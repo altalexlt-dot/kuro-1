@@ -22,14 +22,6 @@
   <link rel="alternate" hreflang="fr" href="https://www.kuro-tarragona.com/?lang=fr"/>
   <link rel="alternate" hreflang="x-default" href="https://www.kuro-tarragona.com/"/>
 
-  <!-- ═══ OPEN GRAPH ══════════════════════════════════════════════════════ -->
-  <meta property="og:type" content="restaurant"/>
-  <meta property="og:title" content="Kuro 黑 | Alta Cocina Japonesa · 2 Estrellas Michelin · Tarragona"/>
-  <meta property="og:description" content="Una ceremonia gastronómica de 18 pases para solo 12 comensales. Descubre el mejor sushi Omakase de Tarragona."/>
-  <meta property="og:url" content="https://www.kuro-tarragona.com/"/>
-  <meta property="og:image" content="https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=1200&auto=format&fit=crop"/>
-  <meta property="og:site_name" content="Kuro 黑 Tarragona"/>
-
   <!-- ═══ SCHEMA.ORG (JSON-LD) ════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
@@ -80,8 +72,10 @@
   })();
   </script>
 
+  <!-- ═══ LIBRERÍAS (GSAP Y LENIS) ════════════════════════════════════════ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
   <style>
     /* ═══════════════════════════════════════════════════════════════
@@ -184,9 +178,6 @@
     .about__img-main:hover img { transform: scale(1.03); }
     .about__img-sub { position: absolute; bottom: 0; right: 0; width: 50%; aspect-ratio: 1/1; overflow: hidden; border: 1px solid var(--border-hi); box-shadow: -15px -15px 40px rgba(5,5,5,0.9); z-index: 2; }
     .about__img-sub img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9) contrast(1.1); }
-    .about__pill { position: absolute; top: 2rem; left: -2rem; background: var(--surface-hi); border: 1px solid var(--border-hi); padding: 1rem 1.4rem; display: flex; flex-direction: column; gap: 0.2rem; backdrop-filter: blur(8px); z-index: 3; }
-    .about__pill-num { font-family: var(--f-display); font-size: 1.5rem; color: var(--cream); }
-    .about__pill-label { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ash-dim); }
     .about__text { position: relative; z-index: 2; }
     .about__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; opacity: 0; transform: translateY(20px); }
     .about__heading { font-family: var(--f-display); font-size: clamp(2.5rem,4.5vw,4.5rem); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 3rem; }
@@ -195,7 +186,7 @@
     .about__heading em { font-style: italic; color: var(--ash); }
     .about__body-wrap { display: flex; flex-direction: column; gap: 1.5rem; border-left: 2px solid var(--red); padding-left: 1.8rem; margin-bottom: 3.5rem; opacity: 0; transform: translateY(20px); }
     .about__body { font-family: var(--f-serif); font-size: clamp(1.05rem,1.2vw,1.15rem); font-weight: 200; line-height: 1.8; color: var(--ash); margin: 0; }
-    @media(max-width:900px) { .about { grid-template-columns:1fr; gap: 4rem; } .about__visual { width: 90%; padding-right:0; padding-bottom:4rem; } .about__img-main{width:100%;} .about__img-sub{width:60%; right:-10%; bottom:-5%;} .about__pill{left:-1rem; top:-1rem;} }
+    @media(max-width:900px) { .about { grid-template-columns:1fr; gap: 4rem; } .about__visual { width: 90%; padding-right:0; padding-bottom:4rem; } .about__img-main{width:100%;} .about__img-sub{width:60%; right:-10%; bottom:-5%;} }
 
     /* HZ MENU SHOWCASE */
     .hz-section { position: relative; background: var(--bg-raised); overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -230,35 +221,17 @@
     .menu__btn:hover .btn-bg { transform: translateY(0); }
     .menu__btn:hover { border-color: var(--red); }
     .menu__btn .btn-text { position: relative; z-index: 1; }
+    
+    /* BOTÓN PDF PORTADA */
     .pdf-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--cream); border: 1px solid var(--border-hi); padding: 1rem 2rem; transition: all 0.4s; position: relative; overflow: hidden; cursor: none; background: transparent; margin-top: 1.2rem; }
     .pdf-btn .btn-bg { position: absolute; inset: 0; background: var(--red); transform: translateY(101%); transition: transform 0.45s var(--ease-expo); }
     .pdf-btn:hover .btn-bg { transform: translateY(0); }
     .pdf-btn .btn-text, .pdf-btn svg { position: relative; z-index: 1; }
+    
     @media(max-width: 900px) { .hz-card { flex-direction: column; gap: 2rem; padding: 4rem var(--pad-x); height: auto; min-height: 100vh;} .hz-card__img { width: 100%; height: 45vh; } .hz-card__content { width: 100%; text-align: center; align-items: center; } .hz-card__num { display: none; } .hz-card--cta { flex-direction: column-reverse; text-align: center; } .cta-content { align-items: center; } .cta-desc { text-align: center; } .cta-visual { width: 100%; max-width: none; height: 40vh; aspect-ratio: auto; margin-bottom: 2rem; } }
 
-    /* GALLERY */
-    .gallery { padding: var(--pad-y) 0 calc(var(--pad-y) * 0.4); overflow: hidden; }
-    .gallery__hd { padding: 0 var(--pad-x); max-width: var(--max-w); margin: 0 auto 4rem; display: flex; align-items: flex-end; justify-content: space-between; }
-    .gallery__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; opacity: 0; transform: translateY(15px); }
-    .gallery__heading { font-family: var(--f-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; line-height: 1.0; opacity: 0; transform: translateY(20px); }
-    .gallery__heading em { font-style: italic; color: var(--ash); }
-    .gallery__count { font-family: var(--f-display); font-size: 3.5rem; color: var(--border-hi); line-height: 1; opacity: 0; }
-    .gallery__strip { display: flex; gap: 1.2rem; padding: 0 var(--pad-x) 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; user-select: none; }
-    .gallery__strip:active { cursor: grabbing; }
-    .gallery__strip::-webkit-scrollbar { display: none; }
-    .gallery__cell { flex: 0 0 auto; scroll-snap-align: start; overflow: hidden; position: relative; }
-    .gallery__cell:nth-child(1) { width:clamp(220px,26vw,400px); aspect-ratio:3/4; }
-    .gallery__cell:nth-child(2) { width:clamp(320px,42vw,620px); aspect-ratio:16/9; align-self:center; }
-    .gallery__cell:nth-child(3) { width:clamp(200px,22vw,340px); aspect-ratio:2/3; }
-    .gallery__cell:nth-child(4) { width:clamp(280px,34vw,500px); aspect-ratio:4/3; align-self:flex-end; }
-    .gallery__cell:nth-child(5) { width:clamp(220px,26vw,380px); aspect-ratio:3/4; }
-    .gallery__cell img { width:100%; height:100%; object-fit:cover; transform:scale(1.1); transition:transform 1s var(--ease-expo), filter 0.8s; filter: brightness(0.65) contrast(1.1); }
-    .gallery__cell:hover img { transform:scale(1.02); filter:brightness(0.9); }
-    .gallery__cell-cap { position: absolute; bottom: 1rem; left: 1rem; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(237,233,226,0.6); z-index: 2; transition: color 0.3s; }
-    .gallery__cell:hover .gallery__cell-cap { color: rgba(237,233,226,0.9); }
-
-    /* PARALLAX BREAK & STATS (Reemplaza espacio vacío) */
-    .vb-parallax { position: relative; height: 60vh; min-height: 500px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    /* PARALLAX BREAK & STATS */
+    .vb-parallax { position: relative; height: 60vh; min-height: 500px; overflow: hidden; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 4rem 0;}
     .vb-parallax__img { position: absolute; inset: -15%; }
     .vb-parallax__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.25) contrast(1.2); }
     .vb-parallax__overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, var(--bg) 0%, transparent 20%, transparent 80%, var(--bg) 100%); }
@@ -287,6 +260,27 @@
     .equipo-card__name { font-family: var(--f-display); font-size: 1.8rem; font-weight: 300; color: var(--cream); margin-bottom: 0.8rem; }
     .equipo-card__bio { font-family: var(--f-serif); font-size: 0.95rem; color: var(--ash); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
+    /* GALLERY */
+    .gallery { padding: var(--pad-y) 0 calc(var(--pad-y) * 0.4); overflow: hidden; }
+    .gallery__hd { padding: 0 var(--pad-x); max-width: var(--max-w); margin: 0 auto 4rem; display: flex; align-items: flex-end; justify-content: space-between; }
+    .gallery__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; opacity: 0; transform: translateY(15px); }
+    .gallery__heading { font-family: var(--f-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; line-height: 1.0; opacity: 0; transform: translateY(20px); }
+    .gallery__heading em { font-style: italic; color: var(--ash); }
+    .gallery__count { font-family: var(--f-display); font-size: 3.5rem; color: var(--border-hi); line-height: 1; opacity: 0; }
+    .gallery__strip { display: flex; gap: 1.2rem; padding: 0 var(--pad-x) 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; cursor: grab; user-select: none; }
+    .gallery__strip:active { cursor: grabbing; }
+    .gallery__strip::-webkit-scrollbar { display: none; }
+    .gallery__cell { flex: 0 0 auto; scroll-snap-align: start; overflow: hidden; position: relative; }
+    .gallery__cell:nth-child(1) { width:clamp(220px,26vw,400px); aspect-ratio:3/4; }
+    .gallery__cell:nth-child(2) { width:clamp(320px,42vw,620px); aspect-ratio:16/9; align-self:center; }
+    .gallery__cell:nth-child(3) { width:clamp(200px,22vw,340px); aspect-ratio:2/3; }
+    .gallery__cell:nth-child(4) { width:clamp(280px,34vw,500px); aspect-ratio:4/3; align-self:flex-end; }
+    .gallery__cell:nth-child(5) { width:clamp(220px,26vw,380px); aspect-ratio:3/4; }
+    .gallery__cell img { width:100%; height:100%; object-fit:cover; transform:scale(1.1); transition:transform 1s var(--ease-expo), filter 0.8s; filter: brightness(0.65) contrast(1.1); }
+    .gallery__cell:hover img { transform:scale(1.02); filter:brightness(0.9); }
+    .gallery__cell-cap { position: absolute; bottom: 1rem; left: 1rem; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(237,233,226,0.6); z-index: 2; transition: color 0.3s; }
+    .gallery__cell:hover .gallery__cell-cap { color: rgba(237,233,226,0.9); }
+
     /* OMAKASE */
     .omakase { position: relative; padding: var(--pad-y) var(--pad-x); background: var(--bg-raised); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; perspective: 1000px; }
     .omakase__ambient { position: absolute; top: -20%; left: -10%; width: 50%; height: 80%; background: radial-gradient(ellipse, rgba(193,18,31,0.05) 0%, transparent 65%); pointer-events: none; }
@@ -304,6 +298,10 @@
     .om-tab__price { font-family: var(--f-display); font-size: 1.5rem; }
     .om-tab--active .om-tab__label { color: var(--red); }
     .om-tab--active .om-tab__price { color: var(--cream); }
+    
+    /* ESCONDER OMAKASE CLASS */
+    .om-menu--hidden { display: none !important; }
+    
     .om-menu__header { display: flex; justify-content: space-between; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
     .om-menu__pases { font-family: var(--f-display); font-size: 1.1rem; color: var(--red); }
     .om-menu__info { font-family: var(--f-serif); font-style: italic; font-size: 0.85rem; color: var(--ash-dim); }
@@ -355,16 +353,18 @@
     .blog-card__date { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 0.8rem; }
     .blog-card__title { font-family: var(--f-display); font-size: 1.25rem; font-weight: 300; color: var(--cream); margin-bottom: 0.8rem; line-height: 1.2; }
     .blog-card__excerpt { font-family: var(--f-serif); font-size: 0.9rem; color: var(--ash); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-card__read { display: block; margin-top: 1.2rem; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); transition: transform 0.3s; }
+    .blog-card:hover .blog-card__read { transform: translateX(6px); }
     @media(max-width:900px) { .blog__grid { grid-template-columns: 1fr; } }
 
     /* REVIEWS SECTION */
     .reviews { padding: calc(var(--pad-y) * 0.4) var(--pad-x) var(--pad-y); max-width: var(--max-w); margin: 0 auto; }
     .reviews__hd { text-align: center; margin-bottom: 4rem; }
-    .reviews__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
-    .reviews__title { font-family: var(--f-display); font-size: clamp(2.5rem,5.5vw,4.5rem); font-weight: 300; }
+    .reviews__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; opacity: 0; transform: translateY(20px);}
+    .reviews__title { font-family: var(--f-display); font-size: clamp(2.5rem,5.5vw,4.5rem); font-weight: 300; opacity: 0; transform: translateY(20px);}
     .reviews__title em { font-style: italic; color: var(--ash); }
     .reviews__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; }
-    .review-card { padding: 2.5rem 2rem; border: 1px solid var(--border-hi); background: var(--bg-raised); position: relative; }
+    .review-card { padding: 2.5rem 2rem; border: 1px solid var(--border-hi); background: var(--bg-raised); position: relative; opacity: 0; transform: translateY(30px);}
     .review-card::before { content: '"'; position: absolute; top: 1rem; left: 1.5rem; font-family: var(--f-display); font-size: 5rem; color: var(--border); line-height: 1; pointer-events: none; }
     .review-card .stars { color: var(--red); font-size: 1rem; margin-bottom: 1.5rem; position: relative; z-index: 1; letter-spacing: 2px;}
     .review-card p { font-family: var(--f-serif); font-size: 1.1rem; color: var(--cream); font-style: italic; line-height: 1.8; margin-bottom: 1.5rem; position: relative; z-index: 1; }
@@ -709,8 +709,8 @@
           <span class="btn-bg"></span>
           <span class="btn-text" data-i18n="cBtn">Descubrir Menú</span>
         </a>
-        <button class="pdf-btn" id="pdf-btn" aria-label="Descargar carta en PDF">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17a4 4 0 0 1 4-4 4 4 0 0 1 8 0 4 4 0 0 1 4 4v1H3v-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <button class="pdf-btn" id="pdf-btn-index" aria-label="Descargar carta en PDF">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17a4 4 0 0 1 4-4 4 4 0 0 1 8 0 4 4 0 0 1 4 4v1H3v-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span class="btn-text" data-i18n="pdfBtn">Descargar Carta PDF</span>
         </button>
       </div>
@@ -725,7 +725,7 @@
   </div>
 </section>
 
-<!-- FUSIÓN: PARALLAX BREAK & ESTADÍSTICAS -->
+<!-- FUSIÓN: PARALLAX BREAK & ESTADÍSTICAS ANIMADAS -->
 <div class="vb-parallax" id="vb-parallax" aria-hidden="true">
   <div class="vb-parallax__img" id="vb-parallax-img">
     <img src="https://images.unsplash.com/photo-1615361200141-f45040f367be?q=85&w=1600&auto=format&fit=crop" alt="" loading="lazy"/>
@@ -736,15 +736,15 @@
     
     <div class="vb-parallax__stats">
       <div class="vb-stat" data-reveal>
-        <span class="vb-stat__num" id="stat-years-team">27</span>
+        <span class="vb-stat__num stat-number" data-target="27">0</span>
         <span class="vb-stat__label" data-i18n="vbS1">Años en cocina</span>
       </div>
       <div class="vb-stat" data-reveal>
-        <span class="vb-stat__num" id="stat-japan">10</span>
+        <span class="vb-stat__num stat-number" data-target="10">0</span>
         <span class="vb-stat__label" data-i18n="vbS2">Años en Japón</span>
       </div>
       <div class="vb-stat" data-reveal>
-        <span class="vb-stat__num" id="stat-stars">2<sup>★</sup></span>
+        <span class="vb-stat__num stat-number" data-target="2" data-suffix="<sup>★</sup>">0<sup>★</sup></span>
         <span class="vb-stat__label" data-i18n="vbS3">Estrellas Michelin</span>
       </div>
     </div>
@@ -843,14 +843,20 @@
           <li class="om-menu__item"><span class="om-menu__num">02</span><span class="om-menu__name">Ostra con granizado de ponzu</span><span class="om-menu__type" data-i18n="omTypeSnack">Aperitivo</span></li>
           <li class="om-menu__item"><span class="om-menu__num">03</span><span class="om-menu__name">Sashimi del día · lubina, atún, vieira</span><span class="om-menu__type" data-i18n="omTypeSashimi">Sashimi</span></li>
           <li class="om-menu__item"><span class="om-menu__num">04</span><span class="om-menu__name">Nigiri de ventresca de atún rojo</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">05</span><span class="om-menu__name">Nigiri de erizo de mar &amp; ikura</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">06</span><span class="om-menu__name">Uramaki de tempura de langostino</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">07</span><span class="om-menu__name">Special roll flambeado del chef</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">08</span><span class="om-menu__name">Tataki de wagyu A5 con salsa ponzu</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">09</span><span class="om-menu__name">Nigiri de foie flambeado con miso dulce</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">10</span><span class="om-menu__name">Nigiri de vieira con mantequilla tostada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">11</span><span class="om-menu__name">Temaki de cangrejo real</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
-          <li class="om-menu__item"><span class="om-menu__num">12</span><span class="om-menu__name">Mochi de té matcha &amp; yuzu</span><span class="om-menu__type" data-i18n="omTypeDessert">Postre</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">05</span><span class="om-menu__name">Nigiri de gamba roja flambeada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">06</span><span class="om-menu__name">Nigiri de erizo de mar &amp; ikura</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">07</span><span class="om-menu__name">Uramaki de tempura de langostino</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">08</span><span class="om-menu__name">Special roll flambeado del chef</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">09</span><span class="om-menu__name">Nigiri caliente de anguila kabayaki</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">10</span><span class="om-menu__name">Tataki de wagyu A5 con salsa ponzu</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">11</span><span class="om-menu__name">Gyoza de cerdo ibérico &amp; trufa</span><span class="om-menu__type" data-i18n="omTypeHot">Caliente</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">12</span><span class="om-menu__name">Nigiri de foie flambeado con miso dulce</span><span class="om-menu__type" data-i18n="omTypeSpecial">Especial</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">13</span><span class="om-menu__name">Nigiri de vieira con mantequilla tostada</span><span class="om-menu__type" data-i18n="omTypeNigiri">Nigiri</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">14</span><span class="om-menu__name">Temaki de cangrejo real</span><span class="om-menu__type" data-i18n="omTypeRoll">Roll</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">15</span><span class="om-menu__name">Miso negro con tofu ahumado &amp; dashi</span><span class="om-menu__type" data-i18n="omTypeSoup">Sopa</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">16</span><span class="om-menu__name">Mochi de té matcha &amp; yuzu</span><span class="om-menu__type" data-i18n="omTypeDessert">Postre</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">17</span><span class="om-menu__name">Helado de sésamo negro</span><span class="om-menu__type" data-i18n="omTypeDessert">Postre</span></li>
+          <li class="om-menu__item"><span class="om-menu__num">18</span><span class="om-menu__name">Ceremonia de té hojicha &amp; wagashi</span><span class="om-menu__type" data-i18n="omTypeTea">Cierre</span></li>
         </ul>
       </div>
 
@@ -1016,12 +1022,14 @@
 <!-- ═══ BLOG MODAL ════════════════════════════════════════════════════ -->
 <div class="blog-modal" id="blog-modal" role="dialog" aria-modal="true" aria-labelledby="bm-title">
   <button class="blog-modal__close" id="blog-modal-close" aria-label="Cerrar">×</button>
-  <div class="blog-modal__inner">
-    <p class="blog-modal__cat" id="bm-cat"></p>
-    <h2 class="blog-modal__title" id="bm-title"></h2>
-    <p class="blog-modal__date" id="bm-date"></p>
-    <div class="blog-modal__img"><img id="bm-img" src="" alt=""/></div>
-    <div class="blog-modal__body" id="bm-body"></div>
+  <div class="blog-modal__scroll" id="blog-modal-scroll">
+    <div class="blog-modal__inner">
+      <p class="blog-modal__cat" id="bm-cat"></p>
+      <h2 class="blog-modal__title" id="bm-title"></h2>
+      <p class="blog-modal__date" id="bm-date"></p>
+      <div class="blog-modal__img"><img id="bm-img" src="" alt=""/></div>
+      <div class="blog-modal__body" id="bm-body"></div>
+    </div>
   </div>
 </div>
 
@@ -1101,8 +1109,6 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
 <script>
 (function(){
 'use strict';
@@ -1127,7 +1133,7 @@ const i18n = {
     ftNewsTitle:"Diario de Kuro", ftNewsDesc:"Suscríbete para recibir acceso prioritario a nuevas temporadas y eventos exclusivos.",
     ftDesc:"Fine Dining Japonés en el corazón del Mediterráneo. Tarragona, España.", ftR:"Restaurante", ftH:"Nuestra Historia", ftC:"El Equipo", ftS:"Sala Privada", ftP:"Prensa", ftM:"Menú", ftHours:"Horarios", ftDays:"Mar - Sáb:", ftClosed:"Dom y Lun: Cerrado", ftCo:"Ubicación & Contacto", ftMap:"Cómo llegar", ftCopy:"© 2026 Kuro 黑 Tarragona · Todos los derechos reservados", ftLeg1:"Aviso Legal", ftLeg2:"Privacidad", ftLeg3:"Cookies",
     teamTag:"Los Creadores", teamT1:"El", teamT2:"Equipo",
-    omTag:'Menú Degustación', omT1:'Omakase', omT2:'Experience', omMenuKuro:'Menú Kuro', omMenuFull:'Menú Omakase', omPases:'pases', omPerPerson:'por persona', omPerPersonSake:'por persona · maridaje sake incluido', omBtn:'Reservar Experiencia', omNote:'Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar.',
+    omTag:'Menú Degustación', omT1:'Omakase', omT2:'Experience', omMenuKuro:'Menú Kuro', omMenuFull:'Menú Omakase', omPases:'pases', omPerPerson:'por persona', omPerPersonSake:'por persona · maridaje sake incluido', omBtn:'Reservar Experiència', omNote:'Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar.',
     omTypeSoup:'Bienvenida', omTypeSashimi:'Sashimi', omTypeNigiri:'Nigiri', omTypeRoll:'Roll', omTypeHot:'Caliente', omTypeSpecial:'Especial', omTypeDessert:'Postre', omTypeTea:'Cierre', omTypeSnack:'Aperitivo',
     evTag:'Experiencias Exclusivas', evT1:'Más allá', evT2:'de la carta', ev1Title:'Sala Privada', ev1Desc:'Un espacio íntimo para hasta 8 comensales. Menú omakase exclusivo diseñado para la ocasión, con maridaje de sake premium y atención personalizada.', ev1Price:'Desde 180€ por persona', ev2Title:'Cenas de Empresa', ev2Desc:'Impresiona a tus clientes o celebra con tu equipo en un entorno único. Adaptamos el menú y la experiencia a las necesidades de tu empresa.', ev2Price:'Presupuesto personalizado', ev3Title:'Celebraciones', ev3Desc:'Cumpleaños, aniversarios, pedidas de mano. Hacemos que el momento sea irrepetible con detalles que solo Kuro puede ofrecer.', ev3Price:'Consultar disponibilidad',
     blTag:'Noticias & Cultura', blT1:'Diario', blT2:'de Kuro',
@@ -1406,8 +1412,9 @@ function applyLang() {
     }
     const sy = document.getElementById('stat-years-team');
     const sj = document.getElementById('stat-japan');
-    if(sy) sy.textContent = eq.stat_years || 27;
-    if(sj) sj.textContent = eq.stat_japan || 10;
+    // Para que GSAP anime los contadores, actualizamos el data-target en lugar del texto directo
+    if(sy) sy.setAttribute('data-target', eq.stat_years || 27);
+    if(sj) sj.setAttribute('data-target', eq.stat_japan || 10);
   }
 
   // Omakase
@@ -1505,7 +1512,7 @@ window.openBlogModal = function(idx) {
   
   // Render Body
   const raw = p['body_'+l] || p.body_es || '';
-  const imgs2 = p['imgs_'+l] || p.imgs || [];
+  const imgs2 = p['imgs_'+l] || p.imgs ||[];
   const pull = p['pull_'+l] || p.pull_es || '';
   const blocks = raw.split(/\n\n+/);
   let html = ''; let imgInserted = false;
@@ -1528,7 +1535,8 @@ window.openBlogModal = function(idx) {
   
   const modal = document.getElementById('blog-modal');
   openModal(modal);
-  modal.scrollTop = 0; // Reset scroll inside modal
+  const scrollContainer = document.getElementById('blog-modal-scroll');
+  if(scrollContainer) scrollContainer.scrollTop = 0; 
 };
 document.getElementById('blog-modal-close').addEventListener('click', () => closeModal(document.getElementById('blog-modal')));
 
@@ -1568,6 +1576,27 @@ function initAnimations() {
   document.querySelectorAll('[data-reveal]').forEach((el, i) => reveal(el, i * 0.05));
   document.querySelectorAll('.about__heading .line-inner, .reviews__title, .booking__heading .line-inner, .equipo__title, .omakase__title, .eventos__title, .blog__title').forEach((el, i) => {
     gsap.fromTo(el, { y:'105%' }, { y:'0%', duration:1.2, ease:'expo.out', scrollTrigger: { trigger: el.closest('h2'), start:'top 90%', toggleActions:'play none none none' } });
+  });
+
+  // Animación del contador de números (27 Años, 10 Años)
+  gsap.utils.toArray('.stat-number').forEach(el => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        const target = parseInt(el.getAttribute('data-target')) || 0;
+        const suffix = el.getAttribute('data-suffix') || '';
+        gsap.to({val: 0}, {
+          val: target,
+          duration: 2.5,
+          ease: 'power3.out',
+          onUpdate: function() {
+            el.innerHTML = Math.floor(this.targets()[0].val) + suffix;
+          }
+        });
+      }
+    });
   });
 
   if (!prefersReducedMotion) {
@@ -1648,8 +1677,8 @@ document.querySelectorAll('#popup-close, #popup-skip, #popup-book-btn').forEach(
 if (!localStorage.getItem('kuroCookies')) setTimeout(() => document.getElementById('cookie-banner').classList.add('visible'), 2000);
 document.getElementById('accept-cookies').addEventListener('click', () => { localStorage.setItem('kuroCookies', '1'); document.getElementById('cookie-banner').classList.remove('visible'); });
 
-// Redirect PDF
-document.getElementById('pdf-btn').addEventListener('click', () => { window.location.href = "carta.html"; });
+// Redirect PDF de la Portada -> Lleva a carta.html donde se genera el PDF de verdad
+document.getElementById('pdf-btn-index').addEventListener('click', () => { window.location.href = "carta.html"; });
 
 // Gallery Lightbox
 let currentIdx = 0;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Términos Legales — Kuro 黑</title>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syne:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0A0A0A; --cream: #EDE9E2; --ash: #9A9A9A; --red: #C1121F;
+      --f-display: 'Cinzel', serif; --f-serif: 'Cormorant Garamond', serif; --f-sans: 'Syne', sans-serif;
+    }
+    body { background: var(--bg); color: var(--cream); font-family: var(--f-sans); margin: 0; padding: 6rem 2rem; line-height: 1.6; }
+    .container { max-width: 800px; margin: 0 auto; }
+    h1 { font-family: var(--f-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; color: var(--cream); margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; }
+    .content { font-family: var(--f-serif); font-size: 1.2rem; color: var(--ash); white-space: pre-wrap; line-height: 1.8; }
+    .content h2 { font-family: var(--f-display); color: var(--cream); margin-top: 2.5rem; font-size: 1.8rem; font-weight: 300; }
+    .nav__back { font-family: var(--f-sans); font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 3rem; transition: color 0.3s; }
+    .nav__back:hover { color: var(--cream); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" class="nav__back">← Volver al inicio</a>
+    <h1 id="legal-title">Cargando...</h1>
+    <div id="legal-content" class="content"></div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('p') || 'aviso-legal';
+    fetch(`data/legal/${slug}.json`)
+      .then(r => r.json())
+      .then(data => {
+        document.getElementById('legal-title').textContent = data.title;
+        document.getElementById('legal-content').innerHTML = data.content;
+        document.title = data.title + " — Kuro 黑";
+      })
+      .catch(() => {
+        document.getElementById('legal-title').textContent = "Documento no encontrado";
+      });
+  </script>
+</body>
+</html>

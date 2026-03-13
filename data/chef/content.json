@@ -1,0 +1,23 @@
+{
+  "name": "Takashi Mori",
+  "role_es": "Chef Ejecutivo & Fundador",
+  "role_ca": "Xef Executiu & Fundador",
+  "role_en": "Executive Chef & Founder",
+  "role_fr": "Chef Exécutif & Fondateur",
+  "img_main": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=85&w=900&auto=format&fit=crop",
+  "img_action": "https://images.unsplash.com/photo-1560963689-b5682b6440f8?q=85&w=900&auto=format&fit=crop",
+  "img_portrait": "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=85&w=600&auto=format&fit=crop",
+  "bio_es": "Nacido en Osaka en 1981, Takashi Mori descubrió su vocación entre los mercados de pescado del puerto de Tarragona. Formado durante una década en los mejores restaurantes de Tokio y Kioto, regresó al Mediterráneo con una misión: fundir la precisión del washoku con la generosidad del producto local.",
+  "bio_ca": "Nascut a Osaka el 1981, Takashi Mori va descobrir la seva vocació entre els mercats de peix del port de Tarragona. Format durant una dècada als millors restaurants de Tòquio i Kyoto, va tornar a la Mediterrània amb una missió: fusionar la precisió del washoku amb la generositat del producte local.",
+  "bio_en": "Born in Osaka in 1981, Takashi Mori discovered his vocation among the fish markets of Tarragona's port. Trained for a decade in the finest restaurants of Tokyo and Kyoto, he returned to the Mediterranean with a mission: to merge the precision of washoku with the generosity of local produce.",
+  "bio_fr": "Né à Osaka en 1981, Takashi Mori a découvert sa vocation parmi les marchés aux poissons du port de Tarragone. Formé pendant une décennie dans les meilleurs restaurants de Tokyo et Kyoto, il est revenu en Méditerranée avec une mission : fusionner la précision du washoku avec la générosité des produits locaux.",
+  "quote_es": "No cocino para impresionar. Cocino para que el comensal entienda algo que no sabía que sentía.",
+  "quote_en": "I don't cook to impress. I cook so the diner understands something they didn't know they felt.",
+  "milestones": [
+    { "year": "1999", "text_es": "Inicio en el restaurante Kikunoi, Kioto", "text_en": "Started at Kikunoi restaurant, Kyoto" },
+    { "year": "2005", "text_es": "Sous-chef en Sukiyabashi Jiro, Tokio", "text_en": "Sous-chef at Sukiyabashi Jiro, Tokyo" },
+    { "year": "2010", "text_es": "Apertura de Kuro 黑 en Tarragona", "text_en": "Opening of Kuro 黑 in Tarragona" },
+    { "year": "2018", "text_es": "Primera Estrella Michelin", "text_en": "First Michelin Star" },
+    { "year": "2022", "text_es": "Segunda Estrella Michelin", "text_en": "Second Michelin Star" }
+  ]
+}

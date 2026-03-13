@@ -318,3 +318,108 @@ collections:
           - { label: "Pescado",      value: "Pescado" }
           - { label: "Soja",         value: "Soja" }
           - { label: "Sulfitos",     value: "Sulfitos" }
+
+  - name: "chef"
+    label: "👨‍🍳 El Chef"
+    files:
+      - name: "chef_content"
+        label: "Datos del Chef"
+        file: "data/chef/content.json"
+        fields:
+          - { label: "Nombre", name: "name", widget: "string" }
+          - { label: "Rol (ES)", name: "role_es", widget: "string" }
+          - { label: "Rol (EN)", name: "role_en", widget: "string" }
+          - { label: "Rol (CA)", name: "role_ca", widget: "string" }
+          - { label: "Rol (FR)", name: "role_fr", widget: "string" }
+          - { label: "Foto principal", name: "img_main", widget: "image" }
+          - { label: "Foto en acción", name: "img_action", widget: "image" }
+          - { label: "Foto retrato", name: "img_portrait", widget: "image" }
+          - { label: "Biografía (ES)", name: "bio_es", widget: "text" }
+          - { label: "Biografía (EN)", name: "bio_en", widget: "text" }
+          - { label: "Biografía (CA)", name: "bio_ca", widget: "text" }
+          - { label: "Biografía (FR)", name: "bio_fr", widget: "text" }
+          - { label: "Cita (ES)", name: "quote_es", widget: "string" }
+          - { label: "Cita (EN)", name: "quote_en", widget: "string" }
+          - name: "milestones"
+            label: "Hitos de carrera"
+            widget: "list"
+            fields:
+              - { label: "Año", name: "year", widget: "string" }
+              - { label: "Texto (ES)", name: "text_es", widget: "string" }
+              - { label: "Texto (EN)", name: "text_en", widget: "string" }
+
+  - name: "omakase"
+    label: "🍱 Menú Omakase"
+    files:
+      - name: "omakase_content"
+        label: "Menú Degustación"
+        file: "data/omakase/content.json"
+        fields:
+          - { label: "Precio (sin sake)", name: "price", widget: "string" }
+          - { label: "Precio (con sake)", name: "price_sake", widget: "string" }
+          - { label: "Número de pases", name: "pases", widget: "string" }
+          - { label: "Duración (ES)", name: "duracion_es", widget: "string" }
+          - { label: "Duración (EN)", name: "duracion_en", widget: "string" }
+          - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
+          - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
+          - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
+          - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
+          - name: "includes_es"
+            label: "Incluye (ES)"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - name: "includes_en"
+            label: "Incluye (EN)"
+            widget: "list"
+            field: { label: "Item", name: "item", widget: "string" }
+          - { label: "Nota (ES)", name: "note_es", widget: "string" }
+          - { label: "Nota (EN)", name: "note_en", widget: "string" }
+          - { label: "Imagen", name: "img", widget: "image" }
+
+  - name: "eventos"
+    label: "🎭 Eventos & Sala Privada"
+    files:
+      - name: "eventos_content"
+        label: "Experiencias Exclusivas"
+        file: "data/eventos/content.json"
+        fields:
+          - { label: "Título sección (ES)", name: "title_es", widget: "string" }
+          - { label: "Título sección (EN)", name: "title_en", widget: "string" }
+          - { label: "Imagen principal", name: "img_main", widget: "image" }
+          - name: "eventos"
+            label: "Eventos"
+            widget: "list"
+            fields:
+              - { label: "Icono (kanji)", name: "icon", widget: "string" }
+              - { label: "Título (ES)", name: "title_es", widget: "string" }
+              - { label: "Título (EN)", name: "title_en", widget: "string" }
+              - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
+              - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
+              - { label: "Precio (ES)", name: "price_es", widget: "string" }
+              - { label: "Precio (EN)", name: "price_en", widget: "string" }
+              - { label: "Imagen", name: "img", widget: "image" }
+
+  - name: "blog"
+    label: "📝 Blog / Diario de Kuro"
+    files:
+      - name: "blog_posts"
+        label: "Artículos"
+        file: "data/blog/posts.json"
+        fields:
+          - name: "posts"
+            label: "Artículos"
+            widget: "list"
+            fields:
+              - { label: "ID / Slug", name: "slug", widget: "string" }
+              - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Imagen", name: "img", widget: "image" }
+              - { label: "Categoría (ES)", name: "category_es", widget: "string" }
+              - { label: "Categoría (EN)", name: "category_en", widget: "string" }
+              - { label: "Título (ES)", name: "title_es", widget: "string" }
+              - { label: "Título (EN)", name: "title_en", widget: "string" }
+              - { label: "Título (CA)", name: "title_ca", widget: "string" }
+              - { label: "Título (FR)", name: "title_fr", widget: "string" }
+              - { label: "Extracto (ES)", name: "excerpt_es", widget: "text" }
+              - { label: "Extracto (EN)", name: "excerpt_en", widget: "text" }
+              - { label: "Artículo completo (ES)", name: "body_es", widget: "text" }
+              - { label: "Artículo completo (EN)", name: "body_en", widget: "text" }

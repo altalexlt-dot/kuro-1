@@ -1,0 +1,7 @@
+# Kuro 黑 — Fine Dining Japonés Tarragona
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /data/
+
+Sitemap: https://www.kuro-tarragona.com/sitemap.xml

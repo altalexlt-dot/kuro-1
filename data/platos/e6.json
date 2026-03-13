@@ -1,0 +1,59 @@
+{
+  "id": "e6",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=85&w=800",
+  "price": "7,00€",
+  "name": {
+    "es": "Gyozas crujientes pollo y verdura",
+    "ca": "Gyozes cruixents pollastre i verdura",
+    "en": "Crispy Chicken & Veg Gyozas",
+    "fr": "Gyozas croustillants poulet/légumes"
+  },
+  "desc": {
+    "es": "Rellena de verdura y pollo con salsa (6 uds)",
+    "ca": "Farcida de verdura i pollastre (6 uts)",
+    "en": "Stuffed with chicken and veg (6 pcs)",
+    "fr": "Farcis au poulet et légumes (6 pcs)"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Masa trigo",
+        "ca": "Massa",
+        "en": "Wheat dough",
+        "fr": "Pâte"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Pollo picado",
+        "ca": "Pollastre",
+        "en": "Minced chicken",
+        "fr": "Poulet haché"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Salsa Gyoza",
+        "ca": "Salsa Gyoza",
+        "en": "Gyoza Sauce",
+        "fr": "Sauce Gyoza"
+      },
+      "q": "15ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 290,
+    "pr": 16,
+    "cb": 30,
+    "ft": 12
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Sésamo"
+  ]
+}

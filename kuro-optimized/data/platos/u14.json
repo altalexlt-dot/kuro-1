@@ -1,0 +1,50 @@
+{
+  "id": "u14",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "11,00€",
+  "name": {
+    "es": "Tori teriyaki roll (8 uds)",
+    "ca": "Tori teriyaki roll (8 uts)",
+    "en": "Tori teriyaki roll (8 pcs)",
+    "fr": "Tori teriyaki roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Pollo, aguacate, quinoa, salsa curry, teriyaki, cebolla",
+    "ca": "Pollastre, alvocat, quinoa, curry, teriyaki, ceba",
+    "en": "Chicken, avocado, quinoa, curry sauce, teriyaki, onion",
+    "fr": "Poulet, avocat, quinoa, sauce curry, teriyaki, oignon"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Pollo crujiente",
+        "ca": "Pollastre",
+        "en": "Crispy chicken",
+        "fr": "Poulet croustillant"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Curry & Teriyaki",
+        "ca": "Curry & Teriyaki",
+        "en": "Curry & Teriyaki",
+        "fr": "Curry & Teriyaki"
+      },
+      "q": "25ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 460,
+    "pr": 18,
+    "cb": 60,
+    "ft": 14
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Sésamo"
+  ]
+}

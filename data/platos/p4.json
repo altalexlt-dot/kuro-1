@@ -1,0 +1,49 @@
+{
+  "id": "p4",
+  "cat": "Postres",
+  "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=85&w=800",
+  "price": "6,00€",
+  "name": {
+    "es": "Pastel de limón",
+    "ca": "Pastís de llimona",
+    "en": "Lemon cake",
+    "fr": "Gâteau au citron"
+  },
+  "desc": {
+    "es": "Tarta cítrica japonesa con galleta y merengue",
+    "ca": "Pastís cítric japonès amb galeta i merenga",
+    "en": "Japanese citrus tart with cookie and meringue",
+    "fr": "Tarte aux agrumes japonaise avec biscuit et meringue"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Crema Limón",
+        "ca": "Crema Llimona",
+        "en": "Lemon Cream",
+        "fr": "Crème Citron"
+      },
+      "q": "70g"
+    },
+    {
+      "n": {
+        "es": "Merengue",
+        "ca": "Merenga",
+        "en": "Meringue",
+        "fr": "Meringue"
+      },
+      "q": "20g"
+    }
+  ],
+  "mac": {
+    "kc": 310,
+    "pr": 4,
+    "cb": 42,
+    "ft": 14
+  },
+  "alg": [
+    "Lácteos",
+    "Huevos",
+    "Gluten"
+  ]
+}

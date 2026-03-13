@@ -1,0 +1,60 @@
+{
+  "id": "nc4",
+  "cat": "Nigiris Clásicos",
+  "img": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=85&w=800",
+  "price": "2,50€",
+  "name": {
+    "es": "Nigiri aguacate laminado",
+    "ca": "Nigiri d'alvocat laminat",
+    "en": "Sliced avocado Nigiri",
+    "fr": "Nigiri avocat en lamelles"
+  },
+  "desc": {
+    "es": "Aguacate, queso crema, salsa unagi",
+    "ca": "Alvocat, formatge crema, salsa unagi",
+    "en": "Avocado, cream cheese, unagi sauce",
+    "fr": "Avocat, fromage frais, sauce unagi"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Aguacate",
+        "ca": "Alvocat",
+        "en": "Avocado",
+        "fr": "Avocat"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Queso Crema",
+        "ca": "Formatge Crema",
+        "en": "Cream Cheese",
+        "fr": "Fromage Frais"
+      },
+      "q": "5g"
+    },
+    {
+      "n": {
+        "es": "Salsa Unagi",
+        "ca": "Salsa Unagi",
+        "en": "Unagi Sauce",
+        "fr": "Sauce Unagi"
+      },
+      "q": "3g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 85,
+    "pr": 2,
+    "cb": 10,
+    "ft": 4
+  },
+  "alg": [
+    "Lácteos",
+    "Soja",
+    "Gluten",
+    "Pescado"
+  ]
+}

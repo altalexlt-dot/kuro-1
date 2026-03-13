@@ -1,0 +1,21 @@
+{
+  "address": "Passeig de les Palmeres, 1",
+  "city": "43003 Tarragona, España",
+  "phone": "+34 977 000 000",
+  "email": "reservas@kuro-tarragona.com",
+  "maps_url": "https://www.google.com/maps/place/Pg.+de+les+Palmeres,+1,+43003+Tarragona/",
+  "lat": "41.1189",
+  "lng": "1.2445",
+  "instagram_url": "#",
+  "facebook_url": "#",
+  "tripadvisor_url": "#",
+  "hours_days_es": "Mar - Sáb",
+  "hours_time": "19:30 - 23:30",
+  "hours_closed_es": "Dom y Lun: Cerrado",
+  "hours_days_ca": "Dim - Dis",
+  "hours_closed_ca": "Diu i Dil: Tancat",
+  "hours_days_en": "Tue - Sat",
+  "hours_closed_en": "Sun & Mon: Closed",
+  "hours_days_fr": "Mar - Sam",
+  "hours_closed_fr": "Dim & Lun: Fermé"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "u6",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "15,50€",
+  "name": {
+    "es": "Gyuniku roll (8 uds)",
+    "ca": "Gyuniku roll (8 uts)",
+    "en": "Gyuniku roll (8 pcs)",
+    "fr": "Gyuniku roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Solomillo, queso crema, cebolla, okonomiyaki",
+    "ca": "Filet, formatge crema, ceba, okonomiyaki",
+    "en": "Sirloin, cream cheese, onion, okonomiyaki",
+    "fr": "Filet de bœuf, fromage, oignon, okonomiyaki"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Solomillo",
+        "ca": "Filet",
+        "en": "Sirloin",
+        "fr": "Filet"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Salsa Okonomiyaki",
+        "ca": "Okonomiyaki",
+        "en": "Okonomiyaki",
+        "fr": "Okonomiyaki"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 490,
+    "pr": 20,
+    "cb": 58,
+    "ft": 19
+  },
+  "alg": [
+    "Lácteos",
+    "Soja",
+    "Gluten"
+  ]
+}

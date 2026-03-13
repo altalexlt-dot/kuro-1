@@ -1,0 +1,59 @@
+{
+  "id": "pc6",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=85&w=800",
+  "price": "12,50€",
+  "name": {
+    "es": "Arroz frito Nikkei",
+    "ca": "Arròs fregit Nikkei",
+    "en": "Nikkei Fried Rice",
+    "fr": "Riz frit Nikkei"
+  },
+  "desc": {
+    "es": "Arroz salteado, panceta, parmesano y yema",
+    "ca": "Arròs saltat, cansalada, parmesà i rovell",
+    "en": "Stir-fried rice, pork belly, parmesan, egg yolk",
+    "fr": "Riz sauté, poitrine, parmesan, jaune d'œuf"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Arroz",
+        "ca": "Arròs",
+        "en": "Rice",
+        "fr": "Riz"
+      },
+      "q": "200g"
+    },
+    {
+      "n": {
+        "es": "Panceta",
+        "ca": "Cansalada",
+        "en": "Pork belly",
+        "fr": "Poitrine"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Salsa Mahangang",
+        "ca": "Mahangang",
+        "en": "Mahangang sauce",
+        "fr": "Sauce Mahangang"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 650,
+    "pr": 22,
+    "cb": 65,
+    "ft": 32
+  },
+  "alg": [
+    "Soja",
+    "Huevos",
+    "Lácteos"
+  ]
+}

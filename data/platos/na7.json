@@ -1,0 +1,60 @@
+{
+  "id": "na7",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,00€",
+  "name": {
+    "es": "Nigiri vieira flambeada",
+    "ca": "Nigiri vieira flamejada",
+    "en": "Torched scallop Nigiri",
+    "fr": "Nigiri Saint-Jacques flambée"
+  },
+  "desc": {
+    "es": "Vieira, salsa unagi y parmesano",
+    "ca": "Vieira, salsa unagi i parmesà",
+    "en": "Scallop, unagi sauce and parmesan",
+    "fr": "Saint-Jacques, sauce unagi, parmesan"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Vieira",
+        "ca": "Vieira",
+        "en": "Scallop",
+        "fr": "Saint-Jacques"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Parmesano",
+        "ca": "Parmesà",
+        "en": "Parmesan",
+        "fr": "Parmesan"
+      },
+      "q": "3g"
+    },
+    {
+      "n": {
+        "es": "Salsa Unagi",
+        "ca": "Unagi",
+        "en": "Unagi",
+        "fr": "Unagi"
+      },
+      "q": "3g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 95,
+    "pr": 6,
+    "cb": 8,
+    "ft": 4
+  },
+  "alg": [
+    "Moluscos",
+    "Lácteos",
+    "Soja",
+    "Gluten"
+  ]
+}

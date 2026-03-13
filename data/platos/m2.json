@@ -1,0 +1,47 @@
+{
+  "id": "m2",
+  "cat": "Makis",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "6,50€",
+  "name": {
+    "es": "Maki de salmón (8 uds)",
+    "ca": "Maki de salmó (8 uts)",
+    "en": "Salmon Maki (8 pcs)",
+    "fr": "Maki au saumon (8 pcs)"
+  },
+  "desc": {
+    "es": "Rollo fino con salmón",
+    "ca": "Rotlle fi amb salmó",
+    "en": "Thin roll with salmon",
+    "fr": "Rouleau fin au saumon"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Arroz y Nori",
+        "ca": "Arròs i Nori",
+        "en": "Rice & Nori",
+        "fr": "Riz et Nori"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Salmón",
+        "ca": "Salmó",
+        "en": "Salmon",
+        "fr": "Saumon"
+      },
+      "q": "40g"
+    }
+  ],
+  "mac": {
+    "kc": 200,
+    "pr": 10,
+    "cb": 30,
+    "ft": 6
+  },
+  "alg": [
+    "Pescado"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "id": "m3",
+  "cat": "Makis",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "6,00€",
+  "name": {
+    "es": "Maki de aguacate (8 uds)",
+    "ca": "Maki d'alvocat (8 uts)",
+    "en": "Avocado Maki (8 pcs)",
+    "fr": "Maki à l'avocat (8 pcs)"
+  },
+  "desc": {
+    "es": "Rollo fino con aguacate",
+    "ca": "Rotlle fi amb alvocat",
+    "en": "Thin roll with avocado",
+    "fr": "Rouleau fin à l'avocat"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Arroz y Nori",
+        "ca": "Arròs i Nori",
+        "en": "Rice & Nori",
+        "fr": "Riz et Nori"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Aguacate",
+        "ca": "Alvocat",
+        "en": "Avocado",
+        "fr": "Avocat"
+      },
+      "q": "40g"
+    }
+  ],
+  "mac": {
+    "kc": 190,
+    "pr": 4,
+    "cb": 32,
+    "ft": 7
+  },
+  "alg": []
+}

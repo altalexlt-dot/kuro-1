@@ -1,0 +1,50 @@
+{
+  "id": "s5",
+  "cat": "Sashimi",
+  "img": "https://images.unsplash.com/photo-1534482421-64566f976cfa?q=85&w=800",
+  "price": "10,00€",
+  "name": {
+    "es": "Tiradito de pez mantequilla (6 uds)",
+    "ca": "Tiradito de peix mantega (6 uts)",
+    "en": "Butterfish tiradito (6 pcs)",
+    "fr": "Tiradito de poisson beurre (6 pcs)"
+  },
+  "desc": {
+    "es": "Con pasta de trufa y mayonesa matcha",
+    "ca": "Amb pasta de trufa i maionesa matcha",
+    "en": "With truffle paste and matcha mayo",
+    "fr": "Pâte de truffe et mayo matcha"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Pez Mantequilla",
+        "ca": "Peix Mantega",
+        "en": "Butterfish",
+        "fr": "Poisson Beurre"
+      },
+      "q": "90g"
+    },
+    {
+      "n": {
+        "es": "Mayo Matcha",
+        "ca": "Mayo Matcha",
+        "en": "Matcha Mayo",
+        "fr": "Mayo Matcha"
+      },
+      "q": "10g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 210,
+    "pr": 14,
+    "cb": 2,
+    "ft": 16
+  },
+  "alg": [
+    "Pescado",
+    "Huevos",
+    "Soja"
+  ]
+}

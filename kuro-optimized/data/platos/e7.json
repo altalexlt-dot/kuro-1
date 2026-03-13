@@ -1,0 +1,52 @@
+{
+  "id": "e7",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1626200419188-f56e9ebc9df1?q=85&w=800",
+  "price": "10,50€",
+  "name": {
+    "es": "Palomitas de gamba crujiente",
+    "ca": "Crispetes de gamba cruixent",
+    "en": "Crispy prawn popcorn",
+    "fr": "Pop-corn de crevettes"
+  },
+  "desc": {
+    "es": "Tempura de gambas con mayonesa PICANTE",
+    "ca": "Tempura de gambes amb maionesa PICANT",
+    "en": "Prawn tempura with SPICY mayo",
+    "fr": "Tempura de crevettes, mayo ÉPICÉE"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Cola de Gamba",
+        "ca": "Cua de Gamba",
+        "en": "Prawn tail",
+        "fr": "Queue de crevette"
+      },
+      "q": "150g"
+    },
+    {
+      "n": {
+        "es": "Spicy Mayo",
+        "ca": "Spicy Mayo",
+        "en": "Spicy Mayo",
+        "fr": "Mayo Épicée"
+      },
+      "q": "30g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 410,
+    "pr": 22,
+    "cb": 25,
+    "ft": 24
+  },
+  "alg": [
+    "Crustáceos",
+    "Gluten",
+    "Huevos",
+    "Soja",
+    "Mostaza"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "u15",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "12,50€",
+  "name": {
+    "es": "Veggie dragon roll (8 uds)",
+    "ca": "Veggie dragon roll (8 uts)",
+    "en": "Veggie dragon roll (8 pcs)",
+    "fr": "Veggie dragon roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Boniato, tomate confitado, tofu, aguacate, teriyaki",
+    "ca": "Moniato, tomàquet confitat, tofu, alvocat, teriyaki",
+    "en": "Sweet potato, confit tomato, tofu, avocado, teriyaki",
+    "fr": "Patate douce, tomate confite, tofu, avocat, teriyaki"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Boniato & Tofu",
+        "ca": "Moniato & Tofu",
+        "en": "Sweet Potato & Tofu",
+        "fr": "Patate douce & Tofu"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Teriyaki Vegana",
+        "ca": "Teriyaki Vegana",
+        "en": "Vegan Teriyaki",
+        "fr": "Teriyaki Vegan"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 350,
+    "pr": 8,
+    "cb": 65,
+    "ft": 6
+  },
+  "alg": [
+    "Soja",
+    "Gluten"
+  ]
+}

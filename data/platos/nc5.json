@@ -1,0 +1,47 @@
+{
+  "id": "nc5",
+  "cat": "Nigiris Clásicos",
+  "img": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=85&w=800",
+  "price": "2,50€",
+  "name": {
+    "es": "Nigiri huevo codorniz trufado",
+    "ca": "Nigiri ou guatlla trufat",
+    "en": "Truffled quail egg Nigiri",
+    "fr": "Nigiri œuf caille truffé"
+  },
+  "desc": {
+    "es": "Huevo frito y trufa",
+    "ca": "Ou fregit i trufa",
+    "en": "Fried egg and truffle",
+    "fr": "Œuf frit et truffe"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Huevo Codorniz",
+        "ca": "Ou Guatlla",
+        "en": "Quail egg",
+        "fr": "Œuf de caille"
+      },
+      "q": "1ud"
+    },
+    {
+      "n": {
+        "es": "Pasta de trufa",
+        "ca": "Pasta de trufa",
+        "en": "Truffle paste",
+        "fr": "Pâte de truffe"
+      },
+      "q": "2g"
+    }
+  ],
+  "mac": {
+    "kc": 90,
+    "pr": 3,
+    "cb": 8,
+    "ft": 5
+  },
+  "alg": [
+    "Huevos"
+  ]
+}

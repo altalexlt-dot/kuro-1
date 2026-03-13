@@ -1,0 +1,47 @@
+{
+  "id": "nc1",
+  "cat": "Nigiris Clásicos",
+  "img": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=85&w=800",
+  "price": "3,20€",
+  "name": {
+    "es": "Nigiri de atún Balfegó",
+    "ca": "Nigiri de tonyina",
+    "en": "Balfegó tuna Nigiri",
+    "fr": "Nigiri de thon Balfegó"
+  },
+  "desc": {
+    "es": "1 unidad",
+    "ca": "1 unitat",
+    "en": "1 piece",
+    "fr": "1 pièce"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Arroz Shari",
+        "ca": "Arròs Shari",
+        "en": "Sushi Rice",
+        "fr": "Riz Sushi"
+      },
+      "q": "18g"
+    },
+    {
+      "n": {
+        "es": "Atún Rojo",
+        "ca": "Tonyina",
+        "en": "Tuna",
+        "fr": "Thon"
+      },
+      "q": "15g"
+    }
+  ],
+  "mac": {
+    "kc": 65,
+    "pr": 5,
+    "cb": 8,
+    "ft": 1
+  },
+  "alg": [
+    "Pescado"
+  ]
+}

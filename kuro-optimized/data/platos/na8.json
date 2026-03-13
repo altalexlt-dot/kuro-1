@@ -1,0 +1,45 @@
+{
+  "id": "na8",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,80€",
+  "name": {
+    "es": "Nigiri solomillo y foie flambeado",
+    "ca": "Nigiri filet i foie flamejat",
+    "en": "Torched sirloin & foie Nigiri",
+    "fr": "Nigiri filet et foie gras flambé"
+  },
+  "desc": {
+    "es": "Ternera y foie",
+    "ca": "Vedella i foie",
+    "en": "Beef and foie gras",
+    "fr": "Bœuf et foie gras"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Solomillo Ternera",
+        "ca": "Filet",
+        "en": "Beef Sirloin",
+        "fr": "Filet de bœuf"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Foie Gras",
+        "ca": "Foie",
+        "en": "Foie gras",
+        "fr": "Foie gras"
+      },
+      "q": "8g"
+    }
+  ],
+  "mac": {
+    "kc": 135,
+    "pr": 7,
+    "cb": 8,
+    "ft": 9
+  },
+  "alg": []
+}

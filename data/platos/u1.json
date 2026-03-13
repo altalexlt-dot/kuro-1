@@ -1,0 +1,53 @@
+{
+  "id": "u1",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "16,50€",
+  "name": {
+    "es": "Acevichado roll (8 uds)",
+    "ca": "Acevichado roll (8 uts)",
+    "en": "Acevichado roll (8 pcs)",
+    "fr": "Acevichado roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Langostino, aguacate, queso crema, atún, salsa acevichada",
+    "ca": "Llagostí, alvocat, formatge, tonyina, salsa acevichada",
+    "en": "Prawn, avocado, cream cheese, tuna, ceviche sauce",
+    "fr": "Crevette, avocat, fromage, thon, sauce ceviche"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Langostino Tempura",
+        "ca": "Llagostí",
+        "en": "Tempura Prawn",
+        "fr": "Crevette tempura"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Salsa Acevichada",
+        "ca": "Salsa Acevichada",
+        "en": "Ceviche Sauce",
+        "fr": "Sauce Ceviche"
+      },
+      "q": "25ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 480,
+    "pr": 22,
+    "cb": 55,
+    "ft": 18
+  },
+  "alg": [
+    "Crustáceos",
+    "Pescado",
+    "Huevos",
+    "Lácteos",
+    "Gluten",
+    "Mostaza"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "p3",
+  "cat": "Postres",
+  "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=85&w=800",
+  "price": "6,00€",
+  "name": {
+    "es": "Fluido de chocolate",
+    "ca": "Fluid de xocolata",
+    "en": "Chocolate fondant",
+    "fr": "Fondant au chocolat"
+  },
+  "desc": {
+    "es": "Coulant de chocolate con almíbar de leche",
+    "ca": "Coulant de xocolata amb almívar de llet",
+    "en": "Chocolate coulant with milk syrup",
+    "fr": "Coulant au chocolat et sirop de lait"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Bizcocho Cacao",
+        "ca": "Besquit Cacao",
+        "en": "Cocoa Cake",
+        "fr": "Biscuit Cacao"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Almíbar Leche",
+        "ca": "Almívar Llet",
+        "en": "Milk syrup",
+        "fr": "Sirop de lait"
+      },
+      "q": "30g"
+    }
+  ],
+  "mac": {
+    "kc": 380,
+    "pr": 6,
+    "cb": 45,
+    "ft": 20
+  },
+  "alg": [
+    "Lácteos",
+    "Huevos",
+    "Gluten",
+    "Soja"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "dish1": {
+    "img": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=85&w=1200&auto=format&fit=crop",
+    "alt": "Tartar de atún Balfegó con setas shiitake - Kuro Tarragona",
+    "name_es": "Tartar de atún Balfegó",
+    "name_ca": "Tàrtar de tonyina Balfegó",
+    "name_en": "Balfegó Tuna Tartare",
+    "name_fr": "Tartare de thon Balfegó",
+    "desc_es": "Base de setas shiitake, aliñado con salsas japonesas y peruanas, tobiko, mostaza y alcaparras.",
+    "desc_ca": "Base de bolets shiitake, amanit amb salses japoneses i peruanes, tobiko, mostassa i tàperes.",
+    "desc_en": "Shiitake mushroom base, dressed with Japanese and Peruvian sauces, tobiko, mustard and capers.",
+    "desc_fr": "Base de shiitake, assaisonné de sauces japonaises et péruviennes, tobiko, moutarde et câpres.",
+    "price": "22,00 €"
+  },
+  "dish2": {
+    "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=1200&auto=format&fit=crop",
+    "alt": "Acevichado roll - Kuro Restaurante Japonés Tarragona",
+    "name_es": "Acevichado roll",
+    "name_ca": "Acevichado roll",
+    "name_en": "Acevichado roll",
+    "name_fr": "Acevichado roll",
+    "desc_es": "Langostino rebozado, aguacate, queso crema, atún Balfegó, salsa acevichada y cebolla crujiente.",
+    "desc_ca": "Llagostí arrebossat, alvocat, formatge crema, tonyina, salsa acevichada i ceba cruixent.",
+    "desc_en": "Battered prawn, avocado, cream cheese, tuna, ceviche sauce and crispy onion.",
+    "desc_fr": "Crevette panée, avocat, fromage frais, thon, sauce ceviche et oignon croustillant.",
+    "price": "16,50 €"
+  },
+  "dish3": {
+    "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=1200&auto=format&fit=crop",
+    "alt": "Nigiri de solomillo y foie flambeado - Kuro Tarragona",
+    "name_es": "Nigiri de solomillo y foie flambeado",
+    "name_ca": "Nigiri de filet i foie flamejat",
+    "name_en": "Beef sirloin & torched foie Nigiri",
+    "name_fr": "Nigiri de filet de bœuf et foie gras flambé",
+    "desc_es": "Exquisita ternera flambeada coronada con un delicado corte de foie gras.",
+    "desc_ca": "Exquisida vedella flamejada coronada amb un delicat tall de foie gras.",
+    "desc_en": "Exquisite torched beef topped with a delicate cut of foie gras.",
+    "desc_fr": "Bœuf exquis flambé surmonté d'une coupe délicate de foie gras.",
+    "price": "3,80 €"
+  },
+  "cta_img": "https://images.unsplash.com/photo-1559314809-0d155014e29e?q=85&w=800&auto=format&fit=crop",
+  "cta_desc_es": "Más de 50 elaboraciones únicas, desde los nigiris más clásicos hasta nuestras creaciones flambeadas y platos calientes, diseñadas para elevar tu experiencia Omakase.",
+  "cta_desc_ca": "Més de 50 elaboracions úniques, des dels nigiris més clàssics fins a plats calents, dissenyades per elevar la teva experiència.",
+  "cta_desc_en": "Over 50 unique elaborations, from classic nigiris to torched creations and hot dishes, designed to elevate your Omakase experience.",
+  "cta_desc_fr": "Plus de 50 élaborations uniques conçues pour élever votre expérience Omakase."
+}

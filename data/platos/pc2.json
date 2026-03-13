@@ -1,0 +1,59 @@
+{
+  "id": "pc2",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1552611052-33e04de081de?q=85&w=800",
+  "price": "14,00€",
+  "name": {
+    "es": "Noodles de ternera",
+    "ca": "Noodles de vedella",
+    "en": "Beef Noodles",
+    "fr": "Nouilles au bœuf"
+  },
+  "desc": {
+    "es": "Fideos salteados con ternera, vegetales y tonkatsu",
+    "ca": "Fideus saltats amb vedella, vegetals i tonkatsu",
+    "en": "Stir-fried noodles with beef, veggies and tonkatsu",
+    "fr": "Nouilles sautées au bœuf, légumes et tonkatsu"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Fideos Yakisoba",
+        "ca": "Fideus",
+        "en": "Yakisoba Noodles",
+        "fr": "Nouilles Yakisoba"
+      },
+      "q": "180g"
+    },
+    {
+      "n": {
+        "es": "Ternera",
+        "ca": "Vedella",
+        "en": "Beef",
+        "fr": "Bœuf"
+      },
+      "q": "100g"
+    },
+    {
+      "n": {
+        "es": "Salsa Tonkatsu",
+        "ca": "Tonkatsu",
+        "en": "Tonkatsu Sauce",
+        "fr": "Sauce Tonkatsu"
+      },
+      "q": "40ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 610,
+    "pr": 32,
+    "cb": 75,
+    "ft": 18
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Sésamo"
+  ]
+}

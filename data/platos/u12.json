@@ -1,0 +1,50 @@
+{
+  "id": "u12",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "12,00€",
+  "name": {
+    "es": "Butterfish futomaki (8 uds)",
+    "ca": "Butterfish futomaki (8 uts)",
+    "en": "Butterfish futomaki (8 pcs)",
+    "fr": "Futomaki poisson beurre (8 pcs)"
+  },
+  "desc": {
+    "es": "Tartar de pez mantequilla. PICANTE",
+    "ca": "Tàrtar de peix mantega. PICANT",
+    "en": "Butterfish tartare. SPICY",
+    "fr": "Tartare de poisson beurre. ÉPICÉ"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Tartar Pez Mantequilla",
+        "ca": "Tàrtar Peix Mantega",
+        "en": "Butterfish Tartare",
+        "fr": "Tartare Poisson Beurre"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Salsa Picante",
+        "ca": "Salsa Picant",
+        "en": "Spicy Sauce",
+        "fr": "Sauce Épicée"
+      },
+      "q": "15g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 390,
+    "pr": 15,
+    "cb": 50,
+    "ft": 14
+  },
+  "alg": [
+    "Pescado",
+    "Huevos",
+    "Soja"
+  ]
+}

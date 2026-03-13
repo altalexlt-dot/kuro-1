@@ -1,0 +1,48 @@
+{
+  "id": "u7",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "14,00€",
+  "name": {
+    "es": "Trufado roll (8 uds)",
+    "ca": "Trufado roll (8 uts)",
+    "en": "Truffled roll (8 pcs)",
+    "fr": "Truffado roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Aguacate, pez mantequilla y pasta de trufa",
+    "ca": "Alvocat, peix mantega i pasta de trufa",
+    "en": "Avocado, butterfish and truffle paste",
+    "fr": "Avocat, poisson beurre et pâte de truffe"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Pez Mantequilla",
+        "ca": "Peix Mantega",
+        "en": "Butterfish",
+        "fr": "Poisson Beurre"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Pasta Trufa",
+        "ca": "Pasta Trufa",
+        "en": "Truffle Paste",
+        "fr": "Pâte Truffe"
+      },
+      "q": "10g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 390,
+    "pr": 15,
+    "cb": 45,
+    "ft": 16
+  },
+  "alg": [
+    "Pescado"
+  ]
+}

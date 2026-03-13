@@ -1,0 +1,49 @@
+{
+  "id": "p1",
+  "cat": "Postres",
+  "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=85&w=800",
+  "price": "6,50€",
+  "name": {
+    "es": "Mochi cheese cake",
+    "ca": "Mochi cheese cake",
+    "en": "Cheese cake Mochi",
+    "fr": "Mochi cheese cake"
+  },
+  "desc": {
+    "es": "Masa de arroz rellena de tarta de queso",
+    "ca": "Massa d'arròs farcida de pastís de formatge",
+    "en": "Rice dough stuffed with cheese cake",
+    "fr": "Pâte de riz farcie au cheese cake"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Masa Mochi",
+        "ca": "Massa Mochi",
+        "en": "Mochi dough",
+        "fr": "Pâte Mochi"
+      },
+      "q": "30g"
+    },
+    {
+      "n": {
+        "es": "Cheese Cake",
+        "ca": "Cheese Cake",
+        "en": "Cheese Cake",
+        "fr": "Cheese Cake"
+      },
+      "q": "50g"
+    }
+  ],
+  "mac": {
+    "kc": 220,
+    "pr": 4,
+    "cb": 32,
+    "ft": 9
+  },
+  "alg": [
+    "Lácteos",
+    "Huevos",
+    "Soja"
+  ]
+}

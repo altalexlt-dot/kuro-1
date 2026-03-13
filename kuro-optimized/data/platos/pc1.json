@@ -1,0 +1,59 @@
+{
+  "id": "pc1",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1552611052-33e04de081de?q=85&w=800",
+  "price": "13,50€",
+  "name": {
+    "es": "Noodles de pollo",
+    "ca": "Noodles de pollastre",
+    "en": "Chicken Noodles",
+    "fr": "Nouilles au poulet"
+  },
+  "desc": {
+    "es": "Fideos salteados con pollo, vegetales y tonkatsu",
+    "ca": "Fideus saltats amb pollastre, vegetals i tonkatsu",
+    "en": "Stir-fried noodles with chicken, veggies and tonkatsu",
+    "fr": "Nouilles sautées au poulet, légumes et tonkatsu"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Fideos Yakisoba",
+        "ca": "Fideus",
+        "en": "Yakisoba Noodles",
+        "fr": "Nouilles Yakisoba"
+      },
+      "q": "180g"
+    },
+    {
+      "n": {
+        "es": "Pollo",
+        "ca": "Pollastre",
+        "en": "Chicken",
+        "fr": "Poulet"
+      },
+      "q": "100g"
+    },
+    {
+      "n": {
+        "es": "Salsa Tonkatsu",
+        "ca": "Tonkatsu",
+        "en": "Tonkatsu Sauce",
+        "fr": "Sauce Tonkatsu"
+      },
+      "q": "40ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 580,
+    "pr": 28,
+    "cb": 75,
+    "ft": 16
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Sésamo"
+  ]
+}

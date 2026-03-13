@@ -1,0 +1,58 @@
+{
+  "id": "na6",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,50€",
+  "name": {
+    "es": "Nigiri carrillera ternera",
+    "ca": "Nigiri galta vedella",
+    "en": "Beef cheek Nigiri",
+    "fr": "Nigiri joue de bœuf"
+  },
+  "desc": {
+    "es": "Carrillera, cebolla, shiitake, teriyaki",
+    "ca": "Galta, ceba, shiitake, teriyaki",
+    "en": "Beef cheek, onion, shiitake, teriyaki",
+    "fr": "Joue, oignon, shiitake, teriyaki"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Carrillera",
+        "ca": "Galta",
+        "en": "Beef cheek",
+        "fr": "Joue de bœuf"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Shiitake",
+        "ca": "Shiitake",
+        "en": "Shiitake",
+        "fr": "Shiitake"
+      },
+      "q": "5g"
+    },
+    {
+      "n": {
+        "es": "Salsa Teriyaki",
+        "ca": "Teriyaki",
+        "en": "Teriyaki",
+        "fr": "Teriyaki"
+      },
+      "q": "3g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 115,
+    "pr": 6,
+    "cb": 10,
+    "ft": 6
+  },
+  "alg": [
+    "Soja",
+    "Gluten"
+  ]
+}

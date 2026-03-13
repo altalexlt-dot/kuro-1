@@ -1,0 +1,46 @@
+{
+  "id": "na5",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "2,50€",
+  "name": {
+    "es": "Nigiri berenjena flambeada",
+    "ca": "Nigiri albergínia flamejada",
+    "en": "Torched eggplant Nigiri",
+    "fr": "Nigiri aubergine flambée"
+  },
+  "desc": {
+    "es": "Berenjena y miel trufada",
+    "ca": "Albergínia i mel trufada",
+    "en": "Eggplant and truffled honey",
+    "fr": "Aubergine et miel truffé"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Berenjena asada",
+        "ca": "Albergínia",
+        "en": "Roast eggplant",
+        "fr": "Aubergine rôtie"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Miel trufada",
+        "ca": "Mel trufada",
+        "en": "Truffle honey",
+        "fr": "Miel truffé"
+      },
+      "q": "5g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 75,
+    "pr": 2,
+    "cb": 14,
+    "ft": 1
+  },
+  "alg": []
+}

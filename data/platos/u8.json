@@ -1,0 +1,50 @@
+{
+  "id": "u8",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "13,50€",
+  "name": {
+    "es": "Té matcha roll (8 uds)",
+    "ca": "Te matcha roll (8 uts)",
+    "en": "Matcha tea roll (8 pcs)",
+    "fr": "Thé matcha roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Tartar atún, té matcha, wasabi y mayo japonesa",
+    "ca": "Tàrtar tonyina, te matcha, wasabi i mayo japonesa",
+    "en": "Tuna tartare, matcha tea, wasabi, japanese mayo",
+    "fr": "Tartare thon, thé matcha, wasabi, mayo japonaise"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Tartar Atún",
+        "ca": "Tàrtar Tonyina",
+        "en": "Tuna Tartare",
+        "fr": "Tartare Thon"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Mayo Japonesa",
+        "ca": "Mayo Japonesa",
+        "en": "Japanese Mayo",
+        "fr": "Mayo Japonaise"
+      },
+      "q": "15g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 420,
+    "pr": 18,
+    "cb": 46,
+    "ft": 18
+  },
+  "alg": [
+    "Pescado",
+    "Huevos",
+    "Mostaza"
+  ]
+}

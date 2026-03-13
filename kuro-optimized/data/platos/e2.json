@@ -1,0 +1,48 @@
+{
+  "id": "e2",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1590450172605-7f154ea2be39?q=85&w=800",
+  "price": "5,50€",
+  "name": {
+    "es": "Edamame con miel trufada",
+    "ca": "Edamame amb mel trufada",
+    "en": "Edamame with truffled honey",
+    "fr": "Edamame au miel truffé"
+  },
+  "desc": {
+    "es": "Vaina de soja frita con trufa",
+    "ca": "Beina de soja fregida amb trufa",
+    "en": "Fried soy pods with truffle",
+    "fr": "Gousse de soja frite à la truffe"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Vainas de Edamame",
+        "ca": "Beines",
+        "en": "Edamame",
+        "fr": "Edamame"
+      },
+      "q": "180g"
+    },
+    {
+      "n": {
+        "es": "Miel de Trufa",
+        "ca": "Mel de Trufa",
+        "en": "Truffle Honey",
+        "fr": "Miel de Truffe"
+      },
+      "q": "15g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 220,
+    "pr": 16,
+    "cb": 20,
+    "ft": 10
+  },
+  "alg": [
+    "Soja"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "p2",
+  "cat": "Postres",
+  "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=85&w=800",
+  "price": "6,50€",
+  "name": {
+    "es": "Mochi chocolate",
+    "ca": "Mochi xocolata",
+    "en": "Chocolate Mochi",
+    "fr": "Mochi au chocolat"
+  },
+  "desc": {
+    "es": "Masa de arroz rellena de ganache de chocolate",
+    "ca": "Massa d'arròs farcida de ganache de xocolata",
+    "en": "Rice dough stuffed with chocolate ganache",
+    "fr": "Pâte de riz farcie à la ganache au chocolat"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Masa Mochi",
+        "ca": "Massa Mochi",
+        "en": "Mochi dough",
+        "fr": "Pâte Mochi"
+      },
+      "q": "30g"
+    },
+    {
+      "n": {
+        "es": "Ganache Cacao",
+        "ca": "Ganache Cacao",
+        "en": "Cocoa Ganache",
+        "fr": "Ganache Cacao"
+      },
+      "q": "50g"
+    }
+  ],
+  "mac": {
+    "kc": 240,
+    "pr": 3,
+    "cb": 35,
+    "ft": 10
+  },
+  "alg": [
+    "Lácteos",
+    "Soja"
+  ]
+}

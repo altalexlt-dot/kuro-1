@@ -1,0 +1,28 @@
+{
+  "reviews": [
+    {
+      "text_es": "Un viaje a Kyoto sin salir de Tarragona. La atención al detalle en cada pase del Omakase es sencillamente espectacular.",
+      "text_ca": "Un viatge a Kyoto sense sortir de Tarragona. L'atenció al detall és senzillament espectacular.",
+      "text_en": "A trip to Kyoto without leaving Tarragona. The attention to detail is simply spectacular.",
+      "text_fr": "Un voyage à Kyoto sans quitter Tarragone. L'attention aux détails est tout simplement spectaculaire.",
+      "source": "Guía Repsol",
+      "stars": "5"
+    },
+    {
+      "text_es": "La textura del arroz es perfecta. Se nota el respeto absoluto por el producto y la técnica milenaria. Un templo gastronómico.",
+      "text_ca": "La textura de l'arròs és perfecta. Es nota el respecte pel producte. Un temple gastronòmic.",
+      "text_en": "The rice texture is perfect. Absolute respect for the product. A gastronomic temple.",
+      "text_fr": "La texture du riz est parfaite. Un respect absolu du produit. Un temple gastronomique.",
+      "source": "Macarfi",
+      "stars": "5"
+    },
+    {
+      "text_es": "El silencio de la sala permite que el sabor hable. El nigiri de atún con foie flambeado es una experiencia religiosa.",
+      "text_ca": "El silenci permet que el sabor parli. El nigiri de tonyina amb foie és una experiència religiosa.",
+      "text_en": "The silence allows the flavor to speak. The tuna nigiri with foie is a religious experience.",
+      "text_fr": "Le silence permet à la saveur de s'exprimer. Le nigiri au thon et foie gras est une expérience religieuse.",
+      "source": "TimeOut",
+      "stars": "5"
+    }
+  ]
+}

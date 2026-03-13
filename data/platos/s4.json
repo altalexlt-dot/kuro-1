@@ -1,0 +1,48 @@
+{
+  "id": "s4",
+  "cat": "Sashimi",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "11,50€",
+  "name": {
+    "es": "Sashimi mixto (6 uds)",
+    "ca": "Sashimi mixt (6 uts)",
+    "en": "Mixed sashimi (6 pcs)",
+    "fr": "Sashimi mixte (6 pcs)"
+  },
+  "desc": {
+    "es": "Láminas de atún y salmón crudo",
+    "ca": "Làmines de tonyina i salmó",
+    "en": "Tuna and salmon slices",
+    "fr": "Tranches de thon et saumon"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Atún Rojo",
+        "ca": "Tonyina",
+        "en": "Tuna",
+        "fr": "Thon"
+      },
+      "q": "45g"
+    },
+    {
+      "n": {
+        "es": "Salmón",
+        "ca": "Salmó",
+        "en": "Salmon",
+        "fr": "Saumon"
+      },
+      "q": "45g"
+    }
+  ],
+  "mac": {
+    "kc": 155,
+    "pr": 21,
+    "cb": 0,
+    "ft": 8
+  },
+  "alg": [
+    "Pescado",
+    "Soja"
+  ]
+}

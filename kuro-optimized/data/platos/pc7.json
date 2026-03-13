@@ -1,0 +1,60 @@
+{
+  "id": "pc7",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=85&w=800",
+  "price": "18,00€",
+  "name": {
+    "es": "Arroz de tataki de atún y huevo",
+    "ca": "Arròs de tataki de tonyina i ou",
+    "en": "Tuna tataki and egg rice",
+    "fr": "Riz tataki de thon et œuf"
+  },
+  "desc": {
+    "es": "Arroz, atún marinado en soja, vinagreta wasabi, yema, algas",
+    "ca": "Arròs, tonyina marinada, vinagreta wasabi, rovell, algues",
+    "en": "Rice, soy marinated tuna, wasabi vinaigrette, yolk, seaweed",
+    "fr": "Riz, thon mariné soja, vinaigrette wasabi, jaune, algues"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Arroz",
+        "ca": "Arròs",
+        "en": "Rice",
+        "fr": "Riz"
+      },
+      "q": "180g"
+    },
+    {
+      "n": {
+        "es": "Tataki Atún",
+        "ca": "Tataki Tonyina",
+        "en": "Tuna Tataki",
+        "fr": "Tataki Thon"
+      },
+      "q": "120g"
+    },
+    {
+      "n": {
+        "es": "Vinagreta Wasabi",
+        "ca": "Vinagreta Wasabi",
+        "en": "Wasabi Vinaigrette",
+        "fr": "Vinaigrette Wasabi"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 520,
+    "pr": 38,
+    "cb": 55,
+    "ft": 14
+  },
+  "alg": [
+    "Pescado",
+    "Soja",
+    "Huevos",
+    "Mostaza"
+  ]
+}

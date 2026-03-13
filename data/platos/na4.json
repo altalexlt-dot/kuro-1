@@ -1,0 +1,60 @@
+{
+  "id": "na4",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,50€",
+  "name": {
+    "es": "Nigiri anguila flambeada Taco",
+    "ca": "Nigiri anguila flamejada Taco",
+    "en": "Torched eel Taco Nigiri",
+    "fr": "Nigiri anguille flambée Taco"
+  },
+  "desc": {
+    "es": "Taco nori, anguila, aguacate, queso crema",
+    "ca": "Taco nori, anguila, alvocat, formatge",
+    "en": "Nori taco, eel, avocado, cream cheese",
+    "fr": "Taco nori, anguille, avocat, fromage frais"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Anguila",
+        "ca": "Anguila",
+        "en": "Eel",
+        "fr": "Anguille"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Aguacate & Queso",
+        "ca": "Alvocat & Formatge",
+        "en": "Avo & Cheese",
+        "fr": "Avocat & Fromage"
+      },
+      "q": "10g"
+    },
+    {
+      "n": {
+        "es": "Salsa Unagi",
+        "ca": "Unagi",
+        "en": "Unagi sauce",
+        "fr": "Sauce unagi"
+      },
+      "q": "5g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 140,
+    "pr": 5,
+    "cb": 15,
+    "ft": 7
+  },
+  "alg": [
+    "Pescado",
+    "Lácteos",
+    "Soja",
+    "Gluten"
+  ]
+}

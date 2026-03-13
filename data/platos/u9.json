@@ -1,0 +1,51 @@
+{
+  "id": "u9",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "14,50€",
+  "name": {
+    "es": "Ebi aburi roll (8 uds)",
+    "ca": "Ebi aburi roll (8 uts)",
+    "en": "Ebi aburi roll (8 pcs)",
+    "fr": "Ebi aburi roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Langostino, aguacate, queso con gamba flambeada y salsa de arroz negro",
+    "ca": "Llagostí, alvocat, formatge amb gamba flamejada i salsa d'arròs negre",
+    "en": "Prawn, avocado, cheese with torched prawn and black rice sauce",
+    "fr": "Crevette, avocat, fromage avec crevette flambée et sauce riz noir"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Gamba flambeada",
+        "ca": "Gamba flamejada",
+        "en": "Torched prawn",
+        "fr": "Crevette flambée"
+      },
+      "q": "40g"
+    },
+    {
+      "n": {
+        "es": "Salsa Arroz Negro",
+        "ca": "Salsa Arròs Negre",
+        "en": "Black Rice Sauce",
+        "fr": "Sauce Riz Noir"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 460,
+    "pr": 20,
+    "cb": 50,
+    "ft": 18
+  },
+  "alg": [
+    "Crustáceos",
+    "Lácteos",
+    "Gluten",
+    "Soja"
+  ]
+}

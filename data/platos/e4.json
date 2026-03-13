@@ -1,0 +1,59 @@
+{
+  "id": "e4",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1593001874117-c99c800e3eb7?q=85&w=800",
+  "price": "6,50€",
+  "name": {
+    "es": "Bravas nikkei",
+    "ca": "Bravas nikkei",
+    "en": "Nikkei bravas",
+    "fr": "Bravas nikkei"
+  },
+  "desc": {
+    "es": "Patata, boniato y panceta frita con salsa de anguila",
+    "ca": "Patata, moniato i cansalada fregida amb salsa d'anguila",
+    "en": "Potato, sweet potato and fried pork belly with eel sauce",
+    "fr": "Pomme de terre, patate douce et poitrine frite sauce anguille"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Patata & Boniato",
+        "ca": "Patata & Moniato",
+        "en": "Potato & Sweet Potato",
+        "fr": "P. de terre & Patate douce"
+      },
+      "q": "200g"
+    },
+    {
+      "n": {
+        "es": "Panceta",
+        "ca": "Cansalada",
+        "en": "Pork belly",
+        "fr": "Poitrine"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Salsa Anguila",
+        "ca": "Salsa Anguila",
+        "en": "Eel Sauce",
+        "fr": "Sauce Anguille"
+      },
+      "q": "20g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 380,
+    "pr": 12,
+    "cb": 45,
+    "ft": 18
+  },
+  "alg": [
+    "Soja",
+    "Gluten",
+    "Pescado"
+  ]
+}

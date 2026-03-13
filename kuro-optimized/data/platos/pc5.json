@@ -1,0 +1,59 @@
+{
+  "id": "pc5",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=85&w=800",
+  "price": "11,50€",
+  "name": {
+    "es": "Pa Bao pollo teriyaki",
+    "ca": "Pa Bao pollastre teriyaki",
+    "en": "Teriyaki Chicken Bao",
+    "fr": "Bao poulet teriyaki"
+  },
+  "desc": {
+    "es": "Pollo teriyaki, cebolla morada, ciruela, mayo y teriyaki",
+    "ca": "Pollastre teriyaki, ceba morada, pruna, mayo i teriyaki",
+    "en": "Teriyaki chicken, red onion, plum, mayo and teriyaki",
+    "fr": "Poulet teriyaki, oignon rouge, prune, mayo et teriyaki"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Pan Bao",
+        "ca": "Pa Bao",
+        "en": "Bao Bun",
+        "fr": "Bao"
+      },
+      "q": "2uds"
+    },
+    {
+      "n": {
+        "es": "Pollo asado",
+        "ca": "Pollastre",
+        "en": "Roast chicken",
+        "fr": "Poulet rôti"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Teriyaki & Mayo",
+        "ca": "Teriyaki & Mayo",
+        "en": "Teriyaki & Mayo",
+        "fr": "Teriyaki & Mayo"
+      },
+      "q": "25g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 480,
+    "pr": 20,
+    "cb": 65,
+    "ft": 14
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Huevos"
+  ]
+}

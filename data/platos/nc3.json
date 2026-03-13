@@ -1,0 +1,47 @@
+{
+  "id": "nc3",
+  "cat": "Nigiris Clásicos",
+  "img": "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=85&w=800",
+  "price": "2,80€",
+  "name": {
+    "es": "Nigiri pez mantequilla trufado",
+    "ca": "Nigiri peix mantega trufat",
+    "en": "Truffled butterfish Nigiri",
+    "fr": "Nigiri poisson beurre truffé"
+  },
+  "desc": {
+    "es": "1 unidad",
+    "ca": "1 unitat",
+    "en": "1 piece",
+    "fr": "1 pièce"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Pez Mantequilla",
+        "ca": "Peix Mantega",
+        "en": "Butterfish",
+        "fr": "Poisson Beurre"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Trufa",
+        "ca": "Trufa",
+        "en": "Truffle",
+        "fr": "Truffe"
+      },
+      "q": "1g"
+    }
+  ],
+  "mac": {
+    "kc": 80,
+    "pr": 3,
+    "cb": 8,
+    "ft": 4
+  },
+  "alg": [
+    "Pescado"
+  ]
+}

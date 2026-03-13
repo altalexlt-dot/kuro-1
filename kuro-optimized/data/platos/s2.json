@@ -1,0 +1,48 @@
+{
+  "id": "s2",
+  "cat": "Sashimi",
+  "img": "https://images.unsplash.com/photo-1559410545-0bdcd187e0a6?q=85&w=800",
+  "price": "13,00€",
+  "name": {
+    "es": "Sashimi de atún Balfegó (6 uds)",
+    "ca": "Sashimi de tonyina Balfegó (6 uts)",
+    "en": "Balfegó tuna sashimi (6 pcs)",
+    "fr": "Sashimi de thon Balfegó (6 pcs)"
+  },
+  "desc": {
+    "es": "Láminas de atún Balfegó crudo",
+    "ca": "Làmines de tonyina crua",
+    "en": "Raw Balfegó tuna slices",
+    "fr": "Tranches de thon Balfegó cru"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Lomo de Atún",
+        "ca": "Llom de Tonyina",
+        "en": "Tuna loin",
+        "fr": "Longe de Thon"
+      },
+      "q": "90g"
+    },
+    {
+      "n": {
+        "es": "Wasabi",
+        "ca": "Wasabi",
+        "en": "Wasabi",
+        "fr": "Wasabi"
+      },
+      "q": "3g"
+    }
+  ],
+  "mac": {
+    "kc": 130,
+    "pr": 25,
+    "cb": 0,
+    "ft": 4
+  },
+  "alg": [
+    "Pescado",
+    "Soja"
+  ]
+}

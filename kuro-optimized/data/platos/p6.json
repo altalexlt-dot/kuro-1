@@ -1,0 +1,48 @@
+{
+  "id": "p6",
+  "cat": "Postres",
+  "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=85&w=800",
+  "price": "6,00€",
+  "name": {
+    "es": "Chesse cake de té matcha",
+    "ca": "Chesse cake de te matcha",
+    "en": "Matcha tea cheese cake",
+    "fr": "Cheese cake au thé matcha"
+  },
+  "desc": {
+    "es": "Tarta de queso con té verde matcha premium",
+    "ca": "Pastís de formatge amb te verd matcha",
+    "en": "Cheese cake with premium matcha green tea",
+    "fr": "Cheese cake au thé vert matcha premium"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Queso Crema",
+        "ca": "Formatge Crema",
+        "en": "Cream Cheese",
+        "fr": "Fromage Frais"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Té Matcha",
+        "ca": "Te Matcha",
+        "en": "Matcha Tea",
+        "fr": "Thé Matcha"
+      },
+      "q": "5g"
+    }
+  ],
+  "mac": {
+    "kc": 340,
+    "pr": 8,
+    "cb": 25,
+    "ft": 22
+  },
+  "alg": [
+    "Lácteos",
+    "Huevos"
+  ]
+}

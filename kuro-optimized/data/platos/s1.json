@@ -1,0 +1,68 @@
+{
+  "id": "s1",
+  "cat": "Sashimi",
+  "img": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=85&w=800",
+  "price": "22,00€",
+  "name": {
+    "es": "Tartar de atún Balfegó",
+    "ca": "Tàrtar de tonyina Balfegó",
+    "en": "Balfegó tuna tartare",
+    "fr": "Tartare de thon Balfegó"
+  },
+  "desc": {
+    "es": "Base de shiitake, tobiko y aliño peruano",
+    "ca": "Base de shiitake, tobiko i amaniment peruà",
+    "en": "Shiitake base, tobiko and peruvian dressing",
+    "fr": "Base shiitake, tobiko et sauce péruvienne"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Atún Rojo",
+        "ca": "Tonyina Roja",
+        "en": "Bluefin Tuna",
+        "fr": "Thon Rouge"
+      },
+      "q": "120g"
+    },
+    {
+      "n": {
+        "es": "Setas Shiitake",
+        "ca": "Shiitake",
+        "en": "Shiitake",
+        "fr": "Shiitake"
+      },
+      "q": "40g"
+    },
+    {
+      "n": {
+        "es": "Tobiko",
+        "ca": "Tobiko",
+        "en": "Tobiko",
+        "fr": "Tobiko"
+      },
+      "q": "10g"
+    },
+    {
+      "n": {
+        "es": "Aliño Acevichado",
+        "ca": "Amaniment",
+        "en": "Ceviche Dressing",
+        "fr": "Sauce Ceviche"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 280,
+    "pr": 32,
+    "cb": 8,
+    "ft": 14
+  },
+  "alg": [
+    "Pescado",
+    "Soja",
+    "Mostaza"
+  ]
+}

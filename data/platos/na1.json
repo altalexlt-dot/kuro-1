@@ -1,0 +1,60 @@
+{
+  "id": "na1",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,00€",
+  "name": {
+    "es": "Nigiri salmón con brie flambeado",
+    "ca": "Nigiri salmó amb brie flamejat",
+    "en": "Torched salmon Nigiri with brie",
+    "fr": "Nigiri saumon au brie flambé"
+  },
+  "desc": {
+    "es": "Salmón, cebolla, queso brie y teriyaki",
+    "ca": "Salmó, ceba, brie i teriyaki",
+    "en": "Salmon, onion, brie, teriyaki",
+    "fr": "Saumon, oignon, brie, teriyaki"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Salmón",
+        "ca": "Salmó",
+        "en": "Salmon",
+        "fr": "Saumon"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Queso Brie",
+        "ca": "Brie",
+        "en": "Brie Cheese",
+        "fr": "Fromage Brie"
+      },
+      "q": "5g"
+    },
+    {
+      "n": {
+        "es": "Salsa Teriyaki",
+        "ca": "Teriyaki",
+        "en": "Teriyaki",
+        "fr": "Teriyaki"
+      },
+      "q": "3g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 110,
+    "pr": 5,
+    "cb": 12,
+    "ft": 5
+  },
+  "alg": [
+    "Pescado",
+    "Lácteos",
+    "Soja",
+    "Gluten"
+  ]
+}

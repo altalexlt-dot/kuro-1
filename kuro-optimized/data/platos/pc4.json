@@ -1,0 +1,60 @@
+{
+  "id": "pc4",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1603133872878-684f208fb84b?q=85&w=800",
+  "price": "12,00€",
+  "name": {
+    "es": "Pa Bao Ebi Furai",
+    "ca": "Pa Bao Ebi Furai",
+    "en": "Ebi Furai Bao Bun",
+    "fr": "Bao Bun Ebi Furai"
+  },
+  "desc": {
+    "es": "Langostino rebozado, cebolla morada, pepino encurtido y mayonesa",
+    "ca": "Llagostí arrebossat, ceba morada, cogombre i maionesa",
+    "en": "Battered prawn, red onion, pickled cucumber and mayo",
+    "fr": "Crevette panée, oignon rouge, concombre mariné et mayo"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Pan Bao",
+        "ca": "Pa Bao",
+        "en": "Bao Bun",
+        "fr": "Bao"
+      },
+      "q": "2uds"
+    },
+    {
+      "n": {
+        "es": "Langostino Panko",
+        "ca": "Llagostí Panko",
+        "en": "Panko Prawn",
+        "fr": "Crevette Panko"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Mayonesa Japonesa",
+        "ca": "Mayo",
+        "en": "Japanese Mayo",
+        "fr": "Mayo Japonaise"
+      },
+      "q": "20g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 460,
+    "pr": 18,
+    "cb": 60,
+    "ft": 15
+  },
+  "alg": [
+    "Gluten",
+    "Crustáceos",
+    "Huevos",
+    "Soja"
+  ]
+}

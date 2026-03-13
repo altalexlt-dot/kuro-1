@@ -1,0 +1,50 @@
+{
+  "id": "u11",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "12,50€",
+  "name": {
+    "es": "Vieria futomaki (8 uds)",
+    "ca": "Vieira futomaki (8 uts)",
+    "en": "Scallop futomaki (8 pcs)",
+    "fr": "Futomaki Saint-Jacques (8 pcs)"
+  },
+  "desc": {
+    "es": "Vieira, aguacate, queso crema, tobiko y salsa miso",
+    "ca": "Vieira, alvocat, formatge, tobiko i salsa miso",
+    "en": "Scallop, avocado, cream cheese, tobiko and miso sauce",
+    "fr": "Saint-Jacques, avocat, fromage, tobiko et sauce miso"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Vieira",
+        "ca": "Vieira",
+        "en": "Scallop",
+        "fr": "Saint-Jacques"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Salsa Miso",
+        "ca": "Salsa Miso",
+        "en": "Miso sauce",
+        "fr": "Sauce Miso"
+      },
+      "q": "15g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 410,
+    "pr": 16,
+    "cb": 52,
+    "ft": 14
+  },
+  "alg": [
+    "Moluscos",
+    "Lácteos",
+    "Soja"
+  ]
+}

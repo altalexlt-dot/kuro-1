@@ -1,0 +1,51 @@
+{
+  "id": "u5",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "16,00€",
+  "name": {
+    "es": "Spicy crispy tuna (8 uds)",
+    "ca": "Spicy crispy tuna (8 uts)",
+    "en": "Spicy crispy tuna (8 pcs)",
+    "fr": "Spicy crispy tuna (8 pcs)"
+  },
+  "desc": {
+    "es": "Arroz frito con tartar de atún picante",
+    "ca": "Arròs fregit amb tàrtar de tonyina picant",
+    "en": "Fried rice with spicy tuna tartare",
+    "fr": "Riz frit au tartare de thon épicé"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Tartar Atún",
+        "ca": "Tàrtar Tonyina",
+        "en": "Tuna Tartare",
+        "fr": "Tartare Thon"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Spicy Mayo",
+        "ca": "Spicy Mayo",
+        "en": "Spicy Mayo",
+        "fr": "Mayo Épicée"
+      },
+      "q": "20g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 520,
+    "pr": 24,
+    "cb": 45,
+    "ft": 26
+  },
+  "alg": [
+    "Pescado",
+    "Soja",
+    "Huevos",
+    "Sésamo"
+  ]
+}

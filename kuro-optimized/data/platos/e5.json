@@ -1,0 +1,59 @@
+{
+  "id": "e5",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=85&w=800",
+  "price": "7,00€",
+  "name": {
+    "es": "Gyozas crujientes de verdura",
+    "ca": "Gyozes cruixents de verdura",
+    "en": "Crispy vegetable Gyozas",
+    "fr": "Gyozas croustillants aux légumes"
+  },
+  "desc": {
+    "es": "Cresta japonesa frita rellena de verdura (6 uds)",
+    "ca": "Cresta japonesa fregida farcida de verdura (6 uts)",
+    "en": "Fried japanese dumpling stuffed with veggies (6 pcs)",
+    "fr": "Ravioli japonais frit aux légumes (6 pcs)"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Masa trigo",
+        "ca": "Massa",
+        "en": "Wheat dough",
+        "fr": "Pâte de blé"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Verduras",
+        "ca": "Verdures",
+        "en": "Vegetables",
+        "fr": "Légumes"
+      },
+      "q": "90g"
+    },
+    {
+      "n": {
+        "es": "Salsa Gyoza",
+        "ca": "Salsa Gyoza",
+        "en": "Gyoza Sauce",
+        "fr": "Sauce Gyoza"
+      },
+      "q": "15ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 240,
+    "pr": 8,
+    "cb": 32,
+    "ft": 9
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Sésamo"
+  ]
+}

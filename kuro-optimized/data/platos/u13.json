@@ -1,0 +1,49 @@
+{
+  "id": "u13",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "15,00€",
+  "name": {
+    "es": "Bad boy futomaki (8 uds)",
+    "ca": "Bad boy futomaki (8 uts)",
+    "en": "Bad boy futomaki (8 pcs)",
+    "fr": "Bad boy futomaki (8 pcs)"
+  },
+  "desc": {
+    "es": "Tartar de solomillo de ternera y anguila",
+    "ca": "Tàrtar de filet de vedella i anguila",
+    "en": "Beef sirloin tartare and eel",
+    "fr": "Tartare de filet de bœuf et anguille"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Solomillo",
+        "ca": "Filet",
+        "en": "Sirloin",
+        "fr": "Filet"
+      },
+      "q": "40g"
+    },
+    {
+      "n": {
+        "es": "Anguila Kabayaki",
+        "ca": "Anguila Kabayaki",
+        "en": "Kabayaki Eel",
+        "fr": "Anguille Kabayaki"
+      },
+      "q": "30g"
+    }
+  ],
+  "mac": {
+    "kc": 440,
+    "pr": 22,
+    "cb": 52,
+    "ft": 15
+  },
+  "alg": [
+    "Pescado",
+    "Soja",
+    "Gluten"
+  ]
+}

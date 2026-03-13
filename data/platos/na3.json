@@ -1,0 +1,47 @@
+{
+  "id": "na3",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,00€",
+  "name": {
+    "es": "Nigiri de gamba flambeada",
+    "ca": "Nigiri de gamba flamejada",
+    "en": "Torched prawn Nigiri",
+    "fr": "Nigiri de crevette flambée"
+  },
+  "desc": {
+    "es": "Gamba con azúcar de vainilla",
+    "ca": "Gamba amb sucre de vainilla",
+    "en": "Prawn with vanilla sugar",
+    "fr": "Crevette au sucre vanillé"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Gamba Blanca",
+        "ca": "Gamba Blanca",
+        "en": "White Prawn",
+        "fr": "Crevette Blanche"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Azúcar Vainilla",
+        "ca": "Sucre Vainilla",
+        "en": "Vanilla sugar",
+        "fr": "Sucre vanillé"
+      },
+      "q": "2g"
+    }
+  ],
+  "mac": {
+    "kc": 90,
+    "pr": 4,
+    "cb": 10,
+    "ft": 2
+  },
+  "alg": [
+    "Crustáceos"
+  ]
+}

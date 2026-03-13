@@ -1,0 +1,47 @@
+{
+  "id": "na2",
+  "cat": "Nigiris Flambeados",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "3,50€",
+  "name": {
+    "es": "Nigiri atún con foie flambeado",
+    "ca": "Nigiri tonyina amb foie flamejat",
+    "en": "Torched tuna Nigiri with foie",
+    "fr": "Nigiri thon et foie gras flambé"
+  },
+  "desc": {
+    "es": "Atún y foie",
+    "ca": "Tonyina i foie",
+    "en": "Tuna and foie gras",
+    "fr": "Thon et foie gras"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Atún Rojo",
+        "ca": "Tonyina",
+        "en": "Tuna",
+        "fr": "Thon"
+      },
+      "q": "15g"
+    },
+    {
+      "n": {
+        "es": "Foie Gras",
+        "ca": "Foie",
+        "en": "Foie gras",
+        "fr": "Foie gras"
+      },
+      "q": "8g"
+    }
+  ],
+  "mac": {
+    "kc": 125,
+    "pr": 6,
+    "cb": 8,
+    "ft": 9
+  },
+  "alg": [
+    "Pescado"
+  ]
+}

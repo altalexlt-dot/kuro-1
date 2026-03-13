@@ -1,0 +1,50 @@
+{
+  "id": "e3",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1590450172605-7f154ea2be39?q=85&w=800",
+  "price": "5,50€",
+  "name": {
+    "es": "Edamame con salsa kimchi",
+    "ca": "Edamame amb salsa kimchi",
+    "en": "Edamame with kimchi sauce",
+    "fr": "Edamame sauce kimchi"
+  },
+  "desc": {
+    "es": "Vaina de soja frita con salsa kimchi. PICANTE",
+    "ca": "Beina de soja fregida amb kimchi. PICANT",
+    "en": "Fried soy pods with kimchi. SPICY",
+    "fr": "Gousse de soja frite au kimchi. ÉPICÉ"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Vainas Edamame",
+        "ca": "Beines",
+        "en": "Edamame",
+        "fr": "Edamame"
+      },
+      "q": "180g"
+    },
+    {
+      "n": {
+        "es": "Salsa Kimchi",
+        "ca": "Salsa Kimchi",
+        "en": "Kimchi Sauce",
+        "fr": "Sauce Kimchi"
+      },
+      "q": "25g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 205,
+    "pr": 17,
+    "cb": 14,
+    "ft": 10
+  },
+  "alg": [
+    "Soja",
+    "Sésamo",
+    "Pescado"
+  ]
+}

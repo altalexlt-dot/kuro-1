@@ -1,0 +1,49 @@
+{
+  "id": "p5",
+  "cat": "Postres",
+  "img": "https://images.unsplash.com/photo-1551024506-0bccd828d307?q=85&w=800",
+  "price": "6,00€",
+  "name": {
+    "es": "Flan japonés",
+    "ca": "Flam japonès",
+    "en": "Japanese flan",
+    "fr": "Flan japonais"
+  },
+  "desc": {
+    "es": "Flan de huevo tradicional (Purin) con caramelo",
+    "ca": "Flam d'ou tradicional (Purin) amb caramel",
+    "en": "Traditional egg flan (Purin) with caramel",
+    "fr": "Flan aux œufs traditionnel (Purin) au caramel"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Flan de huevo",
+        "ca": "Flam d'ou",
+        "en": "Egg flan",
+        "fr": "Flan aux œufs"
+      },
+      "q": "120g"
+    },
+    {
+      "n": {
+        "es": "Caramelo",
+        "ca": "Caramel",
+        "en": "Caramel",
+        "fr": "Caramel"
+      },
+      "q": "20g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 260,
+    "pr": 8,
+    "cb": 30,
+    "ft": 12
+  },
+  "alg": [
+    "Lácteos",
+    "Huevos"
+  ]
+}

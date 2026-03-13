@@ -1,0 +1,16 @@
+{
+  "visual_break_img": "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=85&w=2000&auto=format&fit=crop",
+  "visual_break_alt": "Interior del restaurante Kuro, fine dining japonés en Tarragona",
+  "quote_es": "Comer bien no es un lujo.<br>Es una forma de entender el mundo.",
+  "quote_ca": "Menjar bé no és un luxe.<br>És una forma d'entendre el món.",
+  "quote_en": "Eating well is not a luxury.<br>It's a way of understanding the world.",
+  "quote_fr": "Bien manger n'est pas un luxe.<br>C'est une façon de comprendre le monde.",
+  "quote_attr": "Takashi Mori",
+  "photos": [
+    { "img": "https://images.unsplash.com/photo-1428515613728-6b4607e44363?q=85&w=800&auto=format&fit=crop", "alt_es": "Barra principal de hinoki del restaurante Kuro Tarragona", "caption_es": "Barra Principal", "caption_en": "Main Bar" },
+    { "img": "https://images.unsplash.com/photo-1563612116625-3012372fccce?q=85&w=1200&auto=format&fit=crop", "alt_es": "Servicio omakase en Kuro restaurante japonés Tarragona", "caption_es": "Omakase", "caption_en": "Omakase" },
+    { "img": "https://images.unsplash.com/photo-1615361200141-f45040f367be?q=85&w=800&auto=format&fit=crop", "alt_es": "Selección de sake premium en Kuro Tarragona", "caption_es": "Sake", "caption_en": "Sake" },
+    { "img": "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=85&w=1000&auto=format&fit=crop", "alt_es": "Manos del chef elaborando nigiri en barra de hinoki", "caption_es": "Hinoki", "caption_en": "Hinoki" },
+    { "img": "https://images.unsplash.com/photo-1613564834361-9436948817d1?q=85&w=800&auto=format&fit=crop", "alt_es": "Detalle wabi-sabi en Kuro restaurante japonés", "caption_es": "Wabi-sabi", "caption_en": "Wabi-sabi" }
+  ]
+}

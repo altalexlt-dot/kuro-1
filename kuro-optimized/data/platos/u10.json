@@ -1,0 +1,50 @@
+{
+  "id": "u10",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "15,00€",
+  "name": {
+    "es": "King aburi roll (8 uds)",
+    "ca": "King aburi roll (8 uts)",
+    "en": "King aburi roll (8 pcs)",
+    "fr": "King aburi roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Langostino, aguacate, queso con solomillo flambeado y puré de manzana",
+    "ca": "Llagostí, alvocat, formatge amb filet flamejat i puré de poma",
+    "en": "Prawn, avocado, cheese with torched sirloin and apple purée",
+    "fr": "Crevette, avocat, fromage avec filet flambé et purée de pomme"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Solomillo Ternera",
+        "ca": "Filet Vedella",
+        "en": "Beef Sirloin",
+        "fr": "Filet de bœuf"
+      },
+      "q": "40g"
+    },
+    {
+      "n": {
+        "es": "Puré Manzana",
+        "ca": "Puré Poma",
+        "en": "Apple purée",
+        "fr": "Purée de pomme"
+      },
+      "q": "15g",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 480,
+    "pr": 22,
+    "cb": 55,
+    "ft": 18
+  },
+  "alg": [
+    "Crustáceos",
+    "Lácteos",
+    "Gluten"
+  ]
+}

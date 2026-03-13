@@ -1,0 +1,48 @@
+{
+  "id": "s3",
+  "cat": "Sashimi",
+  "img": "https://images.unsplash.com/photo-1583623025817-d180a2221d0a?q=85&w=800",
+  "price": "10,00€",
+  "name": {
+    "es": "Sashimi de salmón (6 uds)",
+    "ca": "Sashimi de salmó (6 uts)",
+    "en": "Salmon sashimi (6 pcs)",
+    "fr": "Sashimi de saumon (6 pcs)"
+  },
+  "desc": {
+    "es": "Láminas de salmón crudo",
+    "ca": "Làmines de salmó cru",
+    "en": "Raw salmon slices",
+    "fr": "Tranches de saumon cru"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Lomo de Salmón",
+        "ca": "Llom de Salmó",
+        "en": "Salmon loin",
+        "fr": "Longe de Saumon"
+      },
+      "q": "90g"
+    },
+    {
+      "n": {
+        "es": "Wasabi",
+        "ca": "Wasabi",
+        "en": "Wasabi",
+        "fr": "Wasabi"
+      },
+      "q": "3g"
+    }
+  ],
+  "mac": {
+    "kc": 180,
+    "pr": 18,
+    "cb": 0,
+    "ft": 12
+  },
+  "alg": [
+    "Pescado",
+    "Soja"
+  ]
+}

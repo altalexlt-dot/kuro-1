@@ -1,0 +1,59 @@
+{
+  "id": "u3",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "13,00€",
+  "name": {
+    "es": "Salmon aburi roll (8 uds)",
+    "ca": "Salmon aburi roll (8 uts)",
+    "en": "Salmon aburi roll (8 pcs)",
+    "fr": "Salmon aburi roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Tartar salmón, salmón flambeado, brie, salsa mahangang",
+    "ca": "Tàrtar salmó, salmó flamejat, brie, salsa mahangang",
+    "en": "Salmon tartare, torched salmon, brie, mahangang sauce",
+    "fr": "Tartare saumon, saumon flambé, brie, sauce mahangang"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Tartar Salmón",
+        "ca": "Tàrtar Salmó",
+        "en": "Salmon Tartare",
+        "fr": "Tartare Saumon"
+      },
+      "q": "40g"
+    },
+    {
+      "n": {
+        "es": "Salmón flambeado",
+        "ca": "Salmó flamejat",
+        "en": "Torched salmon",
+        "fr": "Saumon flambé"
+      },
+      "q": "30g"
+    },
+    {
+      "n": {
+        "es": "Salsa Mahangang",
+        "ca": "Mahangang",
+        "en": "Mahangang",
+        "fr": "Mahangang"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 460,
+    "pr": 20,
+    "cb": 45,
+    "ft": 22
+  },
+  "alg": [
+    "Pescado",
+    "Lácteos",
+    "Soja"
+  ]
+}

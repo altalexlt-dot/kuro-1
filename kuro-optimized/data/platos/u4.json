@@ -1,0 +1,51 @@
+{
+  "id": "u4",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "16,50€",
+  "name": {
+    "es": "Queen aburi roll (8 uds)",
+    "ca": "Queen aburi roll (8 uts)",
+    "en": "Queen aburi roll (8 pcs)",
+    "fr": "Queen aburi roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Queso crema, aguacate, salmón, gamba y mayo cítrica",
+    "ca": "Formatge, alvocat, salmó, gamba i mayo cítrica",
+    "en": "Cream cheese, avocado, salmon, prawn, citrus mayo",
+    "fr": "Fromage, avocat, saumon, crevette, mayo aux agrumes"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Salmón & Gamba",
+        "ca": "Salmó & Gamba",
+        "en": "Salmon & Prawn",
+        "fr": "Saumon & Crevette"
+      },
+      "q": "60g"
+    },
+    {
+      "n": {
+        "es": "Mayo Cítrica",
+        "ca": "Mayo Cítrica",
+        "en": "Citrus Mayo",
+        "fr": "Mayo Agrumes"
+      },
+      "q": "20ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 450,
+    "pr": 22,
+    "cb": 45,
+    "ft": 20
+  },
+  "alg": [
+    "Pescado",
+    "Crustáceos",
+    "Lácteos",
+    "Huevos"
+  ]
+}

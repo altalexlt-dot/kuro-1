@@ -1,0 +1,58 @@
+{
+  "id": "u2",
+  "cat": "Uramaki",
+  "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=800",
+  "price": "12,00€",
+  "name": {
+    "es": "California salmon roll (8 uds)",
+    "ca": "California salmon roll (8 uts)",
+    "en": "California salmon roll (8 pcs)",
+    "fr": "California salmon roll (8 pcs)"
+  },
+  "desc": {
+    "es": "Salmón, aguacate, queso crema y sésamo",
+    "ca": "Salmó, alvocat, formatge crema i sèsam",
+    "en": "Salmon, avocado, cream cheese, sesame",
+    "fr": "Saumon, avocat, fromage frais, sésame"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Salmón",
+        "ca": "Salmó",
+        "en": "Salmon",
+        "fr": "Saumon"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Aguacate & Queso",
+        "ca": "Alvocat & Formatge",
+        "en": "Avo & Cheese",
+        "fr": "Avocat & Fromage"
+      },
+      "q": "30g"
+    },
+    {
+      "n": {
+        "es": "Sésamo",
+        "ca": "Sèsam",
+        "en": "Sesame",
+        "fr": "Sésame"
+      },
+      "q": "5g"
+    }
+  ],
+  "mac": {
+    "kc": 410,
+    "pr": 16,
+    "cb": 45,
+    "ft": 18
+  },
+  "alg": [
+    "Pescado",
+    "Lácteos",
+    "Sésamo"
+  ]
+}

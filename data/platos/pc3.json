@@ -1,0 +1,61 @@
+{
+  "id": "pc3",
+  "cat": "Platos Calientes",
+  "img": "https://images.unsplash.com/photo-1552611052-33e04de081de?q=85&w=800",
+  "price": "14,50€",
+  "name": {
+    "es": "Noodles de gamba",
+    "ca": "Noodles de gamba",
+    "en": "Prawn Noodles",
+    "fr": "Nouilles aux crevettes"
+  },
+  "desc": {
+    "es": "Fideos salteados con gamba, vegetales y kimchi",
+    "ca": "Fideus saltats amb gamba, vegetals i kimchi",
+    "en": "Stir-fried noodles with prawn, veggies and kimchi",
+    "fr": "Nouilles sautées aux crevettes, légumes et kimchi"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Fideos Yakisoba",
+        "ca": "Fideus",
+        "en": "Yakisoba Noodles",
+        "fr": "Nouilles Yakisoba"
+      },
+      "q": "180g"
+    },
+    {
+      "n": {
+        "es": "Gamba Blanca",
+        "ca": "Gamba",
+        "en": "White Prawn",
+        "fr": "Crevette Blanche"
+      },
+      "q": "100g"
+    },
+    {
+      "n": {
+        "es": "Salsa Kimchi",
+        "ca": "Kimchi",
+        "en": "Kimchi Sauce",
+        "fr": "Sauce Kimchi"
+      },
+      "q": "40ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 570,
+    "pr": 26,
+    "cb": 78,
+    "ft": 14
+  },
+  "alg": [
+    "Gluten",
+    "Soja",
+    "Sésamo",
+    "Crustáceos",
+    "Pescado"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "e8",
+  "cat": "Entrantes",
+  "img": "https://images.unsplash.com/photo-1615361200141-f45040f367be?q=85&w=800",
+  "price": "6,00€",
+  "name": {
+    "es": "Castillo de tempura",
+    "ca": "Castell de tempura",
+    "en": "Tempura castle",
+    "fr": "Château de tempura"
+  },
+  "desc": {
+    "es": "Tempura de verduras con salsa agridulce",
+    "ca": "Tempura de verdures amb salsa agredolça",
+    "en": "Vegetable tempura with sweet & sour sauce",
+    "fr": "Tempura de légumes, sauce aigre-douce"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Verduras variadas",
+        "ca": "Verdures",
+        "en": "Mixed Veggies",
+        "fr": "Légumes variés"
+      },
+      "q": "200g"
+    },
+    {
+      "n": {
+        "es": "Harina Tempura",
+        "ca": "Farina",
+        "en": "Tempura flour",
+        "fr": "Farine tempura"
+      },
+      "q": "50g"
+    },
+    {
+      "n": {
+        "es": "Salsa Agridulce",
+        "ca": "Salsa Agredolça",
+        "en": "Sweet & Sour",
+        "fr": "Aigre-douce"
+      },
+      "q": "30ml",
+      "sauce": true
+    }
+  ],
+  "mac": {
+    "kc": 320,
+    "pr": 6,
+    "cb": 48,
+    "ft": 14
+  },
+  "alg": [
+    "Gluten",
+    "Soja"
+  ]
+}

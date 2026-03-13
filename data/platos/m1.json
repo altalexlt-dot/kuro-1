@@ -1,0 +1,47 @@
+{
+  "id": "m1",
+  "cat": "Makis",
+  "img": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=85&w=800",
+  "price": "7,50€",
+  "name": {
+    "es": "Maki de atún (8 uds)",
+    "ca": "Maki de tonyina (8 uts)",
+    "en": "Tuna Maki (8 pcs)",
+    "fr": "Maki au thon (8 pcs)"
+  },
+  "desc": {
+    "es": "Rollo fino con atún",
+    "ca": "Rotlle fi amb tonyina",
+    "en": "Thin roll with tuna",
+    "fr": "Rouleau fin au thon"
+  },
+  "ing": [
+    {
+      "n": {
+        "es": "Arroz y Nori",
+        "ca": "Arròs i Nori",
+        "en": "Rice & Nori",
+        "fr": "Riz et Nori"
+      },
+      "q": "80g"
+    },
+    {
+      "n": {
+        "es": "Atún Rojo",
+        "ca": "Tonyina",
+        "en": "Tuna",
+        "fr": "Thon"
+      },
+      "q": "40g"
+    }
+  ],
+  "mac": {
+    "kc": 180,
+    "pr": 12,
+    "cb": 30,
+    "ft": 2
+  },
+  "alg": [
+    "Pescado"
+  ]
+}

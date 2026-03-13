@@ -1,0 +1,14 @@
+{
+  "price": "145",
+  "price_sake": "210",
+  "pases": "18",
+  "duracion_es": "3 horas aprox.",
+  "duracion_en": "Approx. 3 hours",
+  "desc_es": "El menú omakase de Kuro es una ceremonia de dieciocho pases que cambia cada noche según el producto disponible. El chef decide. El comensal confía. El resultado es irrepetible.",
+  "desc_en": "Kuro's omakase menu is an eighteen-course ceremony that changes every night according to available produce. The chef decides. The diner trusts. The result is unrepeatable.",
+  "includes_es": ["Aperitivos de bienvenida", "6 nigiris de temporada", "3 piezas de sashimi", "2 elaboraciones calientes", "Roll especial del chef", "Postre japonés", "Té matcha de cierre"],
+  "includes_en": ["Welcome appetisers", "6 seasonal nigiri", "3 sashimi pieces", "2 hot preparations", "Chef's special roll", "Japanese dessert", "Closing matcha tea"],
+  "note_es": "Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar.",
+  "note_en": "Single menu for the whole table. Allergies and intolerances to be communicated at booking.",
+  "img": "https://images.unsplash.com/photo-1559314809-0d155014e29e?q=85&w=1200&auto=format&fit=crop"
+}

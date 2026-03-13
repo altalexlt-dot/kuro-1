@@ -500,6 +500,10 @@ select.booking__input option { background: var(--surface); color: var(--cream); 
 
 address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size: 0.95rem; color: var(--ash); font-style: normal; display: block; margin-bottom: 0.5rem; line-height: 1.6; transition: color 0.3s;}
 .footer__phone:hover, .footer__email:hover { color: var(--cream); }
+.footer__address-short { font-family: var(--f-serif); font-size: 0.9rem; color: var(--ash-dim); line-height: 1.7; margin-top: 0.8rem; margin-bottom: 1rem; }
+.footer__social-row { display: flex; gap: 1.2rem; margin-top: 0.5rem; }
+.footer__social-link { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); transition: color 0.3s; text-decoration: none; }
+.footer__social-link:hover { color: var(--red); }
 
 .footer__schedule li { font-family: var(--f-serif); font-size: 0.95rem; color: var(--ash); }
 .footer__schedule span { color: var(--cream); }
@@ -666,35 +670,21 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
 @media(max-width:900px) { .blog__grid { grid-template-columns: 1fr; } .blog__hd { flex-direction: column; align-items: flex-start; } }
 
 /* Blog Article Modal — scroll INTERNO */
-.blog-modal { position: fixed; inset: 0; z-index: 9200; background: rgba(5,5,5,0.97); overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.4s; overscroll-behavior: contain; }
-.blog-modal.active { opacity: 1; pointer-events: all; }
-.blog-modal__inner { max-width: 740px; margin: 0 auto; padding: 5rem 2rem 6rem; }
-.blog-modal__close { position: fixed; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--ash-dim); font-size: 2rem; cursor: pointer; transition: color 0.3s; z-index: 10; line-height: 1; }
-.blog-modal__close:hover { color: var(--cream); }
-.blog-modal__cat { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
-.blog-modal__title { font-family: var(--f-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 1rem; color: var(--cream); }
-.blog-modal__date { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
-.blog-modal__img { aspect-ratio: 16/9; overflow: hidden; margin-bottom: 3rem; border: 1px solid var(--border-hi); }
-.blog-modal__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
-.blog-modal__body { font-family: var(--f-serif); font-size: 1.1rem; font-weight: 300; color: var(--ash); line-height: 2; }
-.blog-modal__body p { margin-bottom: 1.5rem; }
-.blog-modal__body h3 { font-family: var(--f-display); font-size: 1.4rem; font-weight: 300; color: var(--cream); margin: 3rem 0 1rem; }
-.blog-modal__body blockquote { border-left: 2px solid var(--red); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--cream); font-size: 1.2rem; }
-.blog-modal__imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2.5rem 0; }
-.blog-modal__imgs img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid var(--border-hi); filter: brightness(0.8); }
+/* blog-modal legacy removed — see new block below */
 
 /* ═══════════════════════════════════════════════════════
    OMAKASE TABS & MENU LIST
 ═══════════════════════════════════════════════════════ */
 .om-tabs { display: flex; gap: 0; margin: 2.5rem 0 0; border: 1px solid var(--border-hi); }
-.om-tab { flex: 1; background: transparent; border: none; padding: 1.2rem 1.5rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: background 0.3s; position: relative; overflow: hidden; }
-.om-tab::after { content: ''; position: absolute; inset: 0; background: var(--red); transform: translateY(101%); transition: transform 0.4s var(--ease-expo); }
-.om-tab--active::after { transform: translateY(0); }
+.om-tab { flex: 1; background: transparent; border: none; padding: 1.5rem 1.5rem 1.3rem; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; transition: background 0.5s; position: relative; border-bottom: 2px solid transparent; transition: border-color 0.4s, background 0.4s; }
+.om-tab:hover { background: rgba(255,255,255,0.025); }
+.om-tab--active { background: rgba(193,18,31,0.06); border-bottom-color: var(--red); }
 .om-tab + .om-tab { border-left: 1px solid var(--border-hi); }
-.om-tab__label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ash); position: relative; z-index: 1; transition: color 0.3s; }
-.om-tab__price { font-family: var(--f-display); font-size: 1.4rem; color: var(--cream); position: relative; z-index: 1; }
-.om-tab__price sup { font-size: 0.65rem; }
-.om-tab--active .om-tab__label, .om-tab--active .om-tab__price { color: #fff; }
+.om-tab__label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ash-dim); transition: color 0.4s; }
+.om-tab__price { font-family: var(--f-display); font-size: 1.5rem; font-weight: 300; color: var(--ash); transition: color 0.4s; }
+.om-tab__price sup { font-size: 0.6rem; vertical-align: super; }
+.om-tab--active .om-tab__label { color: var(--red); }
+.om-tab--active .om-tab__price { color: var(--cream); }
 .om-menu { margin-top: 2rem; }
 .om-menu--hidden { display: none; }
 .om-menu__header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 1rem; border-bottom: 1px solid var(--border); margin-bottom: 1rem; }
@@ -742,12 +732,19 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
    VB CHEF STATS (visual break entre galería y chef)
 ═══════════════════════════════════════════════════════ */
 .vb-chef-break { position: relative; }
-.vb-chef-stats { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 3rem; z-index: 3; white-space: nowrap; }
-.vb-stat { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
-.vb-stat__num { font-family: var(--f-display); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--cream); line-height: 1; }
+/* Stats section between gallery and chef */
+.chef-stats-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; }
+.chef-stats-section__inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 2rem; }
+.vb-stat { display: flex; flex-direction: column; align-items: center; gap: 0.6rem; text-align: center; }
+.vb-stat__num { font-family: var(--f-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 300; color: var(--cream); line-height: 1; letter-spacing: -0.02em; }
+.vb-stat__num sup { font-size: 0.4em; vertical-align: super; color: var(--red); }
 .vb-stat__label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--ash-dim); }
-.vb-stat__divider { font-size: 0.5rem; color: var(--red); opacity: 0.6; }
-@media(max-width:600px) { .vb-chef-stats { gap: 1.5rem; bottom: 1.5rem; } .vb-stat__num { font-size: 1.5rem; } }
+.vb-stat__divider { font-size: 0.6rem; color: var(--border-hi); }
+@media(max-width:700px) {
+  .chef-stats-section__inner { grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  .vb-stat__divider { display: none; }
+  .vb-stat__num { font-size: 2.5rem; }
+}
 
 /* ═══════════════════════════════════════════════════════
    BLOG MODAL — scroll interno correcto
@@ -770,6 +767,17 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
   -webkit-overflow-scrolling: touch;
 }
 .blog-modal__inner { max-width: 780px; margin: 0 auto; padding: 6rem 2rem 8rem; }
+.blog-modal__close { position: fixed; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--ash-dim); font-size: 2rem; cursor: pointer; transition: color 0.3s; z-index: 9300; line-height: 1; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+.blog-modal__close:hover { color: var(--cream); }
+.blog-modal__cat { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+.blog-modal__title { font-family: var(--f-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 1rem; color: var(--cream); }
+.blog-modal__date { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+.blog-modal__img { aspect-ratio: 16/9; overflow: hidden; margin-bottom: 3rem; border: 1px solid var(--border-hi); }
+.blog-modal__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+.blog-modal__body { font-family: var(--f-serif); font-size: 1.1rem; font-weight: 300; color: var(--ash); line-height: 2; }
+.blog-modal__body p { margin-bottom: 1.5rem; }
+.blog-modal__body h3 { font-family: var(--f-display); font-size: 1.4rem; font-weight: 300; color: var(--cream); margin: 3rem 0 1rem; }
+.blog-modal__body blockquote { border-left: 2px solid var(--red); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--cream); font-size: 1.2rem; line-height: 1.7; }
 .blog-modal__imgs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2.5rem 0; }
 .blog-modal__imgs-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border: 1px solid var(--border-hi); filter: brightness(0.85); }
 .blog-modal__pull { font-family: var(--f-display); font-size: clamp(1.2rem,2.5vw,1.8rem); font-weight: 300; color: var(--cream); border-left: 2px solid var(--red); padding: 1rem 0 1rem 2rem; margin: 3rem 0; line-height: 1.4; font-style: italic; }
@@ -1083,12 +1091,25 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
     <p class="visual-break__quote-text" data-i18n="vbChefQuote">La perfección no existe en la cocina. Existe en el instante en que el comensal cierra los ojos.</p>
     <p class="visual-break__quote-attr" data-i18n="vbChefAttr">Takashi Mori · Kuro 黑</p>
   </div>
-  <div class="vb-chef-stats" data-reveal>
-    <div class="vb-stat"><span class="vb-stat__num">22</span><span class="vb-stat__label" data-i18n="vbS1">años en cocina</span></div>
+</div>
+
+<!-- ═══ STATS CHEF ══════════════════════════════════════════════════ -->
+<div class="chef-stats-section" aria-label="Trayectoria del chef">
+  <div class="chef-stats-section__inner">
+    <div class="vb-stat" data-reveal>
+      <span class="vb-stat__num">22</span>
+      <span class="vb-stat__label" data-i18n="vbS1">años en cocina</span>
+    </div>
     <div class="vb-stat__divider" aria-hidden="true">◆</div>
-    <div class="vb-stat"><span class="vb-stat__num">3</span><span class="vb-stat__label" data-i18n="vbS2">años en Japón</span></div>
+    <div class="vb-stat" data-reveal>
+      <span class="vb-stat__num">3</span>
+      <span class="vb-stat__label" data-i18n="vbS2">años en Japón</span>
+    </div>
     <div class="vb-stat__divider" aria-hidden="true">◆</div>
-    <div class="vb-stat"><span class="vb-stat__num">2</span><span class="vb-stat__label" data-i18n="vbS3">estrellas Michelin</span></div>
+    <div class="vb-stat" data-reveal>
+      <span class="vb-stat__num">2<sup>★</sup></span>
+      <span class="vb-stat__label" data-i18n="vbS3">estrellas Michelin</span>
+    </div>
   </div>
 </div>
 
@@ -1455,19 +1476,13 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
     
     <div class="footer__col footer__contact-col">
       <p class="footer__col-title" data-i18n="ftCo">Contacto</p>
-      <address itemscope itemtype="https://schema.org/PostalAddress">
-        <span itemprop="streetAddress" id="ft-address">Passeig de les Palmeres, 1</span><br>
-        <span itemprop="addressLocality">Tarragona</span>,
-        <span itemprop="addressRegion">Cataluña</span>
-        <span itemprop="postalCode">43003</span>
-      </address>
       <a href="tel:+34977000000" class="footer__phone" id="ft-phone" itemprop="telephone">+34 977 000 000</a>
       <a href="mailto:reservas@kuro-tarragona.com" class="footer__email" id="ft-email" itemprop="email">reservas@kuro-tarragona.com</a>
-      
-      <a href="https://www.google.com/maps/place/Pg.+de+les+Palmeres,+1,+43003+Tarragona/" target="_blank" rel="noopener noreferrer" class="map-btn" id="ft-maps" aria-label="Ver Kuro en Google Maps">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-        <span data-i18n="ftMap">Cómo llegar</span>
-      </a>
+      <p class="footer__address-short" id="ft-address-short">Passeig de les Palmeres, 1<br>Tarragona 43003</p>
+      <div class="footer__social-row">
+        <a href="#" id="ft-ig" rel="noopener noreferrer" target="_blank" aria-label="Instagram de Kuro" class="footer__social-link">Instagram</a>
+        <a href="#" id="ft-ta" rel="noopener noreferrer" target="_blank" aria-label="TripAdvisor de Kuro" class="footer__social-link">TripAdvisor</a>
+      </div>
     </div>
   </div>
   
@@ -1477,11 +1492,6 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
       <a href="#" data-i18n="ftLeg1" rel="nofollow">Aviso Legal</a>
       <a href="#" data-i18n="ftLeg2" rel="nofollow">Privacidad</a>
       <a href="#" data-i18n="ftLeg3" rel="nofollow">Cookies</a>
-    </div>
-    <div class="footer__socials">
-      <a href="#" id="ft-ig" rel="noopener noreferrer" target="_blank" aria-label="Instagram de Kuro">IG</a>
-      <a href="#" id="ft-fb" rel="noopener noreferrer" target="_blank" aria-label="Facebook de Kuro">FB</a>
-      <a href="#" id="ft-ta" rel="noopener noreferrer" target="_blank" aria-label="TripAdvisor de Kuro">TA</a>
     </div>
   </div>
 </footer>
@@ -1630,17 +1640,17 @@ async function loadCMSData() {
       window._contactData = ct;
       const phone = document.getElementById('ft-phone');
       const email = document.getElementById('ft-email');
-      const address = document.querySelector('address [itemprop="streetAddress"]');
-      const maps = document.getElementById('ft-maps');
+      const addrShort = document.getElementById('ft-address-short');
+      const mapAddrEl = document.getElementById('map-address');
+      const mapBtnExt = document.getElementById('map-btn-ext');
       const ig = document.getElementById('ft-ig');
-      const fb = document.getElementById('ft-fb');
       const ta = document.getElementById('ft-ta');
       if (phone) { phone.textContent = ct.phone; phone.href = 'tel:' + ct.phone.replace(/\s/g,''); }
       if (email) { email.textContent = ct.email; email.href = 'mailto:' + ct.email; }
-      if (address) address.textContent = ct.address;
-      if (maps && ct.maps_url) maps.href = ct.maps_url;
+      if (addrShort && ct.address) addrShort.innerHTML = ct.address + '<br>' + (ct.city || 'Tarragona') + ' ' + (ct.postal_code || '43003');
+      if (mapAddrEl && ct.address) mapAddrEl.textContent = ct.address + ' · ' + (ct.city || 'Tarragona');
+      if (mapBtnExt && ct.maps_url) mapBtnExt.href = ct.maps_url;
       if (ig && ct.instagram_url) ig.href = ct.instagram_url;
-      if (fb && ct.facebook_url) fb.href = ct.facebook_url;
       if (ta && ct.tripadvisor_url) ta.href = ct.tripadvisor_url;
     }
 
@@ -2434,25 +2444,35 @@ if (!prefersReducedMotion) {
       const labelKey = 'label_' + lang;
 
       // Construye el HTML del PDF
+      const dateStr = new Date().toLocaleDateString('es-ES', {year:'numeric', month:'long'});
+      const fileName = 'Kuro-Carta-' + new Date().toISOString().slice(0,7);
       let html = `
-        <html><head><meta charset="UTF-8">
+        <!DOCTYPE html><html lang="${lang}"><head><meta charset="UTF-8">
+        <title>${fileName}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
         <style>
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
-          * { margin:0; padding:0; box-sizing:border-box; }
-          body { background:#050505; color:#EDE9E2; font-family:'Cormorant Garamond',serif; padding:3rem 4rem; }
-          .logo { font-family:'Cinzel',serif; font-size:2.5rem; letter-spacing:0.3em; text-align:center; margin-bottom:0.5rem; color:#EDE9E2; }
+          @page { margin: 20mm 18mm; size: A4; }
+          *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+          body { background:#fff; color:#111; font-family:'Cormorant Garamond',Georgia,serif; font-size:10pt; line-height:1.5; }
+          .logo { font-family:'Cinzel','Times New Roman',serif; font-size:22pt; letter-spacing:0.3em; text-align:center; margin-bottom:4pt; color:#111; }
           .logo span { color:#C1121F; }
-          .subtitle { text-align:center; font-style:italic; color:#888; font-size:1rem; margin-bottom:0.5rem; }
-          .divider { border:none; border-top:1px solid #222; margin:1.5rem 0; }
-          .cat-title { font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.4em; text-transform:uppercase; color:#C1121F; margin:2rem 0 1rem; border-bottom:1px solid #1a1a1a; padding-bottom:0.8rem; }
-          .plato { display:flex; justify-content:space-between; align-items:baseline; padding:0.5rem 0; border-bottom:1px solid #111; gap:1rem; }
-          .plato-name { font-size:1rem; color:#EDE9E2; flex:1; }
-          .plato-desc { font-size:0.85rem; font-style:italic; color:#888; flex:2; padding:0 1rem; }
-          .plato-price { font-family:'Cinzel',serif; font-size:0.9rem; color:#C1121F; white-space:nowrap; }
-          .footer-pdf { text-align:center; margin-top:3rem; font-style:italic; color:#555; font-size:0.8rem; }
+          .subtitle { text-align:center; font-style:italic; color:#666; font-size:9pt; margin-bottom:4pt; }
+          .divider { border:none; border-top:1px solid #ddd; margin:10pt 0; }
+          .cat-title { font-family:'Cinzel','Times New Roman',serif; font-size:7pt; letter-spacing:0.35em; text-transform:uppercase; color:#C1121F; margin:14pt 0 6pt; padding-bottom:4pt; border-bottom:0.5pt solid #eee; }
+          .plato { display:flex; justify-content:space-between; align-items:baseline; padding:4pt 0; border-bottom:0.5pt solid #f0f0f0; gap:8pt; page-break-inside:avoid; }
+          .plato-name { font-size:10pt; color:#111; flex:1.2; font-weight:400; }
+          .plato-desc { font-size:8.5pt; font-style:italic; color:#777; flex:2; padding:0 6pt; }
+          .plato-price { font-family:'Cinzel','Times New Roman',serif; font-size:9pt; color:#C1121F; white-space:nowrap; font-weight:300; }
+          .footer-pdf { text-align:center; margin-top:20pt; font-style:italic; color:#aaa; font-size:8pt; border-top:0.5pt solid #eee; padding-top:10pt; }
+          @media print {
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .cat-title { color:#C1121F !important; }
+            .plato-price { color:#C1121F !important; }
+          }
         </style></head><body>
         <div class="logo">KURO <span>黑</span></div>
-        <p class="subtitle">Fine Dining Japonés · Tarragona · ${new Date().toLocaleDateString(lang === 'en' ? 'en-GB' : 'es-ES', {year:'numeric',month:'long'})}</p>
+        <p class="subtitle">Fine Dining Japonés · Tarragona · ${dateStr}</p>
         <hr class="divider">
       `;
 
@@ -2474,16 +2494,20 @@ if (!prefersReducedMotion) {
       const titleTag = `<title>Kuro-Carta-${new Date().toLocaleDateString('es-ES').replace(/\//g,'-')}</title>`;
       html = html.replace('<html>', '<html>').replace('<head>', '<head>' + titleTag);
 
-      // Abre en nueva ventana — el título se convierte en nombre de archivo al guardar como PDF
+      // Abre en nueva ventana — el title se convierte en nombre del archivo al guardar como PDF
       const win = window.open('', '_blank', 'width=960,height=780');
       if (!win) {
-        alert('Tu navegador bloqueó la ventana emergente. Permite las ventanas emergentes para este sitio.');
+        alert('Tu navegador bloqueó la ventana emergente. Permite ventanas emergentes en este sitio e inténtalo de nuevo.');
         return;
       }
       win.document.write(html);
       win.document.close();
-      // Pequeño delay para que los estilos carguen antes de imprimir
-      setTimeout(() => { win.focus(); win.print(); }, 800);
+      // Espera que carguen las fuentes de Google Fonts antes de imprimir
+      win.addEventListener('load', () => {
+        setTimeout(() => { win.focus(); win.print(); }, 1200);
+      });
+      // Fallback por si load no dispara
+      setTimeout(() => { if (win && !win.closed) { win.focus(); win.print(); } }, 2500);
 
     } catch(e) {
       console.warn('PDF error:', e);

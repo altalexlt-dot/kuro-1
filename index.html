@@ -183,6 +183,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Syne:wght@200;300;400&display=swap" rel="stylesheet"/>
 
+  <!-- ═══ FAVICON ANIMADO ════════════════════════════════════════════════ -->
+  <script>
+  (function(){
+    // SVG favicon animado con el kanji 黑
+    const frames = ['#C1121F','#8B0000','#C1121F','#050505'];
+    let fi = 0;
+    function makeFavicon(color) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="${color}"/><text x="16" y="23" font-family="serif" font-size="18" fill="#EDE9E2" text-anchor="middle">黑</text></svg>`;
+      const url = 'data:image/svg+xml,' + encodeURIComponent(svg);
+      let link = document.querySelector("link[rel~='icon']");
+      if (!link) { link = document.createElement('link'); link.rel = 'icon'; document.head.appendChild(link); }
+      link.href = url;
+    }
+    makeFavicon(frames[0]);
+    setInterval(() => { fi = (fi + 1) % frames.length; makeFavicon(frames[fi]); }, 1200);
+  })();
+  </script>
+
   <!-- ═══ SCRIPTS ════════════════════════════════════════════════════════ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -499,6 +517,188 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
 .mob-menu.open { opacity: 1; pointer-events: all; }
 .mob-menu a { font-family: var(--f-display); font-size: clamp(1.8rem,8vw,3.5rem); letter-spacing: 0.1em; color: var(--ash); transition: color 0.3s; }
 .mob-menu a:hover { color: var(--cream); }
+
+/* ═══════════════════════════════════════════════════════
+   POPUP RESERVAS
+═══════════════════════════════════════════════════════ */
+.popup-overlay { position: fixed; inset: 0; z-index: 9000; background: rgba(5,5,5,0.85); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.5s; padding: 1rem; }
+.popup-overlay.active { opacity: 1; pointer-events: all; }
+.popup-box { position: relative; background: var(--surface); border: 1px solid var(--border-hi); max-width: 560px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+.popup-img { position: relative; min-height: 320px; }
+.popup-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) contrast(1.1); }
+.popup-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 70%, var(--surface)); }
+.popup-content { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+.popup-tag { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+.popup-title { font-family: var(--f-display); font-size: 2rem; font-weight: 300; line-height: 1.05; margin-bottom: 1rem; }
+.popup-title em { font-style: italic; color: var(--ash); }
+.popup-desc { font-family: var(--f-serif); font-style: italic; font-size: 0.95rem; color: var(--ash); line-height: 1.7; margin-bottom: 2rem; }
+.popup-btn { display: block; text-align: center; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--cream); border: 1px solid var(--border-hi); padding: 1rem 1.5rem; transition: all 0.4s; position: relative; overflow: hidden; }
+.popup-btn .btn-bg { position: absolute; inset: 0; background: var(--red); transform: translateY(101%); transition: transform 0.45s var(--ease-expo); }
+.popup-btn:hover .btn-bg { transform: translateY(0); }
+.popup-btn .btn-text { position: relative; z-index: 1; }
+.popup-close { position: absolute; top: 1rem; right: 1rem; z-index: 10; background: none; border: none; color: var(--ash-dim); font-size: 1.4rem; cursor: pointer; line-height: 1; padding: 0.25rem; transition: color 0.3s; }
+.popup-close:hover { color: var(--cream); }
+.popup-skip { display: block; text-align: center; margin-top: 1rem; font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ash-dim); cursor: pointer; transition: color 0.3s; }
+.popup-skip:hover { color: var(--ash); }
+@media(max-width:600px) { .popup-box { grid-template-columns: 1fr; } .popup-img { min-height: 160px; } }
+
+/* ═══════════════════════════════════════════════════════
+   LIGHTBOX GALERÍA
+═══════════════════════════════════════════════════════ */
+.lightbox { position: fixed; inset: 0; z-index: 9500; background: rgba(5,5,5,0.97); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+.lightbox.active { opacity: 1; pointer-events: all; }
+.lightbox__img-wrap { position: relative; max-width: 90vw; max-height: 85vh; }
+.lightbox__img-wrap img { max-width: 90vw; max-height: 85vh; object-fit: contain; display: block; border: 1px solid var(--border-hi); }
+.lightbox__cap { position: absolute; bottom: -2rem; left: 0; right: 0; text-align: center; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ash-dim); }
+.lightbox__close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--ash-dim); font-size: 2rem; cursor: pointer; line-height: 1; transition: color 0.3s; z-index: 2; }
+.lightbox__close:hover { color: var(--cream); }
+.lightbox__nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.05); border: 1px solid var(--border-hi); color: var(--ash); font-size: 1.5rem; width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+.lightbox__nav:hover { background: var(--red); color: #fff; border-color: var(--red); }
+.lightbox__prev { left: 1rem; }
+.lightbox__next { right: 1rem; }
+.gallery__cell { cursor: zoom-in; }
+
+/* ═══════════════════════════════════════════════════════
+   SECCIÓN CHEF
+═══════════════════════════════════════════════════════ */
+.chef { padding: var(--pad-y) var(--pad-x); max-width: var(--max-w); margin: 0 auto; }
+.chef__inner { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(4rem, 8vw, 8rem); align-items: center; }
+.chef__visual { position: relative; }
+.chef__img-main { aspect-ratio: 3/4; overflow: hidden; border: 1px solid var(--border-hi); }
+.chef__img-main img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75) contrast(1.15); transform: scale(1.05); transition: transform 1.5s var(--ease-expo); }
+.chef__img-main:hover img { transform: scale(1.0); }
+.chef__img-action { position: absolute; bottom: -3rem; right: -3rem; width: 50%; aspect-ratio: 4/3; overflow: hidden; border: 1px solid var(--border-hi); box-shadow: -20px -20px 50px rgba(5,5,5,0.95); z-index: 2; }
+.chef__img-action img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+.chef__kanji { position: absolute; top: -5%; left: -8%; font-family: var(--f-display); font-size: clamp(8rem,15vw,14rem); color: rgba(255,255,255,0.02); writing-mode: vertical-rl; line-height: 1; pointer-events: none; z-index: 0; }
+.chef__text { position: relative; padding-bottom: 3rem; }
+.chef__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+.chef__name { font-family: var(--f-display); font-size: clamp(2.5rem,4vw,4rem); font-weight: 300; line-height: 1; margin-bottom: 0.5rem; }
+.chef__role { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 2.5rem; }
+.chef__bio { font-family: var(--f-serif); font-size: 1.1rem; font-weight: 200; color: var(--ash); line-height: 1.85; border-left: 2px solid var(--red); padding-left: 1.8rem; margin-bottom: 2.5rem; }
+.chef__quote { font-family: var(--f-display); font-size: clamp(1rem,1.6vw,1.3rem); font-style: italic; color: var(--cream); line-height: 1.5; margin-bottom: 2.5rem; padding: 1.5rem; background: var(--bg-raised); border: 1px solid var(--border-hi); position: relative; }
+.chef__quote::before { content: '"'; position: absolute; top: 0.5rem; left: 1rem; font-size: 3rem; color: var(--border); line-height: 1; font-family: var(--f-display); }
+.chef__milestones { display: flex; flex-direction: column; gap: 1rem; }
+.chef__milestone { display: flex; gap: 1.5rem; align-items: baseline; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+.chef__milestone-year { font-family: var(--f-display); font-size: 1rem; color: var(--red); min-width: 3rem; }
+.chef__milestone-text { font-family: var(--f-serif); font-size: 0.95rem; color: var(--ash); }
+@media(max-width:900px) { .chef__inner { grid-template-columns: 1fr; } .chef__img-action { right: 0; bottom: -2rem; } }
+
+/* ═══════════════════════════════════════════════════════
+   SECCIÓN OMAKASE / MENÚ DEGUSTACIÓN
+═══════════════════════════════════════════════════════ */
+.omakase { position: relative; padding: var(--pad-y) var(--pad-x); background: var(--bg-raised); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); overflow: hidden; }
+.omakase__ambient { position: absolute; top: -20%; left: -10%; width: 50%; height: 80%; background: radial-gradient(ellipse, rgba(193,18,31,0.05) 0%, transparent 65%); pointer-events: none; }
+.omakase__inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(4rem, 8vw, 8rem); align-items: center; }
+.omakase__kanji { position: absolute; bottom: -4rem; right: -2rem; font-family: var(--f-display); font-size: clamp(8rem,18vw,16rem); color: rgba(255,255,255,0.016); line-height: 1; user-select: none; pointer-events: none; }
+.omakase__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+.omakase__title { font-family: var(--f-display); font-size: clamp(2.5rem,4.5vw,4.5rem); font-weight: 300; line-height: 0.95; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+.omakase__title em { font-style: italic; color: var(--ash); }
+.omakase__desc { font-family: var(--f-serif); font-size: 1.1rem; font-style: italic; color: var(--ash); line-height: 1.85; border-left: 2px solid var(--red); padding-left: 1.8rem; margin-bottom: 3rem; }
+.omakase__prices { display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.omakase__price-block { }
+.omakase__price-label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 0.4rem; }
+.omakase__price-val { font-family: var(--f-display); font-size: 3rem; color: var(--cream); line-height: 1; }
+.omakase__price-val sup { font-size: 0.5em; color: var(--red); }
+.omakase__price-sub { font-family: var(--f-serif); font-size: 0.8rem; color: var(--ash-dim); font-style: italic; margin-top: 0.2rem; }
+.omakase__includes { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 3rem; }
+.omakase__includes li { font-family: var(--f-serif); font-size: 1rem; color: var(--ash); display: flex; gap: 0.8rem; align-items: baseline; }
+.omakase__includes li::before { content: '—'; color: var(--red); font-family: var(--f-display); flex-shrink: 0; }
+.omakase__note { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.1em; color: var(--ash-dim); font-style: italic; padding: 1rem 1.2rem; border: 1px solid var(--border); background: var(--surface); margin-bottom: 2.5rem; }
+.omakase__visual { position: relative; aspect-ratio: 3/4; overflow: hidden; border: 1px solid var(--border-hi); }
+.omakase__visual img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) contrast(1.15); transform: scale(1.05); transition: transform 1.5s var(--ease-expo); }
+.omakase__visual:hover img { transform: scale(1.0); }
+.omakase__visual-badge { position: absolute; bottom: 2rem; left: 2rem; background: rgba(5,5,5,0.85); border: 1px solid var(--border-hi); padding: 1.2rem 1.5rem; backdrop-filter: blur(8px); }
+.omakase__visual-badge-num { font-family: var(--f-display); font-size: 2rem; color: var(--cream); line-height: 1; }
+.omakase__visual-badge-label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-top: 0.2rem; }
+@media(max-width:900px) { .omakase__inner { grid-template-columns: 1fr; } .omakase__visual { aspect-ratio: 16/9; } }
+
+/* ═══════════════════════════════════════════════════════
+   SECCIÓN EVENTOS
+═══════════════════════════════════════════════════════ */
+.eventos { padding: var(--pad-y) var(--pad-x); max-width: var(--max-w); margin: 0 auto; }
+.eventos__hd { text-align: center; margin-bottom: 5rem; }
+.eventos__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+.eventos__title { font-family: var(--f-display); font-size: clamp(2.5rem,5vw,4.5rem); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; }
+.eventos__title em { font-style: italic; color: var(--ash); }
+.eventos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.evento-card { position: relative; border: 1px solid var(--border); background: var(--bg-raised); overflow: hidden; transition: border-color 0.4s; }
+.evento-card:hover { border-color: var(--border-hi); }
+.evento-card__img { aspect-ratio: 4/3; overflow: hidden; }
+.evento-card__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.55) contrast(1.1); transform: scale(1.1); transition: transform 1.2s var(--ease-expo), filter 0.8s; }
+.evento-card:hover .evento-card__img img { transform: scale(1.02); filter: brightness(0.7); }
+.evento-card__body { padding: 2rem; }
+.evento-card__icon { font-family: var(--f-display); font-size: 2rem; color: var(--red); margin-bottom: 1rem; line-height: 1; }
+.evento-card__title { font-family: var(--f-display); font-size: 1.5rem; font-weight: 300; color: var(--cream); margin-bottom: 1rem; }
+.evento-card__desc { font-family: var(--f-serif); font-size: 0.95rem; color: var(--ash); line-height: 1.7; margin-bottom: 1.5rem; }
+.evento-card__price { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--red); border-top: 1px solid var(--border); padding-top: 1rem; }
+@media(max-width:900px) { .eventos__grid { grid-template-columns: 1fr; } }
+
+/* ═══════════════════════════════════════════════════════
+   SECCIÓN BLOG
+═══════════════════════════════════════════════════════ */
+.blog { padding: var(--pad-y) var(--pad-x); background: var(--bg-raised); border-top: 1px solid var(--border); }
+.blog__inner { max-width: var(--max-w); margin: 0 auto; }
+.blog__hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+.blog__tag { font-family: var(--f-sans); font-size: 0.55rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+.blog__title { font-family: var(--f-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; line-height: 1; }
+.blog__title em { font-style: italic; color: var(--ash); }
+.blog__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.blog-card { position: relative; border: 1px solid var(--border); background: var(--bg); overflow: hidden; cursor: pointer; transition: border-color 0.4s; }
+.blog-card:hover { border-color: var(--border-hi); }
+.blog-card__img { aspect-ratio: 16/10; overflow: hidden; position: relative; }
+.blog-card__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) contrast(1.1); transform: scale(1.08); transition: transform 1.2s var(--ease-expo), filter 0.8s; }
+.blog-card:hover .blog-card__img img { transform: scale(1.02); filter: brightness(0.8); }
+.blog-card__cat { position: absolute; top: 1rem; left: 1rem; font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cream); background: var(--red); padding: 0.35rem 0.8rem; z-index: 2; }
+.blog-card__body { padding: 1.8rem; }
+.blog-card__date { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 0.8rem; }
+.blog-card__title { font-family: var(--f-display); font-size: 1.25rem; font-weight: 300; color: var(--cream); margin-bottom: 0.8rem; line-height: 1.2; }
+.blog-card__excerpt { font-family: var(--f-serif); font-size: 0.9rem; color: var(--ash); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media(max-width:900px) { .blog__grid { grid-template-columns: 1fr; } .blog__hd { flex-direction: column; align-items: flex-start; } }
+
+/* Blog Article Modal */
+.blog-modal { position: fixed; inset: 0; z-index: 9200; background: rgba(5,5,5,0.97); overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+.blog-modal.active { opacity: 1; pointer-events: all; }
+.blog-modal__inner { max-width: 740px; margin: 0 auto; padding: 5rem 2rem 6rem; }
+.blog-modal__close { position: fixed; top: 1.5rem; right: 1.5rem; background: none; border: none; color: var(--ash-dim); font-size: 2rem; cursor: pointer; transition: color 0.3s; z-index: 10; line-height: 1; }
+.blog-modal__close:hover { color: var(--cream); }
+.blog-modal__cat { font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; }
+.blog-modal__title { font-family: var(--f-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 1rem; color: var(--cream); }
+.blog-modal__date { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+.blog-modal__img { aspect-ratio: 16/9; overflow: hidden; margin-bottom: 3rem; border: 1px solid var(--border-hi); }
+.blog-modal__img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+.blog-modal__body { font-family: var(--f-serif); font-size: 1.1rem; font-weight: 300; color: var(--ash); line-height: 2; }
+.blog-modal__body p { margin-bottom: 1.5rem; }
+
+/* ═══════════════════════════════════════════════════════
+   MAPA EMBED
+═══════════════════════════════════════════════════════ */
+.map-section { border-top: 1px solid var(--border); }
+.map-section iframe { display: block; width: 100%; height: 420px; border: none; filter: grayscale(1) invert(0.9) contrast(1.1) brightness(0.85); }
+.map-section__overlay { background: var(--bg-raised); padding: 2rem var(--pad-x); display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
+.map-section__info { display: flex; gap: 3rem; flex-wrap: wrap; }
+.map-section__item { }
+.map-section__item-label { font-family: var(--f-sans); font-size: 0.45rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ash-dim); margin-bottom: 0.4rem; }
+.map-section__item-val { font-family: var(--f-serif); font-size: 1rem; color: var(--cream); }
+@media(max-width:600px) { .map-section__overlay { flex-direction: column; align-items: flex-start; } .map-section iframe { height: 280px; } }
+
+/* ═══════════════════════════════════════════════════════
+   PDF CARTA BUTTON
+═══════════════════════════════════════════════════════ */
+.pdf-btn { display: inline-flex; align-items: center; gap: 0.8rem; font-family: var(--f-sans); font-size: 0.5rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--cream); border: 1px solid var(--border-hi); padding: 1rem 2rem; transition: all 0.4s; position: relative; overflow: hidden; cursor: pointer; background: transparent; }
+.pdf-btn .btn-bg { position: absolute; inset: 0; background: var(--red); transform: translateY(101%); transition: transform 0.45s var(--ease-expo); }
+.pdf-btn:hover .btn-bg { transform: translateY(0); }
+.pdf-btn .btn-text, .pdf-btn svg { position: relative; z-index: 1; }
+.pdf-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════════════════
+   FAVICON ANIMADO (SVG dinámico en <head>)
+═══════════════════════════════════════════════════════ */
+/* El favicon se inyecta vía JS */
+
+/* ═══════════════════════════════════════════════════════
+   NAV LINKS NUEVAS SECCIONES
+═══════════════════════════════════════════════════════ */
+.nav__center a[href="#chef"], .nav__center a[href="#omakase"], .nav__center a[href="#blog"] { }
   </style>
 </head>
 <body>
@@ -524,6 +724,8 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
   </a>
   <nav class="nav__center" aria-label="Navegación principal" role="navigation">
     <a href="carta.html" data-i18n="navMenu" itemprop="name">La Carta</a>
+    <a href="#chef" data-i18n="navChef" itemprop="name">El Chef</a>
+    <a href="#omakase" data-i18n="navOmakase" itemprop="name">Omakase</a>
     <a href="#gallery" data-i18n="navSpace" itemprop="name">El Espacio</a>
     <a href="#booking" data-i18n="navBook" itemprop="name">Reservas</a>
   </nav>
@@ -708,6 +910,10 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
           <span class="btn-bg"></span>
           <span class="btn-text" data-i18n="cBtn">Descubrir Menú</span>
         </a>
+        <button class="pdf-btn" id="pdf-btn" style="margin-top:1.2rem;" aria-label="Descargar carta en PDF">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17a4 4 0 0 1 4-4 4 4 0 0 1 8 0 4 4 0 0 1 4 4v1H3v-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="btn-text" data-i18n="pdfBtn">Descargar Carta PDF</span>
+        </button>
       </div>
       <div class="cta-visual">
         <img id="cta-img"
@@ -792,8 +998,177 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
   </div>
 </section>
 
+<!-- ═══ SECCIÓN CHEF ════════════════════════════════════════════════ -->
+<section class="chef" id="chef" aria-labelledby="chef-heading">
+  <div class="chef__inner">
+    <div class="chef__visual" data-reveal>
+      <div class="chef__kanji" aria-hidden="true">匠</div>
+      <div class="chef__img-main">
+        <img id="chef-img-main"
+          src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=85&w=900&auto=format&fit=crop"
+          alt="Chef Takashi Mori, chef ejecutivo de Kuro Tarragona"
+          loading="lazy" width="900" height="1200"/>
+      </div>
+      <div class="chef__img-action">
+        <img id="chef-img-action"
+          src="https://images.unsplash.com/photo-1560963689-b5682b6440f8?q=85&w=900&auto=format&fit=crop"
+          alt="Elaboración de nigiri en la barra de Kuro"
+          loading="lazy" width="900" height="675"/>
+      </div>
+    </div>
+    <div class="chef__text">
+      <p class="chef__tag" data-reveal data-i18n="chTag">El Artista</p>
+      <h2 class="chef__name" id="chef-heading" data-reveal>Takashi Mori</h2>
+      <p class="chef__role" data-reveal id="chef-role" data-i18n="chRole">Chef Ejecutivo &amp; Fundador</p>
+      <p class="chef__bio" data-reveal id="chef-bio">Nacido en Osaka en 1981, Takashi Mori descubrió su vocación entre los mercados de pescado del puerto de Tarragona. Formado durante una década en los mejores restaurantes de Tokio y Kioto, regresó al Mediterráneo con una misión: fundir la precisión del washoku con la generosidad del producto local.</p>
+      <blockquote class="chef__quote" data-reveal id="chef-quote">No cocino para impresionar. Cocino para que el comensal entienda algo que no sabía que sentía.</blockquote>
+      <div class="chef__milestones" id="chef-milestones" data-reveal>
+        <div class="chef__milestone"><span class="chef__milestone-year">1999</span><span class="chef__milestone-text">Inicio en el restaurante Kikunoi, Kioto</span></div>
+        <div class="chef__milestone"><span class="chef__milestone-year">2005</span><span class="chef__milestone-text">Sous-chef en Sukiyabashi Jiro, Tokio</span></div>
+        <div class="chef__milestone"><span class="chef__milestone-year">2010</span><span class="chef__milestone-text">Apertura de Kuro 黑 en Tarragona</span></div>
+        <div class="chef__milestone"><span class="chef__milestone-year">2018</span><span class="chef__milestone-text">Primera Estrella Michelin</span></div>
+        <div class="chef__milestone"><span class="chef__milestone-year">2022</span><span class="chef__milestone-text">Segunda Estrella Michelin</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECCIÓN OMAKASE ═════════════════════════════════════════════ -->
+<section class="omakase" id="omakase" aria-labelledby="omakase-heading">
+  <div class="omakase__ambient" aria-hidden="true"></div>
+  <div class="omakase__kanji" aria-hidden="true">お任せ</div>
+  <div class="omakase__inner">
+    <div class="omakase__text">
+      <p class="omakase__tag" data-reveal data-i18n="omTag">Menú Degustación</p>
+      <h2 class="omakase__title" id="omakase-heading" data-reveal>
+        <span data-i18n="omT1">Omakase</span><br><em data-i18n="omT2">Experience</em>
+      </h2>
+      <p class="omakase__desc" data-reveal id="om-desc">El menú omakase de Kuro es una ceremonia de dieciocho pases que cambia cada noche según el producto disponible. El chef decide. El comensal confía. El resultado es irrepetible.</p>
+      <div class="omakase__prices" data-reveal>
+        <div class="omakase__price-block">
+          <p class="omakase__price-label" data-i18n="omPriceLabel">Menú degustación</p>
+          <div class="omakase__price-val" id="om-price">145<sup>€</sup></div>
+          <p class="omakase__price-sub" data-i18n="omPerPerson">por persona</p>
+        </div>
+        <div class="omakase__price-block">
+          <p class="omakase__price-label" data-i18n="omSakeLabel">Con maridaje sake</p>
+          <div class="omakase__price-val" id="om-price-sake">210<sup>€</sup></div>
+          <p class="omakase__price-sub" data-i18n="omPerPerson">por persona</p>
+        </div>
+      </div>
+      <ul class="omakase__includes" id="om-includes" data-reveal>
+        <li>Aperitivos de bienvenida</li>
+        <li>6 nigiris de temporada</li>
+        <li>3 piezas de sashimi premium</li>
+        <li>2 elaboraciones calientes</li>
+        <li>Roll especial del chef</li>
+        <li>Postre japonés</li>
+        <li>Té matcha de cierre</li>
+      </ul>
+      <p class="omakase__note" data-reveal data-i18n="omNote" id="om-note">Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar.</p>
+      <a href="#booking" class="menu__btn" data-reveal style="margin-top:1rem;display:inline-block;">
+        <span class="btn-bg"></span>
+        <span class="btn-text" data-i18n="omBtn">Reservar Experiencia</span>
+      </a>
+    </div>
+    <div class="omakase__visual" data-reveal>
+      <img id="om-img"
+        src="https://images.unsplash.com/photo-1559314809-0d155014e29e?q=85&w=1200&auto=format&fit=crop"
+        alt="Menú omakase de 18 pases en Kuro Tarragona"
+        loading="lazy" width="1200" height="1600"/>
+      <div class="omakase__visual-badge">
+        <div class="omakase__visual-badge-num" id="om-pases">18</div>
+        <div class="omakase__visual-badge-label" data-i18n="omPases">pases</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECCIÓN EVENTOS ══════════════════════════════════════════════ -->
+<section class="eventos" id="eventos" aria-labelledby="eventos-heading">
+  <div class="eventos__hd" data-reveal>
+    <p class="eventos__tag" data-i18n="evTag">Experiencias Exclusivas</p>
+    <h2 class="eventos__title" id="eventos-heading"><span data-i18n="evT1">Más allá</span><br><em data-i18n="evT2">de la carta</em></h2>
+  </div>
+  <div class="eventos__grid" id="eventos-grid">
+    <article class="evento-card" data-reveal>
+      <div class="evento-card__img"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=85&w=800&auto=format&fit=crop" alt="Sala privada Kuro Tarragona" loading="lazy" width="800" height="600"/></div>
+      <div class="evento-card__body">
+        <div class="evento-card__icon">私</div>
+        <h3 class="evento-card__title" data-i18n="ev1Title">Sala Privada</h3>
+        <p class="evento-card__desc" data-i18n="ev1Desc">Un espacio íntimo para hasta 8 comensales. Menú omakase exclusivo diseñado para la ocasión, con maridaje de sake premium y atención personalizada.</p>
+        <p class="evento-card__price" data-i18n="ev1Price">Desde 180€ por persona</p>
+      </div>
+    </article>
+    <article class="evento-card" data-reveal>
+      <div class="evento-card__img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=85&w=800&auto=format&fit=crop" alt="Cenas de empresa en Kuro Tarragona" loading="lazy" width="800" height="600"/></div>
+      <div class="evento-card__body">
+        <div class="evento-card__icon">会</div>
+        <h3 class="evento-card__title" data-i18n="ev2Title">Cenas de Empresa</h3>
+        <p class="evento-card__desc" data-i18n="ev2Desc">Impresiona a tus clientes o celebra con tu equipo en un entorno único. Adaptamos el menú y la experiencia a las necesidades de tu empresa.</p>
+        <p class="evento-card__price" data-i18n="ev2Price">Presupuesto personalizado</p>
+      </div>
+    </article>
+    <article class="evento-card" data-reveal>
+      <div class="evento-card__img"><img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=85&w=800&auto=format&fit=crop" alt="Celebraciones especiales en Kuro" loading="lazy" width="800" height="600"/></div>
+      <div class="evento-card__body">
+        <div class="evento-card__icon">祝</div>
+        <h3 class="evento-card__title" data-i18n="ev3Title">Celebraciones</h3>
+        <p class="evento-card__desc" data-i18n="ev3Desc">Cumpleaños, aniversarios, pedidas de mano. Hacemos que el momento sea irrepetible con detalles que solo Kuro puede ofrecer.</p>
+        <p class="evento-card__price" data-i18n="ev3Price">Consultar disponibilidad</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══ SECCIÓN BLOG ══════════════════════════════════════════════════ -->
+<section class="blog" id="blog" aria-labelledby="blog-heading">
+  <div class="blog__inner">
+    <div class="blog__hd" data-reveal>
+      <div>
+        <p class="blog__tag" data-i18n="blTag">Noticias &amp; Cultura</p>
+        <h2 class="blog__title" id="blog-heading"><span data-i18n="blT1">Diario</span> <em data-i18n="blT2">de Kuro</em></h2>
+      </div>
+    </div>
+    <div class="blog__grid" id="blog-grid">
+      <!-- Inyectado desde data/blog/posts.json -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAPA ═══════════════════════════════════════════════════════════ -->
+<div class="map-section" id="mapa">
+  <div class="map-section__overlay">
+    <div class="map-section__info">
+      <div class="map-section__item">
+        <p class="map-section__item-label" data-i18n="ftCo">Ubicación</p>
+        <p class="map-section__item-val" id="map-address">Passeig de les Palmeres, 1 · Tarragona</p>
+      </div>
+      <div class="map-section__item">
+        <p class="map-section__item-label" data-i18n="ftHours">Horarios</p>
+        <p class="map-section__item-val"><span id="map-days" data-i18n="ftDays">Mar – Sáb</span> · <span id="map-hours">19:30 – 23:30</span></p>
+      </div>
+      <div class="map-section__item">
+        <p class="map-section__item-label" data-i18n="ftCo2">Teléfono</p>
+        <p class="map-section__item-val" id="map-phone">+34 977 000 000</p>
+      </div>
+    </div>
+    <a href="https://www.google.com/maps/place/Pg.+de+les+Palmeres,+1,+43003+Tarragona/" target="_blank" rel="noopener noreferrer" class="map-btn" id="map-btn-ext">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      <span data-i18n="ftMap">Cómo llegar</span>
+    </a>
+  </div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001.5!2d1.2455!3d41.1189!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a151e0b7b7b7b7%3A0x0!2sPg.+de+les+Palmeres%2C+1%2C+43003+Tarragona!5e0!3m2!1ses!2ses!4v1234567890"
+    loading="lazy"
+    title="Ubicación de Kuro en Tarragona"
+    aria-label="Mapa de Google con la ubicación del restaurante Kuro en Tarragona"
+    referrerpolicy="no-referrer-when-downgrade"
+    id="map-iframe">
+  </iframe>
+</div>
+
 <section class="booking" id="booking" aria-labelledby="booking-title">
-  <div class="booking__ambient" aria-hidden="true"></div>
   <div class="booking__kanji-bg" aria-hidden="true">予約</div>
   <div class="booking__inner">
     <p class="booking__tag" data-reveal data-i18n="navBook">Reservas</p>
@@ -804,9 +1179,14 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
     <p class="booking__sub" data-reveal data-i18n="bkSub">Disponibilidad limitada a doce comensales por servicio.<br>Confirmación en un máximo de 24 horas.</p>
 
     <form class="booking__form" id="booking-form" novalidate
-      onsubmit="event.preventDefault()"
+      name="reservas"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/gracias.html"
       aria-label="Formulario de reserva"
       itemscope itemtype="https://schema.org/ReserveAction">
+      <input type="hidden" name="form-name" value="reservas"/>
+      <p style="display:none"><input name="bot-field"/></p>
       <div class="booking__field" data-reveal>
         <label for="f-name" data-i18n="fName">Nombre completo</label>
         <input class="booking__input" type="text" id="f-name" name="name"
@@ -849,6 +1229,49 @@ address, .footer__phone, .footer__email { font-family: var(--f-serif); font-size
 </section>
 
 </main>
+
+<!-- ═══ POPUP RESERVAS ════════════════════════════════════════════════ -->
+<div class="popup-overlay" id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <div class="popup-box">
+    <button class="popup-close" id="popup-close" aria-label="Cerrar">×</button>
+    <div class="popup-img">
+      <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?q=85&w=600&auto=format&fit=crop" alt="Omakase Kuro" loading="lazy" width="600" height="800"/>
+    </div>
+    <div class="popup-content">
+      <p class="popup-tag" data-i18n="popTag">Experiencia exclusiva</p>
+      <h2 class="popup-title" id="popup-title"><span data-i18n="popT1">Reserve su</span><br><em data-i18n="popT2">mesa hoy</em></h2>
+      <p class="popup-desc" data-i18n="popDesc">Solo 12 comensales por servicio. La disponibilidad es muy limitada.</p>
+      <a href="#booking" class="popup-btn" id="popup-book-btn">
+        <span class="btn-bg"></span>
+        <span class="btn-text" data-i18n="popBtn">Reservar ahora</span>
+      </a>
+      <span class="popup-skip" id="popup-skip" data-i18n="popSkip">Quizás más tarde</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LIGHTBOX GALERÍA ═════════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="lightbox__close" id="lightbox-close" aria-label="Cerrar">×</button>
+  <button class="lightbox__nav lightbox__prev" id="lightbox-prev" aria-label="Anterior">‹</button>
+  <div class="lightbox__img-wrap">
+    <img id="lightbox-img" src="" alt="" />
+    <p class="lightbox__cap" id="lightbox-cap"></p>
+  </div>
+  <button class="lightbox__nav lightbox__next" id="lightbox-next" aria-label="Siguiente">›</button>
+</div>
+
+<!-- ═══ BLOG MODAL ════════════════════════════════════════════════════ -->
+<div class="blog-modal" id="blog-modal" role="dialog" aria-modal="true">
+  <button class="blog-modal__close" id="blog-modal-close" aria-label="Cerrar">×</button>
+  <div class="blog-modal__inner">
+    <p class="blog-modal__cat" id="bm-cat"></p>
+    <h2 class="blog-modal__title" id="bm-title"></h2>
+    <p class="blog-modal__date" id="bm-date"></p>
+    <div class="blog-modal__img"><img id="bm-img" src="" alt=""/></div>
+    <div class="blog-modal__body" id="bm-body"></div>
+  </div>
+</div>
 
 <footer role="contentinfo" class="footer" itemscope itemtype="https://schema.org/WPFooter">
   <div class="footer__top">
@@ -1354,6 +1777,466 @@ if (strip) {
 
 })();
 </script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   POPUP DE RESERVAS — aparece a los 5 segundos
+═══════════════════════════════════════════════════ */
+(function(){
+  const overlay = document.getElementById('popup-overlay');
+  const closeBtn = document.getElementById('popup-close');
+  const skipBtn = document.getElementById('popup-skip');
+  const bookBtn = document.getElementById('popup-book-btn');
+  if (!overlay) return;
+
+  // No mostrar si ya se vio en esta sesión
+  if (!sessionStorage.getItem('kuroPopupSeen')) {
+    setTimeout(() => {
+      overlay.classList.add('active');
+    }, 5000);
+  }
+
+  function closePopup() {
+    overlay.classList.remove('active');
+    sessionStorage.setItem('kuroPopupSeen', '1');
+  }
+
+  closeBtn && closeBtn.addEventListener('click', closePopup);
+  skipBtn && skipBtn.addEventListener('click', closePopup);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closePopup(); });
+  bookBtn && bookBtn.addEventListener('click', closePopup);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   LIGHTBOX GALERÍA
+═══════════════════════════════════════════════════ */
+(function(){
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCap = document.getElementById('lightbox-cap');
+  const lbClose = document.getElementById('lightbox-close');
+  const lbPrev = document.getElementById('lightbox-prev');
+  const lbNext = document.getElementById('lightbox-next');
+  if (!lightbox) return;
+
+  let galleryItems = [];
+  let currentIdx = 0;
+
+  function openLightbox(idx) {
+    currentIdx = idx;
+    const item = galleryItems[idx];
+    if (!item) return;
+    lbImg.src = item.src;
+    lbImg.alt = item.alt;
+    lbCap.textContent = item.cap;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() { openLightbox((currentIdx - 1 + galleryItems.length) % galleryItems.length); }
+  function showNext() { openLightbox((currentIdx + 1) % galleryItems.length); }
+
+  function initLightbox() {
+    const cells = document.querySelectorAll('.gallery__cell');
+    galleryItems = Array.from(cells).map(cell => {
+      const img = cell.querySelector('img');
+      const cap = cell.querySelector('.gallery__cell-cap');
+      return { src: img ? img.src : '', alt: img ? img.alt : '', cap: cap ? cap.textContent : '' };
+    });
+    cells.forEach((cell, i) => {
+      cell.addEventListener('click', () => openLightbox(i));
+    });
+  }
+
+  // Init after a tick so gallery is rendered
+  setTimeout(initLightbox, 500);
+
+  lbClose && lbClose.addEventListener('click', closeLightbox);
+  lbPrev && lbPrev.addEventListener('click', showPrev);
+  lbNext && lbNext.addEventListener('click', showNext);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   BLOG — carga desde JSON y modal lector
+═══════════════════════════════════════════════════ */
+(function(){
+  const grid = document.getElementById('blog-grid');
+  const modal = document.getElementById('blog-modal');
+  const modalClose = document.getElementById('blog-modal-close');
+  if (!grid) return;
+
+  let postsData = [];
+  let currentLangBlog = localStorage.getItem('kuroLang') || 'es';
+
+  function formatDate(str) {
+    try {
+      return new Date(str).toLocaleDateString(currentLangBlog === 'en' ? 'en-GB' : 'es-ES', { year:'numeric', month:'long', day:'numeric' });
+    } catch(e) { return str; }
+  }
+
+  function renderGrid(posts, lang) {
+    if (!posts || !posts.length) return;
+    grid.innerHTML = posts.map((p, i) => `
+      <article class="blog-card" data-reveal data-idx="${i}" tabindex="0" role="button" aria-label="Leer: ${p['title_'+lang] || p.title_es}">
+        <div class="blog-card__img">
+          <span class="blog-card__cat">${p['category_'+lang] || p.category_es || ''}</span>
+          <img src="${p.img}" alt="${p['alt_'+lang] || p.alt_es || ''}" loading="lazy" width="1200" height="750"/>
+        </div>
+        <div class="blog-card__body">
+          <p class="blog-card__date">${formatDate(p.date)}</p>
+          <h3 class="blog-card__title">${p['title_'+lang] || p.title_es}</h3>
+          <p class="blog-card__excerpt">${p['excerpt_'+lang] || p.excerpt_es}</p>
+        </div>
+      </article>
+    `).join('');
+    grid.querySelectorAll('.blog-card').forEach(card => {
+      const handler = () => openPost(parseInt(card.dataset.idx));
+      card.addEventListener('click', handler);
+      card.addEventListener('keydown', e => { if (e.key === 'Enter') handler(); });
+    });
+  }
+
+  function openPost(idx) {
+    const p = postsData[idx];
+    if (!p || !modal) return;
+    const lang = localStorage.getItem('kuroLang') || 'es';
+    document.getElementById('bm-cat').textContent = p['category_'+lang] || p.category_es || '';
+    document.getElementById('bm-title').textContent = p['title_'+lang] || p.title_es;
+    document.getElementById('bm-date').textContent = formatDate(p.date);
+    document.getElementById('bm-img').src = p.img;
+    document.getElementById('bm-img').alt = p['alt_'+lang] || '';
+    document.getElementById('bm-body').innerHTML = '<p>' + (p['body_'+lang] || p.body_es || '').split('\n').join('</p><p>') + '</p>';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    modal.scrollTop = 0;
+  }
+
+  function closeModal() {
+    modal && modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  modalClose && modalClose.addEventListener('click', closeModal);
+  modal && modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal && modal.classList.contains('active')) closeModal(); });
+
+  // Load blog posts
+  fetch('data/blog/posts.json').then(r => r.json()).then(data => {
+    postsData = data.posts || [];
+    const lang = localStorage.getItem('kuroLang') || 'es';
+    renderGrid(postsData, lang);
+  }).catch(() => {
+    grid.innerHTML = '<p style="color:var(--ash-dim);font-family:var(--f-serif);font-style:italic;">Próximamente...</p>';
+  });
+
+  // Re-render blog on lang change
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setTimeout(() => { renderGrid(postsData, localStorage.getItem('kuroLang') || 'es'); }, 50);
+    });
+  });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   CARGA DINÁMICA — CHEF, OMAKASE, EVENTOS desde JSON
+═══════════════════════════════════════════════════ */
+(function(){
+  const lang = () => localStorage.getItem('kuroLang') || 'es';
+
+  // CHEF
+  fetch('data/chef/content.json').then(r => r.json()).then(d => {
+    const l = lang();
+    const nameEl = document.getElementById('chef-heading');
+    const roleEl = document.getElementById('chef-role');
+    const bioEl = document.getElementById('chef-bio');
+    const quoteEl = document.getElementById('chef-quote');
+    const msEl = document.getElementById('chef-milestones');
+    const imgMain = document.getElementById('chef-img-main');
+    const imgAction = document.getElementById('chef-img-action');
+
+    if (nameEl) nameEl.textContent = d.name || 'Takashi Mori';
+    if (roleEl) roleEl.textContent = d['role_'+l] || d.role_es || '';
+    if (bioEl) bioEl.textContent = d['bio_'+l] || d.bio_es || '';
+    if (quoteEl) quoteEl.textContent = d['quote_'+l] || d.quote_es || '';
+    if (imgMain && d.img_main) { imgMain.src = d.img_main; }
+    if (imgAction && d.img_action) { imgAction.src = d.img_action; }
+    if (msEl && d.milestones) {
+      msEl.innerHTML = d.milestones.map(m => `
+        <div class="chef__milestone">
+          <span class="chef__milestone-year">${m.year}</span>
+          <span class="chef__milestone-text">${m['text_'+l] || m.text_es || ''}</span>
+        </div>`).join('');
+    }
+
+    // Re-render on lang change
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+      setTimeout(() => {
+        const nl = lang();
+        if (roleEl) roleEl.textContent = d['role_'+nl] || d.role_es || '';
+        if (bioEl) bioEl.textContent = d['bio_'+nl] || d.bio_es || '';
+        if (quoteEl) quoteEl.textContent = d['quote_'+nl] || d.quote_es || '';
+        if (msEl && d.milestones) {
+          msEl.innerHTML = d.milestones.map(m => `
+            <div class="chef__milestone">
+              <span class="chef__milestone-year">${m.year}</span>
+              <span class="chef__milestone-text">${m['text_'+nl] || m.text_es || ''}</span>
+            </div>`).join('');
+        }
+      }, 50);
+    }));
+  }).catch(() => {});
+
+  // OMAKASE
+  fetch('data/omakase/content.json').then(r => r.json()).then(d => {
+    const l = lang();
+    const priceEl = document.getElementById('om-price');
+    const sakePriceEl = document.getElementById('om-price-sake');
+    const pasesEl = document.getElementById('om-pases');
+    const descEl = document.getElementById('om-desc');
+    const includesEl = document.getElementById('om-includes');
+    const noteEl = document.getElementById('om-note');
+    const imgEl = document.getElementById('om-img');
+
+    if (priceEl) priceEl.innerHTML = (d.price || '145') + '<sup>€</sup>';
+    if (sakePriceEl) sakePriceEl.innerHTML = (d.price_sake || '210') + '<sup>€</sup>';
+    if (pasesEl) pasesEl.textContent = d.pases || '18';
+    if (descEl) descEl.textContent = d['desc_'+l] || d.desc_es || '';
+    if (noteEl) noteEl.textContent = d['note_'+l] || d.note_es || '';
+    if (imgEl && d.img) imgEl.src = d.img;
+    if (includesEl && d['includes_'+l]) {
+      includesEl.innerHTML = d['includes_'+l].map(item => `<li>${item}</li>`).join('');
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+      setTimeout(() => {
+        const nl = lang();
+        if (descEl) descEl.textContent = d['desc_'+nl] || d.desc_es || '';
+        if (noteEl) noteEl.textContent = d['note_'+nl] || d.note_es || '';
+        if (includesEl && d['includes_'+nl]) {
+          includesEl.innerHTML = d['includes_'+nl].map(item => `<li>${item}</li>`).join('');
+        }
+      }, 50);
+    }));
+  }).catch(() => {});
+
+  // EVENTOS
+  fetch('data/eventos/content.json').then(r => r.json()).then(d => {
+    const l = lang();
+    const grid = document.getElementById('eventos-grid');
+    if (!grid || !d.eventos) return;
+    function renderEventos(nl) {
+      grid.innerHTML = d.eventos.map(ev => `
+        <article class="evento-card" data-reveal>
+          <div class="evento-card__img"><img src="${ev.img}" alt="${ev['title_'+nl] || ev.title_es} - Kuro Tarragona" loading="lazy" width="800" height="600"/></div>
+          <div class="evento-card__body">
+            <div class="evento-card__icon">${ev.icon}</div>
+            <h3 class="evento-card__title">${ev['title_'+nl] || ev.title_es}</h3>
+            <p class="evento-card__desc">${ev['desc_'+nl] || ev.desc_es}</p>
+            <p class="evento-card__price">${ev['price_'+nl] || ev.price_es}</p>
+          </div>
+        </article>`).join('');
+    }
+    renderEventos(l);
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => {
+      setTimeout(() => renderEventos(lang()), 50);
+    }));
+  }).catch(() => {});
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   PDF CARTA — Generación automática desde carta actual
+═══════════════════════════════════════════════════ */
+(function(){
+  const pdfBtn = document.getElementById('pdf-btn');
+  if (!pdfBtn) return;
+
+  pdfBtn.addEventListener('click', async () => {
+    const lang = localStorage.getItem('kuroLang') || 'es';
+    const btnText = pdfBtn.querySelector('.btn-text');
+    const originalText = btnText.textContent;
+    btnText.textContent = '...';
+    pdfBtn.disabled = true;
+
+    try {
+      // Carga todos los platos
+      const categories = [
+        { key: 'starters', label_es: 'Entrantes', label_en: 'Starters', label_ca: 'Entrants', label_fr: 'Entrées', ids: ['e1','e2','e3','e4','e5','e6','e7','e8'] },
+        { key: 'nigiris', label_es: 'Nigiris', label_en: 'Nigiri', label_ca: 'Nigiris', label_fr: 'Nigiri', ids: ['na1','na2','na3','na4','na5','na6','na7','na8'] },
+        { key: 'makis', label_es: 'Makis & Rolls', label_en: 'Maki & Rolls', label_ca: 'Makis & Rolls', label_fr: 'Maki & Rolls', ids: ['m1','m2','m3'] },
+        { key: 'uramakis', label_es: 'Uramakis', label_en: 'Uramaki', label_ca: 'Uramakis', label_fr: 'Uramaki', ids: ['u1','u2','u3','u4','u5','u6','u7','u8','u9','u10','u11','u12','u13','u14','u15'] },
+        { key: 'specials', label_es: 'Especiales & Flambeados', label_en: 'Specials & Torched', label_ca: 'Especials & Flamejats', label_fr: 'Spéciaux & Flambés', ids: ['s1','s2','s3','s4','s5'] },
+        { key: 'nigiri_caliente', label_es: 'Nigiris Calientes', label_en: 'Hot Nigiri', label_ca: 'Nigiris Calents', label_fr: 'Nigiri Chaud', ids: ['nc1','nc2','nc3','nc4','nc5'] },
+        { key: 'postres', label_es: 'Postres', label_en: 'Desserts', label_ca: 'Postres', label_fr: 'Desserts', ids: ['p1','p2','p3','p4','p5','p6'] },
+        { key: 'piezas_calientes', label_es: 'Piezas Calientes', label_en: 'Hot Dishes', label_ca: 'Peces Calentes', label_fr: 'Plats Chauds', ids: ['pc1','pc2','pc3','pc4','pc5','pc6','pc7'] },
+      ];
+
+      const allPlatos = {};
+      await Promise.all(
+        ['e1','e2','e3','e4','e5','e6','e7','e8','na1','na2','na3','na4','na5','na6','na7','na8',
+         'm1','m2','m3','u1','u2','u3','u4','u5','u6','u7','u8','u9','u10','u11','u12','u13','u14','u15',
+         's1','s2','s3','s4','s5','nc1','nc2','nc3','nc4','nc5','p1','p2','p3','p4','p5','p6',
+         'pc1','pc2','pc3','pc4','pc5','pc6','pc7'
+        ].map(id => fetch(`data/platos/${id}.json`).then(r=>r.json()).then(d => { allPlatos[id] = d; }).catch(()=>{}))
+      );
+
+      const labelKey = 'label_' + lang;
+
+      // Construye el HTML del PDF
+      let html = `
+        <html><head><meta charset="UTF-8">
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+          * { margin:0; padding:0; box-sizing:border-box; }
+          body { background:#050505; color:#EDE9E2; font-family:'Cormorant Garamond',serif; padding:3rem 4rem; }
+          .logo { font-family:'Cinzel',serif; font-size:2.5rem; letter-spacing:0.3em; text-align:center; margin-bottom:0.5rem; color:#EDE9E2; }
+          .logo span { color:#C1121F; }
+          .subtitle { text-align:center; font-style:italic; color:#888; font-size:1rem; margin-bottom:0.5rem; }
+          .divider { border:none; border-top:1px solid #222; margin:1.5rem 0; }
+          .cat-title { font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.4em; text-transform:uppercase; color:#C1121F; margin:2rem 0 1rem; border-bottom:1px solid #1a1a1a; padding-bottom:0.8rem; }
+          .plato { display:flex; justify-content:space-between; align-items:baseline; padding:0.5rem 0; border-bottom:1px solid #111; gap:1rem; }
+          .plato-name { font-size:1rem; color:#EDE9E2; flex:1; }
+          .plato-desc { font-size:0.85rem; font-style:italic; color:#888; flex:2; padding:0 1rem; }
+          .plato-price { font-family:'Cinzel',serif; font-size:0.9rem; color:#C1121F; white-space:nowrap; }
+          .footer-pdf { text-align:center; margin-top:3rem; font-style:italic; color:#555; font-size:0.8rem; }
+        </style></head><body>
+        <div class="logo">KURO <span>黑</span></div>
+        <p class="subtitle">Fine Dining Japonés · Tarragona · ${new Date().toLocaleDateString(lang === 'en' ? 'en-GB' : 'es-ES', {year:'numeric',month:'long'})}</p>
+        <hr class="divider">
+      `;
+
+      categories.forEach(cat => {
+        const platosEnCat = cat.ids.map(id => allPlatos[id]).filter(Boolean);
+        if (!platosEnCat.length) return;
+        html += `<div class="cat-title">${cat[labelKey] || cat.label_es}</div>`;
+        platosEnCat.forEach(p => {
+          const name = p['name_'+lang] || p.name_es || '';
+          const desc = p['desc_'+lang] || p.desc_es || '';
+          const price = p.price || '';
+          html += `<div class="plato"><span class="plato-name">${name}</span><span class="plato-desc">${desc}</span><span class="plato-price">${price}</span></div>`;
+        });
+      });
+
+      html += `<p class="footer-pdf">reservas@kuro-tarragona.com · +34 977 000 000 · kuro-tarragona.com</p></body></html>`;
+
+      // Abre en nueva ventana para imprimir como PDF
+      const win = window.open('', '_blank', 'width=900,height=700');
+      win.document.write(html);
+      win.document.close();
+      win.onload = () => { win.print(); };
+
+    } catch(e) {
+      console.warn('PDF error:', e);
+    } finally {
+      btnText.textContent = originalText;
+      pdfBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   I18N NUEVAS CLAVES
+═══════════════════════════════════════════════════ */
+(function(){
+  const newKeys = {
+    es: {
+      navChef:'El Chef', navOmakase:'Omakase',
+      chTag:'El Artista', chRole:'Chef Ejecutivo & Fundador',
+      omTag:'Menú Degustación', omT1:'Omakase', omT2:'Experience',
+      omPriceLabel:'Menú degustación', omSakeLabel:'Con maridaje sake', omPerPerson:'por persona',
+      omPases:'pases', omBtn:'Reservar Experiencia', omNote:'Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar.',
+      evTag:'Experiencias Exclusivas', evT1:'Más allá', evT2:'de la carta',
+      ev1Title:'Sala Privada', ev1Desc:'Un espacio íntimo para hasta 8 comensales. Menú omakase exclusivo diseñado para la ocasión, con maridaje de sake premium y atención personalizada.', ev1Price:'Desde 180€ por persona',
+      ev2Title:'Cenas de Empresa', ev2Desc:'Impresiona a tus clientes o celebra con tu equipo en un entorno único. Adaptamos el menú y la experiencia a las necesidades de tu empresa.', ev2Price:'Presupuesto personalizado',
+      ev3Title:'Celebraciones', ev3Desc:'Cumpleaños, aniversarios, pedidas de mano. Hacemos que el momento sea irrepetible con detalles que solo Kuro puede ofrecer.', ev3Price:'Consultar disponibilidad',
+      blTag:'Noticias & Cultura', blT1:'Diario', blT2:'de Kuro',
+      popTag:'Experiencia exclusiva', popT1:'Reserve su', popT2:'mesa hoy', popDesc:'Solo 12 comensales por servicio. La disponibilidad es muy limitada.', popBtn:'Reservar ahora', popSkip:'Quizás más tarde',
+      pdfBtn:'Descargar Carta PDF', ftCo2:'Teléfono',
+    },
+    ca: {
+      navChef:'El Xef', navOmakase:'Omakase',
+      chTag:"L'Artista", chRole:'Xef Executiu & Fundador',
+      omTag:'Menú Degustació', omT1:'Omakase', omT2:'Experience',
+      omPriceLabel:'Menú degustació', omSakeLabel:'Amb maridatge sake', omPerPerson:'per persona',
+      omPases:'passos', omBtn:'Reservar Experiència', omNote:"Menú únic per a tota la taula. Al·lèrgies i intoleràncies, comunicar en reservar.",
+      evTag:'Experiències Exclusives', evT1:'Més enllà', evT2:'de la carta',
+      ev1Title:'Sala Privada', ev1Desc:'Un espai íntim per a fins a 8 comensals. Menú omakase exclusiu dissenyat per a l\'ocasió.', ev1Price:'Des de 180€ per persona',
+      ev2Title:'Sopars d\'Empresa', ev2Desc:'Impressiona els teus clients o celebra amb el teu equip en un entorn únic.', ev2Price:'Pressupost personalitzat',
+      ev3Title:'Celebracions', ev3Desc:'Aniversaris, peticions de mà. Fem que el moment sigui irrepetible.', ev3Price:'Consultar disponibilitat',
+      blTag:'Notícies & Cultura', blT1:'Diari', blT2:'de Kuro',
+      popTag:'Experiència exclusiva', popT1:'Reservi la seva', popT2:'taula avui', popDesc:'Només 12 comensals per servei. La disponibilitat és molt limitada.', popBtn:'Reservar ara', popSkip:'Potser més tard',
+      pdfBtn:'Descarregar Carta PDF', ftCo2:'Telèfon',
+    },
+    en: {
+      navChef:'The Chef', navOmakase:'Omakase',
+      chTag:'The Artist', chRole:'Executive Chef & Founder',
+      omTag:'Tasting Menu', omT1:'Omakase', omT2:'Experience',
+      omPriceLabel:'Tasting menu', omSakeLabel:'With sake pairing', omPerPerson:'per person',
+      omPases:'courses', omBtn:'Book Experience', omNote:'Single menu for the whole table. Allergies and intolerances to be communicated at booking.',
+      evTag:'Exclusive Experiences', evT1:'Beyond', evT2:'the menu',
+      ev1Title:'Private Room', ev1Desc:'An intimate space for up to 8 guests. Exclusive omakase menu designed for the occasion.', ev1Price:'From €180 per person',
+      ev2Title:'Corporate Dinners', ev2Desc:'Impress your clients or celebrate with your team in a unique setting.', ev2Price:'Custom quote',
+      ev3Title:'Celebrations', ev3Desc:'Birthdays, anniversaries, proposals. We make the moment unforgettable.', ev3Price:'Check availability',
+      blTag:'News & Culture', blT1:'Kuro', blT2:'Journal',
+      popTag:'Exclusive experience', popT1:'Book your', popT2:'table today', popDesc:'Only 12 guests per service. Availability is very limited.', popBtn:'Book now', popSkip:'Maybe later',
+      pdfBtn:'Download Menu PDF', ftCo2:'Phone',
+    },
+    fr: {
+      navChef:'Le Chef', navOmakase:'Omakase',
+      chTag:"L'Artiste", chRole:'Chef Exécutif & Fondateur',
+      omTag:'Menu Dégustation', omT1:'Omakase', omT2:'Experience',
+      omPriceLabel:'Menu dégustation', omSakeLabel:'Avec accord saké', omPerPerson:'par personne',
+      omPases:'plats', omBtn:'Réserver l\'Expérience', omNote:'Menu unique pour toute la table. Allergies et intolérances à communiquer à la réservation.',
+      evTag:'Expériences Exclusives', evT1:'Au-delà', evT2:'de la carte',
+      ev1Title:'Salle Privée', ev1Desc:'Un espace intime pour 8 convives. Menu omakase exclusif conçu pour l\'occasion.', ev1Price:'À partir de 180€ par personne',
+      ev2Title:'Dîners d\'Entreprise', ev2Desc:'Impressionnez vos clients ou célébrez avec votre équipe dans un cadre unique.', ev2Price:'Devis personnalisé',
+      ev3Title:'Célébrations', ev3Desc:'Anniversaires, demandes en mariage. Nous rendons le moment inoubliable.', ev3Price:'Vérifier la disponibilité',
+      blTag:'Actualités & Culture', blT1:'Journal', blT2:'de Kuro',
+      popTag:'Expérience exclusive', popT1:'Réservez votre', popT2:'table aujourd\'hui', popDesc:'Seulement 12 convives par service. La disponibilité est très limitée.', popBtn:'Réserver maintenant', popSkip:'Peut-être plus tard',
+      pdfBtn:'Télécharger la Carte PDF', ftCo2:'Téléphone',
+    }
+  };
+
+  // Merge into existing i18n (if accessible) — otherwise patch on lang change
+  function applyNewKeys() {
+    const lang = localStorage.getItem('kuroLang') || 'es';
+    const t = newKeys[lang] || newKeys.es;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.dataset.i18n;
+      if (t[key] !== undefined) el.innerHTML = t[key];
+    });
+  }
+
+  // Run on load and on lang change
+  setTimeout(applyNewKeys, 100);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(applyNewKeys, 60));
+  });
+})();
+</script>
+
   <script>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {

@@ -68,9 +68,9 @@ collections:
     format: json
     slug: "{{fields.slug}}"
     fields:
-      - { label: "Slug (aviso-legal, privacidad, cookies)", name: "slug", widget: "string", hint: "Identificador para la URL, sin espacios." }
+      - { label: "Slug (aviso-legal, privacidad, cookies)", name: "slug", widget: "string" }
       - { label: "Título de la página", name: "title", widget: "string" }
-      - { label: "Contenido (Soporta HTML básico)", name: "content", widget: "text", hint: "Puedes usar <h2> para subtítulos." }
+      - { label: "Contenido (HTML básico)", name: "content", widget: "text" }
 
   # ─── HERO / PORTADA ───────────────────────────────────────────────────────
   - name: "hero"
@@ -82,17 +82,17 @@ collections:
         fields:
           - { label: "Vídeo de fondo (.mp4)", name: "video_src", widget: "file", default: "sushi-bg.mp4" }
           - { label: "Imagen poster (fallback vídeo)", name: "poster_img", widget: "image" }
-          - { label: "Título línea 1 (ES)", name: "title1_es", widget: "string", default: "Arte en cada" }
-          - { label: "Título línea 2 cursiva (ES)", name: "title2_es", widget: "string", default: "plato." }
-          - { label: "Título línea 3 (ES)", name: "title3_es", widget: "string", default: "Silencio en" }
-          - { label: "Título línea 4 cursiva (ES)", name: "title4_es", widget: "string", default: "cada bocado." }
-          - { label: "Título línea 1 (EN)", name: "title1_en", widget: "string", default: "Art in every" }
-          - { label: "Título línea 2 cursiva (EN)", name: "title2_en", widget: "string", default: "dish." }
-          - { label: "Título línea 3 (EN)", name: "title3_en", widget: "string", default: "Silence in" }
-          - { label: "Título línea 4 cursiva (EN)", name: "title4_en", widget: "string", default: "every bite." }
+          - { label: "Título línea 1 (ES)", name: "title1_es", widget: "string" }
+          - { label: "Título línea 2 cursiva (ES)", name: "title2_es", widget: "string" }
+          - { label: "Título línea 3 (ES)", name: "title3_es", widget: "string" }
+          - { label: "Título línea 4 cursiva (ES)", name: "title4_es", widget: "string" }
+          - { label: "Título línea 1 (EN)", name: "title1_en", widget: "string" }
+          - { label: "Título línea 2 cursiva (EN)", name: "title2_en", widget: "string" }
+          - { label: "Título línea 3 (EN)", name: "title3_en", widget: "string" }
+          - { label: "Título línea 4 cursiva (EN)", name: "title4_en", widget: "string" }
           - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
           - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-          - { label: "Número de estrellas Michelin", name: "michelin_stars", widget: "number", default: 2, min: 0, max: 3 }
+          - { label: "Número de estrellas Michelin", name: "michelin_stars", widget: "number", default: 2 }
 
   # ─── NOSOTROS ─────────────────────────────────────────────────────────────
   - name: "about"
@@ -118,7 +118,7 @@ collections:
 
   # ─── PLATOS DESTACADOS ────────────────────────────────────────────────────
   - name: "showcase"
-    label: "⭐ Platos Destacados (Portada)"
+    label: "⭐ Platos Destacados"
     files:
       - name: "showcase_dishes"
         label: "Los 3 platos destacados"
@@ -172,7 +172,7 @@ collections:
         label: "Frase + Fotos"
         file: "data/gallery/content.json"
         fields:
-          - { label: "Imagen de fondo (visual break)", name: "visual_break_img", widget: "image" }
+          - { label: "Imagen de fondo", name: "visual_break_img", widget: "image" }
           - { label: "Frase (ES)", name: "quote_es", widget: "text" }
           - { label: "Frase (EN)", name: "quote_en", widget: "text" }
           - { label: "Frase (CA)", name: "quote_ca", widget: "text" }
@@ -181,11 +181,8 @@ collections:
           - label: "Fotos de la galería"
             name: "photos"
             widget: "list"
-            min: 3
-            max: 8
             fields:
               - { label: "Imagen", name: "img", widget: "image" }
-              - { label: "Alt text (ES)", name: "alt_es", widget: "string" }
               - { label: "Pie de foto (ES)", name: "caption_es", widget: "string" }
               - { label: "Pie de foto (EN)", name: "caption_en", widget: "string" }
 
@@ -194,14 +191,12 @@ collections:
     label: "⭐ Reseñas"
     files:
       - name: "reviews_content"
-        label: "Reseñas de clientes y prensa"
+        label: "Reseñas"
         file: "data/reviews/content.json"
         fields:
           - label: "Reseñas"
             name: "reviews"
             widget: "list"
-            min: 1
-            max: 6
             fields:
               - { label: "Texto (ES)", name: "text_es", widget: "text" }
               - { label: "Texto (EN)", name: "text_en", widget: "text" }
@@ -211,46 +206,10 @@ collections:
               - label: "Estrellas"
                 name: "stars"
                 widget: "select"
-                options:["3","4","5"]
+                options: ["3","4","5"]
                 default: "5"
 
-  # ─── PLATOS (CARTA COMPLETA) ───────────────────────────────────────────────
-  - name: "platos"
-    label: "🍣 La Carta (Platos)"
-    folder: "data/platos"
-    create: true
-    delete: true
-    extension: json
-    format: json
-    slug: "{{fields.id}}"
-    identifier_field: "id"
-    summary: "{{fields.name_es}} — {{fields.cat}} — {{fields.price}}"
-    fields:
-      - { label: "ID del Plato", name: "id", widget: "string", hint: "Ej: e1, s2, nc3 — debe ser único" }
-      - label: "Categoría"
-        name: "cat"
-        widget: "select"
-        options:
-          - { label: "Entrantes",          value: "Entrantes" }
-          - { label: "Nigiris Clásicos",   value: "Nigiris Clásicos" }
-          - { label: "Nigiris Flambeados", value: "Nigiris Flambeados" }
-          - { label: "Makis",              value: "Makis" }
-          - { label: "Uramaki",            value: "Uramaki" }
-          - { label: "Especiales",         value: "Especiales" }
-          - { label: "Piezas Calientes",   value: "Piezas Calientes" }
-          - { label: "Postres",            value: "Postres" }
-      - { label: "Imagen", name: "img", widget: "image" }
-      - { label: "Precio (ej: 12,50€)", name: "price", widget: "string" }
-      - { label: "Nombre (ES)", name: "name_es", widget: "string" }
-      - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
-      - { label: "Nombre (EN)", name: "name_en", widget: "string" }
-      - { label: "Nombre (FR)", name: "name_fr", widget: "string" }
-      - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
-      - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
-      - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-      - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
-
-  # ─── EL EQUIPO (MODIFICADO: Antes era "Chef") ─────────────────────────────
+  # ─── EL EQUIPO ────────────────────────────────────────────────────────────
   - name: "equipo"
     label: "👨‍🍳 El Equipo"
     files:
@@ -270,7 +229,7 @@ collections:
               - { label: "Rol (EN)", name: "role_en", widget: "string" }
               - { label: "Rol (CA)", name: "role_ca", widget: "string" }
               - { label: "Rol (FR)", name: "role_fr", widget: "string" }
-              - { label: "Foto retrato (Aspect Ratio 4:5)", name: "img", widget: "image" }
+              - { label: "Foto retrato", name: "img", widget: "image" }
               - { label: "Biografía breve (ES)", name: "bio_es", widget: "text" }
               - { label: "Biografía breve (EN)", name: "bio_en", widget: "text" }
               - { label: "Biografía breve (CA)", name: "bio_ca", widget: "text" }
@@ -281,25 +240,25 @@ collections:
     label: "🍱 Menú Omakase"
     files:
       - name: "omakase_content"
-        label: "Menú Degustación (2 versiones)"
+        label: "Menú Degustación"
         file: "data/omakase/content.json"
         fields:
-          - { label: "Precio Menú Kuro (sin sake)", name: "price_kuro", widget: "string", default: "145€" }
-          - { label: "Precio Menú Omakase (con sake)", name: "price_omakase", widget: "string", default: "210€" }
-          - { label: "Pases Menú Kuro", name: "pases_kuro", widget: "number", default: 12 }
-          - { label: "Pases Menú Omakase", name: "pases_omakase", widget: "number", default: 18 }
+          - { label: "Precio Kuro (sin sake)", name: "price_kuro", widget: "string", default: "145€" }
+          - { label: "Precio Omakase (con sake)", name: "price_omakase", widget: "string", default: "210€" }
+          - { label: "Pases Menu Kuro", name: "pases_kuro", widget: "number", default: 12 }
+          - { label: "Pases Menu Omakase", name: "pases_omakase", widget: "number", default: 18 }
           - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
           - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
-          - { label: "Nota importante (ES)", name: "note_es", widget: "string", default: "Menú único para toda la mesa. Alergias e intolerancias, comunicar al reservar." }
-          - { label: "Nota importante (EN)", name: "note_en", widget: "string" }
-          - { label: "Imagen del menú", name: "img", widget: "image" }
+          - { label: "Nota (ES)", name: "note_es", widget: "string" }
+          - { label: "Nota (EN)", name: "note_en", widget: "string" }
+          - { label: "Imagen", name: "img", widget: "image" }
 
   # ─── EVENTOS ──────────────────────────────────────────────────────────────
   - name: "eventos"
     label: "🎭 Eventos & Sala Privada"
     files:
       - name: "eventos_content"
-        label: "Experiencias Exclusivas"
+        label: "Experiencias"
         file: "data/eventos/content.json"
         fields:
           - label: "Eventos"
@@ -329,8 +288,8 @@ collections:
             label: "Artículos"
             widget: "list"
             fields:
-              - { label: "ID / Slug", name: "slug", widget: "string", hint: "URL amigable, sin espacios ni acentos" }
-              - { label: "Fecha de publicación", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Fecha", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
               - { label: "Imagen de portada", name: "img", widget: "image" }
               - { label: "Categoría (ES)", name: "category_es", widget: "string" }
               - { label: "Categoría (EN)", name: "category_en", widget: "string" }
@@ -340,30 +299,48 @@ collections:
               - { label: "Título (EN)", name: "title_en", widget: "string" }
               - { label: "Título (CA)", name: "title_ca", widget: "string" }
               - { label: "Título (FR)", name: "title_fr", widget: "string" }
-              - { label: "Extracto breve (ES)", name: "excerpt_es", widget: "text", hint: "2-3 frases que aparecen en la card del blog" }
+              - { label: "Extracto breve (ES)", name: "excerpt_es", widget: "text" }
               - { label: "Extracto breve (EN)", name: "excerpt_en", widget: "text" }
               - { label: "Extracto breve (CA)", name: "excerpt_ca", widget: "text" }
               - { label: "Extracto breve (FR)", name: "excerpt_fr", widget: "text" }
-              - label: "Cita destacada (ES)"
-                name: "pull_es"
-                widget: "string"
-                required: false
-                hint: "Aparece en rojo grande dentro del artículo. Ej: «La perfección no existe...»"
+              - { label: "Cita destacada (ES)", name: "pull_es", widget: "string", required: false }
               - { label: "Cita destacada (EN)", name: "pull_en", widget: "string", required: false }
-              - label: "Artículo completo (ES)"
-                name: "body_es"
-                widget: "text"
-                hint: |
-                  Usa ## para subtítulos (## Mi subtítulo)
-                  Usa > para citas (> Texto de la cita)
-                  Separa párrafos con línea en blanco
-              - { label: "Artículo completo (EN)", name: "body_en", widget: "text" }
-              - label: "Imágenes internas del artículo"
+              - { label: "Artículo (ES)", name: "body_es", widget: "text" }
+              - { label: "Artículo (EN)", name: "body_en", widget: "text" }
+              - label: "Imágenes internas"
                 name: "imgs"
                 widget: "list"
                 required: false
-                hint: "Se muestran como grid de 2 fotos dentro del artículo"
                 fields:
                   - { label: "Imagen", name: "src", widget: "image" }
+                  - { label: "Alt text", name: "alt_es", widget: "string" }
+
+  # ─── CARTA REFACTORIZADA (1 SOLO ARCHIVO EN LUGAR DE 50) ──────────────────
+  - name: "carta"
+    label: "🍣 La Carta (Unificada)"
+    files:
+      - name: "menu"
+        label: "Todos los Platos"
+        file: "data/menu/platos.json"
+        fields:
+          - name: "platos"
+            label: "Lista de platos"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "Identificador único. Ej: e1, s2" }
+              - label: "Categoría"
+                name: "cat"
+                widget: "select"
+                options:["Entrantes", "Sashimi", "Nigiris Clásicos", "Nigiris Flambeados", "Makis", "Uramaki", "Platos Calientes", "Postres"]
+              - { label: "Imagen", name: "img", widget: "image" }
+              - { label: "Precio", name: "price", widget: "string" }
+              - { label: "Nombre (ES)", name: "name_es", widget: "string" }
+              - { label: "Nombre (CA)", name: "name_ca", widget: "string" }
+              - { label: "Nombre (EN)", name: "name_en", widget: "string" }
+              - { label: "Nombre (FR)", name: "name_fr", widget: "string" }
+              - { label: "Descripción (ES)", name: "desc_es", widget: "text" }
+              - { label: "Descripción (CA)", name: "desc_ca", widget: "text" }
+              - { label: "Descripción (EN)", name: "desc_en", widget: "text" }
+              - { label: "Descripción (FR)", name: "desc_fr", widget: "text" }
                   - { label: "Alt text (ES)", name: "alt_es", widget: "string" }
                   - { label: "Alt text (EN)", name: "alt_en", widget: "string" }

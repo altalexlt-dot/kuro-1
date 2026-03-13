@@ -1,0 +1,49 @@
+{
+  "posts": [
+    {
+      "id": "temporada-otono-2025",
+      "slug": "temporada-otono-2025",
+      "date": "2025-10-15",
+      "img": "https://images.unsplash.com/photo-1553621042-f6e147245754?q=85&w=1200&auto=format&fit=crop",
+      "alt_es": "Nuevo menú de otoño en Kuro Tarragona",
+      "category_es": "Temporada",
+      "category_en": "Season",
+      "title_es": "El otoño llega a la barra de Kuro",
+      "title_en": "Autumn arrives at Kuro's counter",
+      "excerpt_es": "La nueva temporada trae setas silvestres del Montseny, erizos de mar y el mejor atún rojo de la almadraba. Descubre los nuevos pases del menú omakase.",
+      "excerpt_en": "The new season brings wild mushrooms from Montseny, sea urchins and the finest red tuna from the almadraba. Discover the new omakase menu courses.",
+      "body_es": "Cada cambio de estación en Kuro es una renovación completa. El otoño nos trae una paleta de sabores que el verano nunca podría ofrecer. Las setas silvestres del Montseny, recogidas al amanecer, llegan a la barra en forma de dashi profundo que envuelve nuestro nigiri de wagyu. El erizo de mar, en su punto más cremoso, corona un arroz de sushi trabajado durante tres años para lograr la temperatura y textura exactas. Y el atún rojo de almadraba, último de la temporada, se transforma en un tartar que rinde homenaje a dos culturas mediterráneas.",
+      "body_en": "Every seasonal change at Kuro is a complete renewal. Autumn brings us a palette of flavours that summer could never offer. Wild mushrooms from Montseny, gathered at dawn, arrive at the counter as a deep dashi that envelops our wagyu nigiri. Sea urchin, at its creamiest, crowns a sushi rice worked for three years to achieve the exact temperature and texture. And the almadraba bluefin tuna, last of the season, becomes a tartare paying homage to two Mediterranean cultures."
+    },
+    {
+      "id": "arte-nigiri",
+      "slug": "arte-nigiri",
+      "date": "2025-09-02",
+      "img": "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?q=85&w=1200&auto=format&fit=crop",
+      "alt_es": "El arte del nigiri perfecto en Kuro",
+      "category_es": "Técnica",
+      "category_en": "Technique",
+      "title_es": "El arte del nigiri perfecto",
+      "title_en": "The art of the perfect nigiri",
+      "excerpt_es": "Un nigiri no es solo arroz y pescado. Es temperatura, presión, timing y respeto. Takashi Mori explica su obsesión por la perfección en cada bocado.",
+      "excerpt_en": "A nigiri is not just rice and fish. It's temperature, pressure, timing and respect. Takashi Mori explains his obsession with perfection in every bite.",
+      "body_es": "La mayoría de la gente piensa que un nigiri es simple. Arroz, pescado, wasabi. Tres ingredientes. En realidad, un nigiri perfecto requiere años de práctica para dominar variables que el comensal nunca verá pero siempre sentirá. La temperatura del arroz debe estar exactamente a 37 grados — la temperatura del cuerpo humano — para que se funda con el pescado en boca. La presión de las manos al formarlo determina la densidad: suficiente para que se sostenga, nunca tanta que se compacte. El timing desde que se forma hasta que llega al comensal no puede superar los 90 segundos.",
+      "body_en": "Most people think a nigiri is simple. Rice, fish, wasabi. Three ingredients. In reality, a perfect nigiri requires years of practice to master variables the diner will never see but will always feel. The temperature of the rice must be exactly 37 degrees — human body temperature — so it melts with the fish in the mouth. The pressure of the hands when forming it determines the density: enough to hold together, never so much that it compacts. The timing from formation to the diner cannot exceed 90 seconds."
+    },
+    {
+      "id": "sake-maridaje",
+      "slug": "sake-maridaje",
+      "date": "2025-08-10",
+      "img": "https://images.unsplash.com/photo-1615361200141-f45040f367be?q=85&w=1200&auto=format&fit=crop",
+      "alt_es": "Selección de sake premium para maridar en Kuro",
+      "category_es": "Sake & Maridaje",
+      "category_en": "Sake & Pairing",
+      "title_es": "Guía de sake: cómo maridar cada pase",
+      "title_en": "Sake guide: how to pair each course",
+      "excerpt_es": "El sake no es solo una bebida japonesa. Es un universo de matices que, bien maridado, transforma cada pase del omakase en una experiencia completamente distinta.",
+      "excerpt_en": "Sake is not just a Japanese drink. It's a universe of nuances that, well paired, transforms each omakase course into a completely different experience.",
+      "body_es": "Muchos comensales llegan a Kuro sin haber bebido sake nunca. Otros llegan pensando que saben. Casi ninguno ha experimentado lo que ocurre cuando un Dassai 23 Junmai Daiginjo acompaña un nigiri de vieira con trufa. El sake es el vino del Japón, pero con una complejidad aromática diferente: más delicada, más limpia, capaz de realzar sabores que el vino taparía. En Kuro ofrecemos una selección de 18 sakes, curada personalmente por Takashi, que cubre el espectro completo: desde los más secos y minerales para los sashimis, hasta los más afrutados y umami para los flambeados.",
+      "body_en": "Many diners arrive at Kuro having never drunk sake. Others arrive thinking they know. Almost none have experienced what happens when a Dassai 23 Junmai Daiginjo accompanies a scallop nigiri with truffle. Sake is Japan's wine, but with a different aromatic complexity: more delicate, cleaner, capable of enhancing flavours that wine would mask. At Kuro we offer a selection of 18 sakes, personally curated by Takashi, covering the full spectrum: from the driest and most mineral for sashimis, to the most fruity and umami for the torched dishes."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title_es": "Experiencias Exclusivas",
+  "title_en": "Exclusive Experiences",
+  "subtitle_es": "Más allá de la carta",
+  "subtitle_en": "Beyond the menu",
+  "img_main": "https://images.unsplash.com/photo-1428515613728-6b4607e44363?q=85&w=1200&auto=format&fit=crop",
+  "eventos": [
+    {
+      "icon": "私",
+      "title_es": "Sala Privada",
+      "title_en": "Private Room",
+      "desc_es": "Un espacio íntimo para hasta 8 comensales. Menú omakase exclusivo diseñado para la ocasión, con maridaje de sake premium y atención personalizada.",
+      "desc_en": "An intimate space for up to 8 guests. Exclusive omakase menu designed for the occasion, with premium sake pairing and personalised service.",
+      "price_es": "Desde 180€ por persona",
+      "price_en": "From €180 per person",
+      "img": "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=85&w=800&auto=format&fit=crop"
+    },
+    {
+      "icon": "会",
+      "title_es": "Cenas de Empresa",
+      "title_en": "Corporate Dinners",
+      "desc_es": "Impresiona a tus clientes o celebra con tu equipo en un entorno único. Adaptamos el menú y la experiencia a las necesidades de tu empresa.",
+      "desc_en": "Impress your clients or celebrate with your team in a unique setting. We adapt the menu and experience to your company's needs.",
+      "price_es": "Presupuesto personalizado",
+      "price_en": "Custom quote",
+      "img": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=85&w=800&auto=format&fit=crop"
+    },
+    {
+      "icon": "祝",
+      "title_es": "Celebraciones",
+      "title_en": "Celebrations",
+      "desc_es": "Cumpleaños, aniversarios, pedidas de mano. Hacemos que el momento sea irrepetible con detalles que solo Kuro puede ofrecer.",
+      "desc_en": "Birthdays, anniversaries, proposals. We make the moment unforgettable with details only Kuro can offer.",
+      "price_es": "Consultar disponibilidad",
+      "price_en": "Check availability",
+      "img": "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=85&w=800&auto=format&fit=crop"
+    }
+  ]
+}
